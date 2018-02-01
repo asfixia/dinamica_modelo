@@ -17,7 +17,7 @@ void rcpp_hello_world(const Rcpp::IntegerMatrix & mat, const CharacterVector & f
 	
 	for (x = 0; x < qntCol; x++) {
 		for (y = 0; y < qntLine; y++) {
-			libattopng_set_pixel(png, x, y, mat(y, x));
+			libattopng_set_pixel(png, x, y, mat(x, y));
 		}
 	}
     libattopng_save(png, (Rcpp::as<std::string>(filename)).c_str());

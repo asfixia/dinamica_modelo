@@ -1,18 +1,7 @@
 <?xml version="1.0" standalone="yes" ?>
 <script>
-    <property key="dff.date" value="2018-Jan-27 10:42:03" />
+    <property key="dff.date" value="2018-Feb-01 19:29:39" />
     <property key="dff.version" value="4.0.5.20171130" />
-    <containerfunctor name="CalculateRExpression">
-        <property key="dff.container.collapsed" value="no" />
-        <property key="dff.functor.alias" value="PNG from TIF" />
-        <inputport name="expression">&quot;library(Dinamica)&#x0A;library(png)&#x0A;library(raster)&#x0A;library(Rcpp)&#x0A;cppFunction(&apos;&#x0A;Rcpp::List intToRGBA(int a1) {&#x0A; int mask = 0x000000FF;&#x0A; int rgba[4];&#x0A; for (int i = 3; i &gt;= 0; i--) {&#x0A; rgba[i] = ((a1 &gt;&gt; i*8) &amp; mask);&#x0A; }&#x0A; return Rcpp::List::create(rgba[0], rgba[1], rgba[2], rgba[3]); &#x0A;}&apos;)&#x0A;&#x0A;cppFunction(&apos; &#x0A;int convertFloat(float a1) {&#x0A; union sameNum {&#x0A; float f;&#x0A; unsigned int i;&#x0A; };&#x0A; sameNum num;&#x0A; num.f = a1;&#x0A; return num.i;&#x0A;}&apos;)&#x0A;&#x0A;for (iRow in 1:nrow(t1)) {&#x0A; curMapName &lt;- trimws(trimws(t1[2][iRow, 1]))&#x0A; print(curMapName)&#x0A; tifContent &lt;- raster(curMapName)&#x0A; &#x0A; pngContent &lt;- array(0,dim=c(dim(tifContent)[1],dim(tifContent)[2],4))&#x0A; &#x0A; for (iY in 1:dim(tifContent)[2]) {&#x0A; lineVals &lt;- getValues(tifContent, iY)&#x0A;for (iX in 1:dim(tifContent)[1]){&#x0A; cellValue &lt;- lineVals[iX]&#x0A; if (is.na(cellValue)) {&#x0A; pngContent[iY, iX, 1] &lt;- iX&#x0A; pngContent[iY, iX, 2] &lt;- 255 - iX&#x0A; pngContent[iY, iX, 3] &lt;- 255 - iX&#x0A; pngContent[iY, iX, 4] &lt;- 255 - iX&#x0A; } else {&#x0A; rgbVal &lt;- intToRGBA(convertFloat(cellValue))&#x0A; pngContent[iY, iX, 1] &lt;- rgbVal[[4]]&#x0A; pngContent[iY, iX, 2] &lt;- rgbVal[[3]]&#x0A; pngContent[iY, iX, 3] &lt;- rgbVal[[2]]&#x0A; pngContent[iY, iX, 4] &lt;- rgbVal[[1]]&#x0A; }&#x0A; }&#x0A; }&#x0A; &#x0A; writePNG(image=pngContent, target = gsub(\&quot;(.*)(\\.(?:tif|tiff))\&quot;,\&quot;\\1.png\&quot;, curMapName))&#x0A;}&quot;</inputport>
-        <inputport name="treatWarningAsErrors">.no</inputport>
-        <functor name="NumberTable">
-            <property key="dff.functor.alias" value="numberTable38230" />
-            <inputport name="table" peerid="v1" />
-            <inputport name="tableNumber">1</inputport>
-        </functor>
-    </containerfunctor>
     <functor name="Table">
         <property key="dff.functor.alias" value="table13168" />
         <inputport name="constant">[&#x0A;    &quot;Key*&quot;, &quot;Value&quot;, &#x0A;    9, &quot;F:/Danilo/Trampo/gerado/calculation/UA_ha_2013/raw/4/0004_0007.tif&quot;, &#x0A;    10, &quot;F:/Danilo/Trampo/gerado/calculation/UA_ha_2013/raw/4/0004_0008.tif&quot;, &#x0A;    11, &quot;F:/Danilo/Trampo/gerado/calculation/UA_ha_2013/raw/4/0004_0009.tif&quot;, &#x0A;    12, &quot;F:/Danilo/Trampo/gerado/calculation/UA_ha_2013/raw/4/0005_0007.tif&quot;, &#x0A;    13, &quot;F:/Danilo/Trampo/gerado/calculation/UA_ha_2013/raw/4/0005_0008.tif&quot;, &#x0A;    14, &quot;F:/Danilo/Trampo/gerado/calculation/UA_ha_2013/raw/4/0005_0009.tif&quot;, &#x0A;    15, &quot;F:/Danilo/Trampo/gerado/calculation/UA_ha_2013/raw/4/0006_0007.tif&quot;, &#x0A;    16, &quot;F:/Danilo/Trampo/gerado/calculation/UA_ha_2013/raw/4/0006_0008.tif&quot;, &#x0A;    17, &quot;F:/Danilo/Trampo/gerado/calculation/UA_ha_2013/raw/4/0006_0009.tif&quot;, &#x0A;]</inputport>
@@ -22,4 +11,15 @@
         <inputport name="constant">[&#x0A;    &quot;Key*&quot;, &quot;Value&quot;, &#x0A;    13, &quot;F:/Danilo/Trampo/gerado/calculation/UA_ha_2013/raw/4/0005_0008.tif&quot;, &#x0A;]</inputport>
         <outputport name="object" id="v1" />
     </functor>
+    <containerfunctor name="CalculateRExpression">
+        <property key="dff.container.collapsed" value="no" />
+        <property key="dff.functor.alias" value="PNG from TIF" />
+        <inputport name="expression">&quot;library(Dinamica)&#x0A;library(libattopng)&#x0A;library(raster)&#x0A;library(Rcpp)&#x0A;cppFunction(&apos;&#x0A;Rcpp::List intToRGBA(int a1) {&#x0A;int mask = 0x000000FF;&#x0A;int rgba[4];&#x0A;for (int i = 3; i &gt;= 0; i--) {&#x0A;rgba[3 - i] = ((a1 &gt;&gt; i * 8) &amp; mask);&#x0A;}&#x0A;return Rcpp::List::create(rgba[0], rgba[1], rgba[2], rgba[3]);&#x0A;}&#x0A;&apos;)&#x0A;&#x0A;cppFunction(&apos; &#x0A;int convertFloat(float a1) {&#x0A;union sameNum {&#x0A; float f;&#x0A; unsigned int i;&#x0A;};&#x0A;sameNum num;&#x0A;num.f = a1;&#x0A;return num.i;&#x0A;}&#x0A;&apos;)&#x0A;&#x0A;rgbToInd &lt; - function(r, g, b, a) {&#x0A;return (bitwOr(bitwOr(bitwOr(bitwAnd(r, 255), bitwShiftL(bitwAnd(g, 255), 8)), bitwShiftL(bitwAnd(b, 255), 16)), bitwShiftL(bitwAnd(a, 255), 24)))&#x0A;}&#x0A;&#x0A;for (iRow in 1: nrow(t1)) {&#x0A;curMapName &lt; -trimws(trimws(t1[2][iRow, 1]))&#x0A;print(curMapName)&#x0A;tifContent &lt; -raster(curMapName)&#x0A;&#x0A;pngContent &lt; -matrix(array(0, dim = c(dim(tifContent)[1], dim(tifContent)[2])), nrow = dim(tifContent)[1], ncol = dim(tifContent)[2])&#x0A;&#x0A;for (iY in 1: dim(tifContent)[2]) {&#x0A; lineVals &lt; -getValues(tifContent, iY)&#x0A; for (iX in 1: dim(tifContent)[1]) {&#x0A;  cellValue &lt; -lineVals[iX]&#x0A;&#x0A;  if (is.na(cellValue)) {&#x0A;   pngContent[iX, iY] &lt; -rgbToInd(255, 255, 255, 255);&#x0A;  } else {&#x0A;   pngContent[iX, iY] &lt; -bitwOr(cellValue, bitwShiftL(bitwAnd(255, 255), 24))&#x0A;  }&#x0A; }&#x0A;}&#x0A;&#x0A;libattopng::rcpp_hello_world(pngContent, gsub(\&quot;(.*)(\\.(?:tif|tiff))\&quot;, \&quot;\\1.png\&quot;, curMapName))# writePNG(image = pngContent, target = gsub(\&quot;(.*)(\\.(?:tif|tiff))\&quot;, \&quot;\\1.png\&quot;, curMapName))&#x0A;}&quot;</inputport>
+        <inputport name="treatWarningAsErrors">.no</inputport>
+        <functor name="NumberTable">
+            <property key="dff.functor.alias" value="numberTable38230" />
+            <inputport name="table" peerid="v1" />
+            <inputport name="tableNumber">1</inputport>
+        </functor>
+    </containerfunctor>
 </script>

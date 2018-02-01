@@ -1,1 +1,1 @@
-Resize só do tamanho da celula + Depois calcula os extents + Depois COloca no world
+Biblioteca p gerar png + Github
