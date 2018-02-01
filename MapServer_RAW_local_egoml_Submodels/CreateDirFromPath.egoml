@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Jan-24 02:43:58" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="submodel.description" value="Create Dir from Directory or File Path" />
+    <property key="submodel.group" value="Input/Output" />
+    <property key="submodel.import" value='SearchAndCaptureRegexInText { { &quot;inputText&quot; : String, &quot;patternText&quot; : String } { } { &quot;result&quot; : String } }' />
+    <property key="submodel.name" value="CreateDirFromPath" />
+    <functor name="SearchAndCaptureRegexInText">
+        <property key="dff.functor.alias" value="dirPath" />
+        <inputport name="inputText" peerid="v2" />
+        <inputport name="patternText">&quot;^(.+[/\\])([^/\\]*)$&quot;</inputport>
+        <outputport name="result" id="v1" />
+    </functor>
+    <functor name="String">
+        <property key="dff.functor.alias" value="Input Path" />
+        <property key="dff.functor.comment" value="File or Directory Path" />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="File or Directory Path to create" />
+        <property key="submodel.in.constant.name" value="filePath" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="1" />
+        <inputport name="constant">&quot;&quot;</inputport>
+        <outputport name="object" id="v2" />
+    </functor>
+    <functor name="BooleanValue">
+        <property key="dff.functor.alias" value="Order Output" />
+        <property key="dff.functor.comment" value="Output to garantee some order of execution" />
+        <property key="submodel.out.object.description" value="Output to garantee some order of execution" />
+        <property key="submodel.out.object.name" value="orderOutput" />
+        <property key="submodel.out.object.order" value="1" />
+        <inputport name="constant">.yes</inputport>
+    </functor>
+    <containerfunctor name="CalculateRExpression">
+        <property key="dff.container.collapsed" value="no" />
+        <property key="dff.functor.alias" value="calculateRExpression22069" />
+        <inputport name="expression">&quot;if (!dir.exists(s1))&#x0A;dir.create(s1, showWarnings = TRUE, recursive = TRUE)&#x0A;&quot;</inputport>
+        <inputport name="treatWarningAsErrors">.no</inputport>
+        <functor name="NumberString">
+            <property key="dff.functor.alias" value="numberString22071" />
+            <inputport name="value" peerid="v1" />
+            <inputport name="valueNumber">1</inputport>
+        </functor>
+    </containerfunctor>
+</script>

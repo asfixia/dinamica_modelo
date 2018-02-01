@@ -1,0 +1,270 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Jan-24 02:43:58" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="metadata.author" value="Dinamica Team" />
+    <property key="metadata.organization" value="CSR/UFMG" />
+    <property key="submodel.description" value="Retrieves the basic static attributes corresponding to the given input map." />
+    <property key="submodel.group" value="Map Algebra" />
+    <property key="submodel.largeicon" value="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEEElEQVR42rWXW28TRxzF/ZA+IvUl/gp94IlPgAQ8IMKtgo/CEyC1CaV8Bdd2dn2PkQA1IpGg3NIQoAGSCGhJwFzkJMZXbCeGXGzjf8/Z2QDBa+8QySP9tPHuZufM/5yZ3fF4PJ6+E7+PjR0/Py5Hzl39DH/zPK97etx2sbNcXWTxI/igjvzN87zeawH9h4euCtvIvEhyXh3ZeJ7Xey3Ay47eN0X+TImMptSx1BA5+Mso7BizhHRigAzqw/859tt2e730fHFd5NaSyM1FgGN6TeTAmSsCR6TySSyB2+C5lkgRfxca+hRBDc+kiC17vfT6LTyfrYjMlBUpCNp/+pJM5ET+gqhr6S9cJ8sisWGfvIXQV6vfQU3Zy2ps2dt/5Ex86meIOIpKHPp1VA6cvYLOL8up2Jwl4CY6u7H0FfydFYmbAUlviLzBQ1+vukMBr20Bh5QAr8cuw26wFxyk52xTJZG7RZG/IeBOtp2JAsIaMSUDKxY3wYY7aZvWNwL6bBEsx08DQ0rAiPmHJMMBuQiS38BzF6OGJOMRiYUNiRgBCQ/r4JdQwNcmYNuMoDcYlNx+h1FmVQWcmER1EqhADk/LID+ZTXeW7WPdTQBvmMigI4iYdALC7haYgaDkoXYZgV1e0yODe9fdBECkTOZVJ1NOYPT3MFMSYVPei5pe+boehboSMNBRABYK5ETihk8Spl9GQgFHksjASCwi0ZAhIfirgxn0i4kMrHUVgAt4Fch9jPRBsQOYIf9gzYijAlVRC1KpqQcXsJqbAK5+9/OKB05A3DRqH0MGVnBvCZ4VN/Qow4Jqy8UCPnQaI53GSB86gc4fVVUFKJZV4EPd4JK+wqOOAC6zzEACq10bzEFEZSCCDJjw1wjqoDJQoQVDXQRwRI/Lihkn8IRZLKsxVIAzhpn5oANGvmZnpmsGGJTHxc7MwIZZqIwiA5xSqyxtU4+P6LzQdLGgjJvmKurtOFd15klNVQDPsqbtuiZc5IqfulhgfZy0VAZiht964zmRQAYSyEDYNCx/h3UI+MVABlwFlCDgadVmxZl/YWoUFWBr2CPTge+ZfDcB9IYePUX5n5Sd4bVnsCBsBC0Bmy19KCBb75IBVqCAu55jlP+R1XaegwXEORpSFWBracKWbbhYUMCd0aBPoshADO/6NpgBfAfEkYEQMhCEv8GADsiA3yc5twzkYcECPJ7vwAIm/ktEP/JVBb6nvetaAXjDEi0ggPMVZ3jtBYSYGPlOLFjadMlADhVIwecXK868BClUgZ9XO2mZxudNT7uA4/he57sg21Sl6giv82uooT5K05rw/sqXfUG7gJMXxmu8aO18BruwtTMa3NnO6DC2Ak7bvh/BHrAP7O8he+2tQNvG9wdbhLfH9Nud9/0PXHNWZyQpyOMAAAAASUVORK5CYII=" />
+    <property key="submodel.name" value="GetAllMapAttributes" />
+    <property key="submodel.smallicon" value="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABVUlEQVR42pWTXU7CQBSFuyJD4g7EF201JOKjKxEfrP9uwZi4AtS0GHaAvvDmm5JogihUK8XUP+zxnmlrYNIgvcnJnZnOfHPuzNQAYKwe1P3l7RpM2wVzeb/eMaYNArhoNBY3HVhbrsoLGeK42kg2VgBLdv6SRvUG+JA8VznDNEGIApSk0R4CDQ+4F1Jx4xwnx0e4k3brHbgNx9UKU6duDFjZdT3LdjBfqaK4foq1Q0cBJilKSlUAiZklqZlx9SpORJzUlf7jz7g6zOL2UwMYvAEO/rdzKlZhpiXEAAcD6TSegUs/BrEfiPqagkSm7qCfw4FPgK05eJGTaUr9zUEMknLxnSGOexEBmgMvh4NupDngNfYEff0mCmPQpHgaag74GntRPgfWqAO+Rh4i7/mBipKsqZ28Bc4tpU+ZUd67CEo7NfUTkaxylpJvnMs1fwCJgmg2pwq/ggzFEUPQh8cAAAAASUVORK5CYII=" />
+    <functor name="ExtractMapAttributes">
+        <property key="dff.functor.alias" value="Static Attributes" />
+        <inputport name="map" peerid="v2" />
+        <inputport name="extractDynamicAttributes">.no</inputport>
+        <inputport name="extractStatisticalAttributes">.no</inputport>
+        <outputport name="attributes" id="v1" />
+    </functor>
+    <functor name="Map">
+        <property key="dff.functor.alias" value="Input Map" />
+        <property key="dff.functor.comment" value="Map whose static attributes will be calculated." />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="Map whose static attributes will be calculated." />
+        <property key="submodel.in.constant.name" value="inputMap" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="1" />
+        <outputport name="object" id="v2" />
+    </functor>
+    <functor name="NonNegativeIntegerValue">
+        <property key="dff.functor.alias" value="Number Of Lines" />
+        <property key="dff.functor.comment" value="Number of lines of the input map." />
+        <property key="submodel.out.object.description" value="Number of lines of the input map." />
+        <property key="submodel.out.object.name" value="numberOfLines" />
+        <property key="submodel.out.object.order" value="1" />
+        <inputport name="constant" peerid="v7" />
+    </functor>
+    <functor name="NonNegativeIntegerValue">
+        <property key="dff.functor.alias" value="Number Of Layers" />
+        <property key="dff.functor.comment" value="Number of layers of the input map." />
+        <property key="submodel.out.object.description" value="Number of layers of the input map." />
+        <property key="submodel.out.object.name" value="numberOfLayers" />
+        <property key="submodel.out.object.order" value="4" />
+        <inputport name="constant" peerid="v10" />
+    </functor>
+    <functor name="NonNegativeIntegerValue">
+        <property key="dff.functor.alias" value="Number Of Columns" />
+        <property key="dff.functor.comment" value="Number of columns of the input map." />
+        <property key="submodel.out.object.description" value="Number of columns of the input map." />
+        <property key="submodel.out.object.name" value="numberOfColumns" />
+        <property key="submodel.out.object.order" value="2" />
+        <inputport name="constant" peerid="v9" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="Cell Width" />
+        <property key="dff.functor.comment" value="Cell width (in meters) of the input map. The width is a approximation if the projection used by the input map is geodetic." />
+        <property key="submodel.out.object.description" value="Cell width (in meters) of the input map. The width is a approximation if the projection used by the input map is geodetic." />
+        <property key="submodel.out.object.name" value="cellWidth" />
+        <property key="submodel.out.object.order" value="10" />
+        <inputport name="constant" peerid="v5" />
+    </functor>
+    <functor name="CellType">
+        <property key="dff.functor.alias" value="Cell Type" />
+        <property key="dff.functor.comment" value="Cell type of the input map." />
+        <property key="submodel.out.object.description" value="Cell type of the input map." />
+        <property key="submodel.out.object.name" value="cellType" />
+        <property key="submodel.out.object.order" value="13" />
+        <inputport name="constant" peerid="v6" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="Cell Height" />
+        <property key="dff.functor.comment" value="Cell height (in meters) of the input map. The height is a approximation if the projection used by the input map is geodetic." />
+        <property key="submodel.out.object.description" value="Cell height (in meters) of the input map. The height is a approximation if the projection used by the input map is geodetic." />
+        <property key="submodel.out.object.name" value="cellHeight" />
+        <property key="submodel.out.object.order" value="9" />
+        <inputport name="constant" peerid="v8" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="Null Value" />
+        <property key="dff.functor.comment" value='Null value of the input map. The output &quot;Has Null Value&quot; must also be inspected to make sure a null value is defined by the input map.' />
+        <property key="submodel.out.object.description" value='Null value of the input map. The output &quot;Has Null Value&quot; must also be inspected to make sure a null value is defined by the input map.' />
+        <property key="submodel.out.object.name" value="nullValue" />
+        <property key="submodel.out.object.order" value="14" />
+        <inputport name="constant" peerid="v3" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="Cell Area" />
+        <property key="dff.functor.comment" value="Cell area (in hectares) of the input map. The area is a approximation if the projection used by the input map is geodetic." />
+        <property key="submodel.out.object.description" value="Cell area (in hectares) of the input map. The area is a approximation if the projection used by the input map is geodetic." />
+        <property key="submodel.out.object.name" value="cellArea" />
+        <property key="submodel.out.object.order" value="12" />
+        <inputport name="constant" peerid="v11" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="Number Of Cells" />
+        <property key="dff.functor.comment" value="Number of cells of the input map." />
+        <property key="submodel.out.object.description" value="Number of cells of the input map." />
+        <property key="submodel.out.object.name" value="numberOfCells" />
+        <property key="submodel.out.object.order" value="3" />
+        <inputport name="constant" peerid="v4" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="Cell Width Or Height" />
+        <property key="dff.functor.comment" value="Greatest value between the cell width and the cell height. The value is a approximation if the projection used by the input map is geodetic." />
+        <property key="submodel.out.object.description" value="Greatest value between the cell width and the cell height. The value is a approximation if the projection used by the input map is geodetic." />
+        <property key="submodel.out.object.name" value="cellWidthOrHeight" />
+        <property key="submodel.out.object.order" value="11" />
+        <inputport name="constant" peerid="v16" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue19744" />
+        <inputport name="table" peerid="v1" />
+        <inputport name="key">20</inputport>
+        <inputport name="valueIfNotFound">0</inputport>
+        <outputport name="value" id="v3" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue19745" />
+        <inputport name="table" peerid="v1" />
+        <inputport name="key">3</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v4" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue19746" />
+        <inputport name="table" peerid="v1" />
+        <inputport name="key">6</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v5" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue19747" />
+        <inputport name="table" peerid="v1" />
+        <inputport name="key">19</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v6" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue19748" />
+        <inputport name="table" peerid="v1" />
+        <inputport name="key">1</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v7" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue19749" />
+        <inputport name="table" peerid="v1" />
+        <inputport name="key">5</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v8" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue19750" />
+        <inputport name="table" peerid="v1" />
+        <inputport name="key">2</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v9" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue19751" />
+        <inputport name="table" peerid="v1" />
+        <inputport name="key">4</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v10" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue19752" />
+        <inputport name="table" peerid="v1" />
+        <inputport name="key">7</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v11" />
+    </functor>
+    <functor name="BooleanValue">
+        <property key="dff.functor.alias" value="Has Null Value" />
+        <property key="dff.functor.comment" value="Flag indicanting if a null value is defined by the input map." />
+        <property key="submodel.out.object.description" value="Flag indicanting if a null value is defined by the input map." />
+        <property key="submodel.out.object.name" value="hasNullValue" />
+        <property key="submodel.out.object.order" value="15" />
+        <inputport name="constant" peerid="v17" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue19747" />
+        <inputport name="table" peerid="v1" />
+        <inputport name="key">21</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v12" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue19747" />
+        <inputport name="table" peerid="v1" />
+        <inputport name="key">22</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v13" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue19747" />
+        <inputport name="table" peerid="v1" />
+        <inputport name="key">23</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v14" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue19747" />
+        <inputport name="table" peerid="v1" />
+        <inputport name="key">24</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v15" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="Registration Coordinate Y" />
+        <property key="dff.functor.comment" value="Registration Coordinate Y" />
+        <property key="submodel.out.object.description" value="Registration Coordinate Y" />
+        <property key="submodel.out.object.name" value="registrationCoordinateY" />
+        <property key="submodel.out.object.order" value="6" />
+        <inputport name="constant" peerid="v12" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="Registration Cell X" />
+        <property key="dff.functor.comment" value="Registration Cell X" />
+        <property key="submodel.out.object.description" value="Registration Cell X" />
+        <property key="submodel.out.object.name" value="registrationCellX" />
+        <property key="submodel.out.object.order" value="7" />
+        <inputport name="constant" peerid="v15" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="Registration Cell Y" />
+        <property key="dff.functor.comment" value="Registration Cell Y" />
+        <property key="submodel.out.object.description" value="Registration Cell Y" />
+        <property key="submodel.out.object.name" value="registrationCellY" />
+        <property key="submodel.out.object.order" value="8" />
+        <inputport name="constant" peerid="v14" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="Registration Coordinate X" />
+        <property key="dff.functor.comment" value="Registration Coordinate X" />
+        <property key="submodel.out.object.description" value="Registration Coordinate X" />
+        <property key="submodel.out.object.name" value="registrationCoordinateX" />
+        <property key="submodel.out.object.order" value="5" />
+        <inputport name="constant" peerid="v13" />
+    </functor>
+    <containerfunctor name="CalculateValue">
+        <property key="dff.container.collapsed" value="yes" />
+        <property key="dff.functor.alias" value="Cell Dimension" />
+        <inputport name="expression">[&#x0A;    max(v1, v2)&#x0A;]</inputport>
+        <inputport name="defaultValue">.none</inputport>
+        <outputport name="result" id="v16" />
+        <functor name="NumberValue">
+            <property key="dff.functor.alias" value="numberValue21090" />
+            <inputport name="value" peerid="v5" />
+            <inputport name="valueNumber">2</inputport>
+        </functor>
+        <functor name="NumberValue">
+            <property key="dff.functor.alias" value="numberValue21091" />
+            <inputport name="value" peerid="v8" />
+            <inputport name="valueNumber">1</inputport>
+        </functor>
+    </containerfunctor>
+    <containerfunctor name="CalculateValue">
+        <property key="dff.container.collapsed" value="yes" />
+        <property key="dff.functor.alias" value="Has Null Value Test" />
+        <property key="dff.functor.extendedcomment" value='Tests whether the null value (corresponding to key #20 in the table of attributes produced by &quot;Extract Map Attribute&quot;) is defined.' />
+        <inputport name="expression">[&#x0A;    t1[?20]&#x0A;]</inputport>
+        <inputport name="defaultValue">.none</inputport>
+        <outputport name="result" id="v17" />
+        <functor name="NumberTable">
+            <property key="dff.functor.alias" value="numberTable39160" />
+            <inputport name="table" peerid="v1" />
+            <inputport name="tableNumber">1</inputport>
+        </functor>
+    </containerfunctor>
+</script>

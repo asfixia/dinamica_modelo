@@ -1,0 +1,136 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Jan-24 02:43:58" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="submodel.group" value="Projection Utils" />
+    <property key="submodel.name" value="ReferenceProjectionInfo" />
+    <functor name="GetTableRow">
+        <property key="dff.functor.alias" value="getTableRow19055" />
+        <inputport name="keys" peerid="v2" />
+        <inputport name="table" peerid="v10" />
+        <outputport name="result" id="v1" />
+    </functor>
+    <functor name="IntegerValue">
+        <property key="dff.functor.alias" value="projInd" />
+        <property key="dff.functor.comment" value="Value or constant representing an integer." />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="Value or constant representing an integer." />
+        <property key="submodel.in.constant.name" value="projInd" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="1" />
+        <outputport name="object" id="v2" />
+    </functor>
+    <functor name="String">
+        <property key="dff.functor.alias" value="CodeName" />
+        <property key="dff.functor.comment" value="Value or constant representing string provided as the functor input." />
+        <property key="submodel.out.object.description" value="Value or constant representing string provided as the functor input." />
+        <property key="submodel.out.object.name" value="codeName" />
+        <property key="submodel.out.object.order" value="1" />
+        <inputport name="constant" peerid="v3" />
+    </functor>
+    <functor name="GetTupleValue">
+        <property key="dff.functor.alias" value="getTupleValue19058" />
+        <inputport name="index">2</inputport>
+        <inputport name="tuple" peerid="v1" />
+        <outputport name="result" id="v3" />
+    </functor>
+    <functor name="GetTupleValue">
+        <property key="dff.functor.alias" value="getTupleValue19058" />
+        <inputport name="index">3</inputport>
+        <inputport name="tuple" peerid="v1" />
+        <outputport name="result" id="v4" />
+    </functor>
+    <functor name="GetTupleValue">
+        <property key="dff.functor.alias" value="getTupleValue19058" />
+        <inputport name="index">4</inputport>
+        <inputport name="tuple" peerid="v1" />
+        <outputport name="result" id="v5" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="xMax" />
+        <property key="dff.functor.comment" value="Value or constant representing double precision real provided as the functor input." />
+        <property key="submodel.out.object.description" value="Value or constant representing double precision real provided as the functor input." />
+        <property key="submodel.out.object.name" value="xMax" />
+        <property key="submodel.out.object.order" value="2" />
+        <inputport name="constant" peerid="v4" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="yMax" />
+        <property key="dff.functor.comment" value="Value or constant representing double precision real provided as the functor input." />
+        <property key="submodel.out.object.description" value="Value or constant representing double precision real provided as the functor input." />
+        <property key="submodel.out.object.name" value="yMax" />
+        <property key="submodel.out.object.order" value="3" />
+        <inputport name="constant" peerid="v5" />
+    </functor>
+    <functor name="GetTupleValue">
+        <property key="dff.functor.alias" value="getTupleValue19058" />
+        <inputport name="index">5</inputport>
+        <inputport name="tuple" peerid="v1" />
+        <outputport name="result" id="v6" />
+    </functor>
+    <functor name="GetTupleValue">
+        <property key="dff.functor.alias" value="getTupleValue19058" />
+        <inputport name="index">6</inputport>
+        <inputport name="tuple" peerid="v1" />
+        <outputport name="result" id="v7" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="xMin" />
+        <property key="dff.functor.comment" value="Value or constant representing double precision real provided as the functor input." />
+        <property key="submodel.out.object.description" value="Value or constant representing double precision real provided as the functor input." />
+        <property key="submodel.out.object.name" value="xMin" />
+        <property key="submodel.out.object.order" value="4" />
+        <inputport name="constant" peerid="v6" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="yMin" />
+        <property key="dff.functor.comment" value="Value or constant representing double precision real provided as the functor input." />
+        <property key="submodel.out.object.description" value="Value or constant representing double precision real provided as the functor input." />
+        <property key="submodel.out.object.name" value="yMin" />
+        <property key="submodel.out.object.order" value="5" />
+        <inputport name="constant" peerid="v7" />
+    </functor>
+    <functor name="String">
+        <property key="dff.functor.alias" value="WKT" />
+        <property key="dff.functor.comment" value="Value or constant representing string provided as the functor input." />
+        <property key="submodel.out.object.description" value="Value or constant representing string provided as the functor input." />
+        <property key="submodel.out.object.name" value="wkt" />
+        <property key="submodel.out.object.order" value="6" />
+        <inputport name="constant" peerid="v8" />
+    </functor>
+    <functor name="GetTupleValue">
+        <property key="dff.functor.alias" value="getTupleValue19058" />
+        <inputport name="index">8</inputport>
+        <inputport name="tuple" peerid="v1" />
+        <outputport name="result" id="v8" />
+    </functor>
+    <functor name="String">
+        <property key="dff.functor.alias" value="PROJ4" />
+        <property key="dff.functor.comment" value="Value or constant representing string provided as the functor input." />
+        <property key="submodel.out.object.description" value="Value or constant representing string provided as the functor input." />
+        <property key="submodel.out.object.name" value="proj4" />
+        <property key="submodel.out.object.order" value="7" />
+        <inputport name="constant" peerid="v9" />
+    </functor>
+    <functor name="GetTupleValue">
+        <property key="dff.functor.alias" value="getTupleValue19058" />
+        <inputport name="index">7</inputport>
+        <inputport name="tuple" peerid="v1" />
+        <outputport name="result" id="v9" />
+    </functor>
+    <functor name="Table">
+        <property key="dff.functor.alias" value="Projection Table" />
+        <property key="dff.functor.comment" value="Projection Table with one entrace by Index.&#x0A;&#x0A;By default there are the following projections:&#x0A;Index 0 - EPSG:3857&#x0A;Index 1 - ESRI:102033" />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="Projection Table with one entrace by Index.&#x0A;&#x0A;By default there are the following projections:&#x0A;Index 0 - EPSG:3857&#x0A;Index 1 - ESRI:102033" />
+        <property key="submodel.in.constant.name" value="projectionTable" />
+        <property key="submodel.in.constant.optional" value="yes" />
+        <property key="submodel.in.constant.order" value="2" />
+        <inputport name="constant">[&#x0A;    &quot;projInd*&quot;, &quot;name&quot;, &quot;xMax&quot;, &quot;yMax&quot;, &quot;xMin&quot;, &quot;yMin&quot;, &quot;PROJ4&quot;, &quot;WKT&quot;, &#x0A;    0, &quot;EPSG:3857&quot;, 20037508.34, 20037508.34, -21059644.9989337, -10226322.686143, &quot;+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs&quot;, &quot;PROJCS\[\&quot;WGS 84 / Pseudo-Mercator\&quot;\,GEOGCS\[\&quot;WGS 84\&quot;\,DATUM\[\&quot;WGS_1984\&quot;\,SPHEROID\[\&quot;WGS 84\&quot;\,6378137\,298.257223563\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;7030\&quot;\]\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;6326\&quot;\]\]\,PRIMEM\[\&quot;Greenwich\&quot;\,0\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;8901\&quot;\]\]\,UNIT\[\&quot;degree\&quot;\,0.0174532925199433\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;9122\&quot;\]\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;4326\&quot;\]\]\,PROJECTION\[\&quot;Mercator_1SP\&quot;\]\,PARAMETER\[\&quot;central_meridian\&quot;\,0\]\,PARAMETER\[\&quot;scale_factor\&quot;\,1\]\,PARAMETER\[\&quot;false_easting\&quot;\,0\]\,PARAMETER\[\&quot;false_northing\&quot;\,0\]\,UNIT\[\&quot;metre\&quot;\,1\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;9001\&quot;\]\]\,AXIS\[\&quot;X\&quot;\,EAST\]\,AXIS\[\&quot;Y\&quot;\,NORTH\]\,EXTENSION\[\&quot;PROJ4\&quot;\,\&quot;+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs\&quot;\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;3857\&quot;\]\]&quot;, &#x0A;    1, &quot;ESRI:102033&quot;, 21059644.9989337, 9011782.97128925, -2102148.3097173, 874994.403739983, &quot;+proj=aea +lat_1=-5 +lat_2=-42 +lat_0=-32 +lon_0=-60 +x_0=0 +y_0=0 +ellps=aust_SA +units=m +no_defs&quot;, &quot;PROJCS\[\&quot;South_America_Albers_Equal_Area_Conic\&quot;\,GEOGCS\[\&quot;GCS_South_American_1969\&quot;\,DATUM\[\&quot;South_American_Datum_1969\&quot;\,SPHEROID\[\&quot;GRS_1967_Truncated\&quot;\,6378160\,298.25\]\]\,PRIMEM\[\&quot;Greenwich\&quot;\,0\]\,UNIT\[\&quot;Degree\&quot;\,0.017453292519943295\]\]\,PROJECTION\[\&quot;Albers_Conic_Equal_Area\&quot;\]\,PARAMETER\[\&quot;False_Easting\&quot;\,0\]\,PARAMETER\[\&quot;False_Northing\&quot;\,0\]\,PARAMETER\[\&quot;longitude_of_center\&quot;\,-60\]\,PARAMETER\[\&quot;Standard_Parallel_1\&quot;\,-5\]\,PARAMETER\[\&quot;Standard_Parallel_2\&quot;\,-42\]\,PARAMETER\[\&quot;latitude_of_center\&quot;\,-32\]\,UNIT\[\&quot;Meter\&quot;\,1\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;102033\&quot;\]\]&quot;, &#x0A;    2, &quot;EPSG:900913&quot;, 20037508.34, 20037508.34, -20037508.34, -20037508.34, &quot;+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs&quot;, &quot;PROJCS\[\&quot;Google Projection\&quot;\, GEOGCS\[\&quot;WGS 84\&quot;\, DATUM\[\&quot;World Geodetic System 1984\&quot;\, SPHEROID\[\&quot;WGS 84\&quot;\, 6378137.0\, 298.257223563\, AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;7030\&quot;\]\]\, AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;6326\&quot;\]\]\, PRIMEM\[\&quot;Greenwich\&quot;\, 0.0\, AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;8901\&quot;\]\]\, UNIT\[\&quot;degree\&quot;\, 0.017453292519943295\]\, AXIS\[\&quot;Geodetic longitude\&quot;\, EAST\]\, AXIS\[\&quot;Geodetic latitude\&quot;\, NORTH\]\, AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;4326\&quot;\]\]\, PROJECTION\[\&quot;Popular Visualisation Pseudo Mercator\&quot;\]\, PARAMETER\[\&quot;semi_minor\&quot;\, 6378137.0\]\, PARAMETER\[\&quot;latitude_of_origin\&quot;\, 0.0\]\, PARAMETER\[\&quot;central_meridian\&quot;\, 0.0\]\, PARAMETER\[\&quot;scale_factor\&quot;\, 1.0\]\, PARAMETER\[\&quot;false_easting\&quot;\, 0.0\]\, PARAMETER\[\&quot;false_northing\&quot;\, 0.0\]\, UNIT\[\&quot;m\&quot;\, 1.0\]\, AXIS\[\&quot;x\&quot;\, EAST\]\, AXIS\[\&quot;y\&quot;\, NORTH\]\, AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;900913\&quot;\]\]&quot;, &#x0A;]</inputport>
+    </functor>
+    <functor name="Table">
+        <property key="dff.functor.alias" value="table173511" />
+        <inputport name="constant">[&#x0A;    &quot;projInd*&quot;, &quot;name&quot;, &quot;xMax&quot;, &quot;yMax&quot;, &quot;xMin&quot;, &quot;yMin&quot;, &quot;PROJ4&quot;, &quot;WKT&quot;, &#x0A;    0, &quot;EPSG:3857&quot;, 20037508.34, 20037508.34, -21059644.9989337, -10226322.686143, &quot;+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs&quot;, &quot;PROJCS\[\&quot;WGS 84 / Pseudo-Mercator\&quot;\,GEOGCS\[\&quot;WGS 84\&quot;\,DATUM\[\&quot;WGS_1984\&quot;\,SPHEROID\[\&quot;WGS 84\&quot;\,6378137\,298.257223563\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;7030\&quot;\]\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;6326\&quot;\]\]\,PRIMEM\[\&quot;Greenwich\&quot;\,0\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;8901\&quot;\]\]\,UNIT\[\&quot;degree\&quot;\,0.0174532925199433\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;9122\&quot;\]\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;4326\&quot;\]\]\,PROJECTION\[\&quot;Mercator_1SP\&quot;\]\,PARAMETER\[\&quot;central_meridian\&quot;\,0\]\,PARAMETER\[\&quot;scale_factor\&quot;\,1\]\,PARAMETER\[\&quot;false_easting\&quot;\,0\]\,PARAMETER\[\&quot;false_northing\&quot;\,0\]\,UNIT\[\&quot;metre\&quot;\,1\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;9001\&quot;\]\]\,AXIS\[\&quot;X\&quot;\,EAST\]\,AXIS\[\&quot;Y\&quot;\,NORTH\]\,EXTENSION\[\&quot;PROJ4\&quot;\,\&quot;+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs\&quot;\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;3857\&quot;\]\]&quot;, &#x0A;    1, &quot;ESRI:102033&quot;, 21059644.9989337, 9011782.97128925, -2102148.3097173, 874994.403739983, &quot;+proj=aea +lat_1=-5 +lat_2=-42 +lat_0=-32 +lon_0=-60 +x_0=0 +y_0=0 +ellps=aust_SA +units=m +no_defs&quot;, &quot;PROJCS\[\&quot;South_America_Albers_Equal_Area_Conic\&quot;\,GEOGCS\[\&quot;GCS_South_American_1969\&quot;\,DATUM\[\&quot;South_American_Datum_1969\&quot;\,SPHEROID\[\&quot;GRS_1967_Truncated\&quot;\,6378160\,298.25\]\]\,PRIMEM\[\&quot;Greenwich\&quot;\,0\]\,UNIT\[\&quot;Degree\&quot;\,0.017453292519943295\]\]\,PROJECTION\[\&quot;Albers_Conic_Equal_Area\&quot;\]\,PARAMETER\[\&quot;False_Easting\&quot;\,0\]\,PARAMETER\[\&quot;False_Northing\&quot;\,0\]\,PARAMETER\[\&quot;longitude_of_center\&quot;\,-60\]\,PARAMETER\[\&quot;Standard_Parallel_1\&quot;\,-5\]\,PARAMETER\[\&quot;Standard_Parallel_2\&quot;\,-42\]\,PARAMETER\[\&quot;latitude_of_center\&quot;\,-32\]\,UNIT\[\&quot;Meter\&quot;\,1\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;102033\&quot;\]\]&quot;, &#x0A;    2, &quot;EPSG:900913&quot;, 20037508.34, 20037508.34, -20037508.34, -20037508.34, &quot;+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs&quot;, &quot;PROJCS\[\&quot;WGS 84 / Pseudo-Mercator\&quot;\,GEOGCS\[\&quot;WGS 84\&quot;\,DATUM\[\&quot;WGS_1984\&quot;\,SPHEROID\[\&quot;WGS 84\&quot;\,6378137\,298.257223563\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;7030\&quot;\]\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;6326\&quot;\]\]\,PRIMEM\[\&quot;Greenwich\&quot;\,0\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;8901\&quot;\]\]\,UNIT\[\&quot;degree\&quot;\,0.0174532925199433\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;9122\&quot;\]\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;4326\&quot;\]\]\,PROJECTION\[\&quot;Mercator_1SP\&quot;\]\,PARAMETER\[\&quot;central_meridian\&quot;\,0\]\,PARAMETER\[\&quot;scale_factor\&quot;\,1\]\,PARAMETER\[\&quot;false_easting\&quot;\,0\]\,PARAMETER\[\&quot;false_northing\&quot;\,0\]\,UNIT\[\&quot;metre\&quot;\,1\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;9001\&quot;\]\]\,AXIS\[\&quot;X\&quot;\,EAST\]\,AXIS\[\&quot;Y\&quot;\,NORTH\]\,EXTENSION\[\&quot;PROJ4\&quot;\,\&quot;+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs\&quot;\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;3857\&quot;\]\]&quot;, &#x0A;]</inputport>
+        <outputport name="object" id="v10" />
+    </functor>
+</script>

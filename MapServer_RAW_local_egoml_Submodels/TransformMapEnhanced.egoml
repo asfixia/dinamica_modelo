@@ -1,0 +1,199 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Jan-24 02:43:58" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="submodel.description" value="It accepts 8 bit signed map input, just changing the map celltype to 16 bit signed" />
+    <property key="submodel.group" value="Submodels" />
+    <property key="submodel.name" value="TransformMapEnhanced" />
+    <functor name="LoadMap">
+        <property key="dff.functor.alias" value="loadMap61706" />
+        <inputport name="filename" peerid="v2" />
+        <inputport name="nullValue">.none</inputport>
+        <inputport name="loadAsSparse">.no</inputport>
+        <inputport name="suffixDigits">0</inputport>
+        <inputport name="step">.none</inputport>
+        <inputport name="workdir">.none</inputport>
+        <outputport name="map" id="v1" />
+    </functor>
+    <functor name="MapFilename">
+        <property key="dff.functor.alias" value="Input Map Filename" />
+        <property key="dff.functor.comment" value="Value or constant representing a map filename." />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="Value or constant representing a map filename." />
+        <property key="submodel.in.constant.name" value="inputMapFilename" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="1" />
+        <outputport name="object" id="v2" />
+    </functor>
+    <functor name="Projection">
+        <property key="dff.functor.alias" value="Output Map Projection" />
+        <property key="dff.functor.comment" value="Value or constant representing projections." />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="Value or constant representing projections." />
+        <property key="submodel.in.constant.name" value="outputMapProjection" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="2" />
+        <outputport name="object" id="v3" />
+    </functor>
+    <functor name="MapFilename">
+        <property key="dff.functor.alias" value="Output Map Filename" />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="Value or constant representing a map filename." />
+        <property key="submodel.in.constant.name" value="outputMapFilename" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="3" />
+        <property key="submodel.out.object.description" value="Value or constant representing a map filename." />
+        <property key="submodel.out.object.name" value="outputMapFilename" />
+        <property key="submodel.out.object.order" value="1" />
+        <outputport name="object" id="v4" />
+    </functor>
+    <containerfunctor name="IfThen">
+        <property key="dff.functor.alias" value="ifThen61759" />
+        <inputport name="condition" peerid="v10" />
+        <functor name="CellType">
+            <property key="dff.functor.alias" value="valid Celltype" />
+            <inputport name="constant">.int16</inputport>
+            <outputport name="object" id="v5" />
+        </functor>
+        <functor name="GenerateTemporaryFile">
+            <property key="dff.functor.alias" value="generateTemporaryFile64583" />
+            <inputport name="extension">&quot;tif&quot;</inputport>
+            <inputport name="createFile">.no</inputport>
+            <outputport name="filename" id="v6" />
+        </functor>
+        <functor name="GetProjectionInfo">
+            <property key="dff.functor.alias" value="getProjectionInfo182914" />
+            <inputport name="projection" peerid="v8" />
+            <outputport name="wkt" id="v7" />
+        </functor>
+        <containerfunctor name="CalculateMap">
+            <property key="dff.container.collapsed" value="no" />
+            <property key="dff.functor.alias" value="calculateMap49611" />
+            <inputport name="expression">[&#x0A;    i1&#x0A;]</inputport>
+            <inputport name="cellType" peerid="v5" />
+            <inputport name="nullValue">.default</inputport>
+            <inputport name="resultIsSparse">.no</inputport>
+            <inputport name="resultFormat">.none</inputport>
+            <outputport name="result" id="v8" />
+            <functor name="NumberMap">
+                <property key="dff.functor.alias" value="numberMap49612" />
+                <inputport name="map" peerid="v1" />
+                <inputport name="mapNumber">1</inputport>
+            </functor>
+        </containerfunctor>
+        <containerfunctor name="Group">
+            <property key="dff.functor.alias" value="group49614" />
+            <functor name="SaveMap">
+                <property key="dff.functor.alias" value="saveMap49613" />
+                <inputport name="map" peerid="v8" />
+                <inputport name="filename" peerid="v6" />
+                <inputport name="suffixDigits">2</inputport>
+                <inputport name="step">.none</inputport>
+                <inputport name="useCompression">.yes</inputport>
+                <inputport name="workdir">.none</inputport>
+                <inputport name="ignoreCostlySparseCategories">.yes</inputport>
+            </functor>
+            <functor name="IntegerValue">
+                <property key="dff.functor.alias" value="integerValue49615" />
+                <inputport name="constant">0</inputport>
+                <outputport name="object" id="v9" />
+            </functor>
+        </containerfunctor>
+        <containerfunctor name="Group">
+            <property key="dff.functor.alias" value="group49618" />
+            <functor name="IntegerValue">
+                <property key="dff.functor.alias" value="integerValue49615" />
+                <inputport name="constant" peerid="v9" />
+            </functor>
+            <functor name="TransformMap">
+                <property key="dff.functor.alias" value="transformMap61702" />
+                <inputport name="inputMapFilename" peerid="v6" />
+                <inputport name="outputMapFilename" peerid="v4" />
+                <inputport name="outputFormatMapFilename">.none</inputport>
+                <inputport name="outputMapProjection" peerid="v3" />
+                <inputport name="outputMapCellType" peerid="v5" />
+                <inputport name="outputMapNullValue" peerid="v13" />
+                <inputport name="resamplingMethod">.nearest</inputport>
+                <inputport name="additionalInputMapNullValue">.none</inputport>
+                <inputport name="inputMapProjection" peerid="v7" />
+                <inputport name="outputMapLines" peerid="v11" />
+                <inputport name="outputMapColumns" peerid="v12" />
+                <inputport name="outputMapCellWidth">.none</inputport>
+                <inputport name="outputMapCellHeight">.none</inputport>
+                <inputport name="useCompression">.yes</inputport>
+            </functor>
+        </containerfunctor>
+    </containerfunctor>
+    <containerfunctor name="CalculateValue">
+        <property key="dff.container.collapsed" value="no" />
+        <property key="dff.functor.alias" value="isMapSigned8Bit" />
+        <inputport name="expression">[&#x0A;    if v1 = 1 then&#x0A;        1&#x0A;    else &#x0A;        0&#x0A;]</inputport>
+        <inputport name="defaultValue">.none</inputport>
+        <outputport name="result" id="v10" />
+        <functor name="NumberValue">
+            <property key="dff.functor.alias" value="numberValue61761" />
+            <inputport name="value" peerid="v15" />
+            <inputport name="valueNumber">1</inputport>
+        </functor>
+    </containerfunctor>
+    <containerfunctor name="IfNotThen">
+        <property key="dff.functor.alias" value="ifNotThen61762" />
+        <inputport name="condition" peerid="v10" />
+        <functor name="TransformMap">
+            <property key="dff.functor.alias" value="transformMap61702" />
+            <inputport name="inputMapFilename" peerid="v2" />
+            <inputport name="outputMapFilename" peerid="v4" />
+            <inputport name="outputFormatMapFilename">.none</inputport>
+            <inputport name="outputMapProjection" peerid="v3" />
+            <inputport name="outputMapCellType" peerid="v15" />
+            <inputport name="outputMapNullValue" peerid="v13" />
+            <inputport name="resamplingMethod">.nearest</inputport>
+            <inputport name="additionalInputMapNullValue">.none</inputport>
+            <inputport name="inputMapProjection">.none</inputport>
+            <inputport name="outputMapLines" peerid="v11" />
+            <inputport name="outputMapColumns" peerid="v12" />
+            <inputport name="outputMapCellWidth">.none</inputport>
+            <inputport name="outputMapCellHeight">.none</inputport>
+            <inputport name="useCompression">.yes</inputport>
+        </functor>
+    </containerfunctor>
+    <containerfunctor name="Group">
+        <property key="dff.container.collapsed" value="no" />
+        <property key="dff.functor.alias" value="Get Map Basic Attributes" />
+        <functor name="GetLookupTableValue">
+            <property key="dff.functor.alias" value="getLookupTableValue61703" />
+            <inputport name="table" peerid="v14" />
+            <inputport name="key">1</inputport>
+            <inputport name="valueIfNotFound">.none</inputport>
+            <outputport name="value" id="v11" />
+        </functor>
+        <functor name="GetLookupTableValue">
+            <property key="dff.functor.alias" value="getLookupTableValue61703" />
+            <inputport name="table" peerid="v14" />
+            <inputport name="key">2</inputport>
+            <inputport name="valueIfNotFound">.none</inputport>
+            <outputport name="value" id="v12" />
+        </functor>
+        <functor name="GetLookupTableValue">
+            <property key="dff.functor.alias" value="getLookupTableValue61703" />
+            <inputport name="table" peerid="v14" />
+            <inputport name="key">20</inputport>
+            <inputport name="valueIfNotFound">.none</inputport>
+            <outputport name="value" id="v13" />
+        </functor>
+        <functor name="ExtractMapAttributes">
+            <property key="dff.functor.alias" value="extractMapAttributes61701" />
+            <inputport name="map" peerid="v1" />
+            <inputport name="extractDynamicAttributes">.no</inputport>
+            <inputport name="extractStatisticalAttributes">.no</inputport>
+            <outputport name="attributes" id="v14" />
+        </functor>
+        <functor name="GetLookupTableValue">
+            <property key="dff.functor.alias" value="getLookupTableValue61703" />
+            <inputport name="table" peerid="v14" />
+            <inputport name="key">19</inputport>
+            <inputport name="valueIfNotFound">.none</inputport>
+            <outputport name="value" id="v15" />
+        </functor>
+    </containerfunctor>
+</script>

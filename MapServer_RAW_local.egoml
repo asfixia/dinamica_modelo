@@ -1,0 +1,530 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Jan-24 02:43:59" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="submodel.import" value='ChangeMapProjection { { &quot;outputMapName&quot; : String, &quot;inputMapName&quot; : String, &quot;projInd&quot; : IntegerValue } { } { &quot;outputMapName&quot; : String } }; GetBasicMapAttributes { { &quot;inputMap&quot; : Map } { } { &quot;numberOfLines&quot; : NonNegativeIntegerValue, &quot;numberOfColumns&quot; : NonNegativeIntegerValue, &quot;numberOfCells&quot; : RealValue, &quot;numberOfLayers&quot; : NonNegativeIntegerValue, &quot;cellHeight&quot; : RealValue, &quot;cellWidth&quot; : RealValue, &quot;cellWidthOrHeight&quot; : RealValue, &quot;cellArea&quot; : RealValue, &quot;cellType&quot; : CellType, &quot;nullValue&quot; : RealValue, &quot;hasNullValue&quot; : BooleanValue } }; CreateWorld { { &quot;worldTileQuantity&quot; : PositiveIntegerValue, &quot;projInd&quot; : IntegerValue, &quot;mapToFitWorldMapTiles&quot; : MapFilename } { } { &quot;worldMap&quot; : MapFilename, &quot;worldTileValue&quot; : MapFilename, &quot;minTileIndexY&quot; : RealValue, &quot;maxTileIndexY&quot; : RealValue, &quot;minTileIndexX&quot; : RealValue, &quot;maxTileIndexX&quot; : RealValue } }; CropMapUsingMask { { &quot;inputMap&quot; : Map, &quot;outputMask&quot; : Map } { } { &quot;outputMap&quot; : Map } }; SearchAndCaptureRegexInText { { &quot;inputText&quot; : String, &quot;patternText&quot; : String } { } { &quot;result&quot; : String } }; CreateDirFromPath { { &quot;filePath&quot; : String } { } { &quot;orderOutput&quot; : BooleanValue } }' />
+    <containerfunctor name="Group">
+        <property key="dff.container.collapsed" value="no" />
+        <property key="dff.functor.alias" value="projectToEqualArea" />
+        <functor name="MapFilename">
+            <property key="dff.functor.alias" value="befOutputMapName" />
+            <property key="viewer.object" value="yes" />
+            <inputport name="constant">&quot;../../gerado/map_To_calculate.tif&quot;</inputport>
+            <outputport name="object" id="v1" />
+        </functor>
+        <containerfunctor name="Group">
+            <property key="dff.container.collapsed" value="no" />
+            <property key="dff.functor.alias" value="projToEqualArea" />
+            <functor name="LoadMap">
+                <property key="dff.functor.alias" value="loadMap24612" />
+                <inputport name="filename" peerid="v3" />
+                <inputport name="nullValue">.none</inputport>
+                <inputport name="loadAsSparse">.no</inputport>
+                <inputport name="suffixDigits">0</inputport>
+                <inputport name="step">.none</inputport>
+                <inputport name="workdir">.none</inputport>
+                <outputport name="map" id="v2" />
+            </functor>
+            <functor name="ChangeMapProjection">
+                <property key="dff.functor.alias" value="changeMapProjection183248" />
+                <inputport name="outputMapName" peerid="v1" />
+                <inputport name="inputMapName" peerid="v15" />
+                <inputport name="projInd" peerid="v11" />
+                <outputport name="outputMapName" id="v3" />
+            </functor>
+        </containerfunctor>
+    </containerfunctor>
+    <containerfunctor name="Group">
+        <property key="dff.container.collapsed" value="no" />
+        <property key="dff.functor.alias" value="doCalculations" />
+        <containerfunctor name="Group">
+            <property key="dff.functor.alias" value="group63221" />
+            <functor name="Map">
+                <property key="dff.functor.alias" value="inputMap" />
+                <inputport name="constant" peerid="v7" />
+                <outputport name="object" id="v4" />
+            </functor>
+            <functor name="SaveMap">
+                <property key="dff.functor.alias" value="saveMap18446" />
+                <inputport name="map" peerid="v4" />
+                <inputport name="filename" peerid="v5" />
+                <inputport name="suffixDigits">2</inputport>
+                <inputport name="step">.none</inputport>
+                <inputport name="useCompression">.yes</inputport>
+                <inputport name="workdir">.none</inputport>
+                <inputport name="ignoreCostlySparseCategories">.yes</inputport>
+            </functor>
+            <functor name="MapFilename">
+                <property key="dff.functor.alias" value="inputMapFile" />
+                <property key="viewer.object" value="yes" />
+                <inputport name="constant">&quot;../../gerado/map_calculated.tif&quot;</inputport>
+                <outputport name="object" id="v5" />
+            </functor>
+            <functor name="Map">
+                <property key="dff.functor.alias" value="mapToCalculateOn" />
+                <property key="viewer.object" value="yes" />
+                <inputport name="constant" peerid="v2" />
+                <outputport name="object" id="v6" />
+            </functor>
+            <functor name="Map">
+                <property key="dff.functor.alias" value="mapCalculated" />
+                <property key="viewer.object" value="yes" />
+                <inputport name="constant" peerid="v10" />
+                <outputport name="object" id="v7" />
+            </functor>
+            <functor name="GetBasicMapAttributes">
+                <property key="dff.functor.alias" value="getBasicMapAttributes299288" />
+                <inputport name="inputMap" peerid="v6" />
+                <outputport name="cellType" id="v8" />
+                <outputport name="nullValue" id="v9" />
+            </functor>
+            <containerfunctor name="CalculateMap">
+                <property key="dff.container.collapsed" value="no" />
+                <property key="dff.functor.alias" value="calculateMap124393" />
+                <inputport name="expression">[&#x0A;    i1&#x0A;]</inputport>
+                <inputport name="cellType" peerid="v8" />
+                <inputport name="nullValue" peerid="v9" />
+                <inputport name="resultIsSparse">.no</inputport>
+                <inputport name="resultFormat" peerid="v6" />
+                <outputport name="result" id="v10" />
+                <functor name="NumberMap">
+                    <property key="dff.functor.alias" value="numberMap124394" />
+                    <inputport name="map" peerid="v6" />
+                    <inputport name="mapNumber">1</inputport>
+                </functor>
+            </containerfunctor>
+        </containerfunctor>
+    </containerfunctor>
+    <containerfunctor name="Group">
+        <property key="dff.functor.alias" value="Constants" />
+        <functor name="IntegerValue">
+            <property key="dff.functor.alias" value="EPSG:3857" />
+            <property key="dff.functor.comment" value="Google Maps Projection" />
+            <inputport name="constant">2</inputport>
+            <outputport name="object" id="v11" />
+        </functor>
+        <functor name="IntegerValue">
+            <property key="dff.functor.alias" value="ESRI:102033" />
+            <property key="dff.functor.comment" value="Equal Area Projection" />
+            <inputport name="constant">1</inputport>
+        </functor>
+        <functor name="CellType">
+            <property key="dff.functor.alias" value="resultCellType" />
+            <inputport name="constant">.float32</inputport>
+        </functor>
+        <functor name="IntegerValue">
+            <property key="dff.functor.alias" value="fromZoom" />
+            <inputport name="constant">1</inputport>
+            <outputport name="object" id="v12" />
+        </functor>
+        <functor name="IntegerValue">
+            <property key="dff.functor.alias" value="toZoom" />
+            <inputport name="constant">6</inputport>
+            <outputport name="object" id="v13" />
+        </functor>
+        <functor name="String">
+            <property key="dff.functor.alias" value="string98908" />
+            <inputport name="constant">&quot;F:\Danilo\Trampo\gerado\calculation&quot;</inputport>
+            <outputport name="object" id="v14" />
+        </functor>
+    </containerfunctor>
+    <containerfunctor name="Group">
+        <property key="dff.functor.alias" value="Inputs" />
+        <functor name="MapFilename">
+            <property key="dff.functor.alias" value="inputMapName" />
+            <inputport name="constant">&quot;../../dados/UA_ha_2013/UA_ha_2013.tif&quot;</inputport>
+            <outputport name="object" id="v15" />
+        </functor>
+    </containerfunctor>
+    <containerfunctor name="Group">
+        <property key="dff.functor.alias" value="publishMaps" />
+        <containerfunctor name="For">
+            <property key="dff.container.collapsed" value="no" />
+            <property key="dff.functor.alias" value="EachZoomLvl Generate Tiles" />
+            <inputport name="firstIterationStep" peerid="v12" />
+            <inputport name="lastIterationStep" peerid="v13" />
+            <inputport name="stepIncrement">1</inputport>
+            <internaloutputport name="step" id="v16" />
+            <functor name="Step">
+                <property key="dff.functor.alias" value="step19867" />
+                <inputport name="step" peerid="v16" />
+                <outputport name="step" id="v17" />
+            </functor>
+            <functor name="MuxTable">
+                <property key="dff.functor.alias" value="muxTable37287" />
+                <property key="viewer.table" value="yes" />
+                <inputport name="initial">[&#x0A;    &quot;Key*&quot;, &quot;Value#str&quot;, &#x0A;]</inputport>
+                <inputport name="feedback" peerid="v39" />
+                <outputport name="table" id="v18" />
+            </functor>
+            <functor name="MuxValue">
+                <property key="dff.functor.alias" value="muxValue86985" />
+                <inputport name="initial">1</inputport>
+                <inputport name="feedback" peerid="v48" />
+                <outputport name="value" id="v19" />
+            </functor>
+            <containerfunctor name="Group">
+                <property key="dff.functor.alias" value="projectToZoomLvl" />
+                <containerfunctor name="Group">
+                    <property key="dff.container.collapsed" value="no" />
+                    <property key="dff.functor.alias" value="Create WorldMap Current" />
+                    <functor name="IntegerValue">
+                        <property key="dff.functor.alias" value="zoomLvl" />
+                        <property key="dff.functor.comment" value="From 0 to 16 ( 2^zLevel) Tiles" />
+                        <inputport name="constant" peerid="v17" />
+                        <outputport name="object" id="v20" />
+                    </functor>
+                    <functor name="CreateWorld">
+                        <property key="dff.functor.alias" value="createWorld301820" />
+                        <inputport name="worldTileQuantity" peerid="v26" />
+                        <inputport name="projInd" peerid="v11" />
+                        <inputport name="mapToFitWorldMapTiles" peerid="v5" />
+                        <outputport name="worldMap" id="v21" />
+                        <outputport name="worldTileValue" id="v22" />
+                        <outputport name="minTileIndexY" id="v23" />
+                        <outputport name="minTileIndexX" id="v24" />
+                        <outputport name="maxTileIndexX" id="v25" />
+                    </functor>
+                    <containerfunctor name="CalculateValue">
+                        <property key="dff.container.collapsed" value="no" />
+                        <property key="dff.functor.alias" value="calculateValue43067" />
+                        <inputport name="expression">[&#x0A;    2 ^ v1&#x0A;]</inputport>
+                        <inputport name="defaultValue">.none</inputport>
+                        <outputport name="result" id="v26" />
+                        <functor name="NumberValue">
+                            <property key="dff.functor.alias" value="zoomLvl" />
+                            <inputport name="value" peerid="v20" />
+                            <inputport name="valueNumber">1</inputport>
+                        </functor>
+                    </containerfunctor>
+                </containerfunctor>
+            </containerfunctor>
+            <containerfunctor name="Group">
+                <property key="dff.functor.alias" value="SplitTiles" />
+                <functor name="LoadMap">
+                    <property key="dff.functor.alias" value="WorldMapTileMask" />
+                    <property key="viewer.map" value="yes" />
+                    <inputport name="filename" peerid="v21" />
+                    <inputport name="nullValue">.none</inputport>
+                    <inputport name="loadAsSparse">.no</inputport>
+                    <inputport name="suffixDigits">0</inputport>
+                    <inputport name="step" peerid="v16" />
+                    <inputport name="workdir">.none</inputport>
+                    <outputport name="map" id="v27" />
+                </functor>
+                <functor name="GetLookupTableValue">
+                    <property key="dff.functor.alias" value="getLookupTableValue85711" />
+                    <property key="viewer.value" value="yes" />
+                    <inputport name="table" peerid="v29" />
+                    <inputport name="key">2</inputport>
+                    <inputport name="valueIfNotFound">.none</inputport>
+                    <outputport name="value" id="v28" />
+                </functor>
+                <functor name="ExtractMapAttributes">
+                    <property key="dff.functor.alias" value="extractMapAttributes61701" />
+                    <inputport name="map" peerid="v27" />
+                    <inputport name="extractDynamicAttributes">.no</inputport>
+                    <inputport name="extractStatisticalAttributes">.no</inputport>
+                    <outputport name="attributes" id="v29" />
+                </functor>
+                <containerfunctor name="Group">
+                    <property key="dff.container.collapsed" value="no" />
+                    <property key="dff.functor.alias" value="possibleCategorycalMap" />
+                    <property key="dff.functor.comment" value="The first Tile is 1 (not 0)" />
+                    <functor name="LoadMap">
+                        <property key="dff.functor.alias" value="WorldMapValues" />
+                        <property key="viewer.map" value="yes" />
+                        <inputport name="filename" peerid="v22" />
+                        <inputport name="nullValue">.none</inputport>
+                        <inputport name="loadAsSparse">.no</inputport>
+                        <inputport name="suffixDigits">0</inputport>
+                        <inputport name="step" peerid="v16" />
+                        <inputport name="workdir">.none</inputport>
+                        <outputport name="map" id="v30" />
+                    </functor>
+                    <containerfunctor name="CalculateCategoricalMap">
+                        <property key="dff.container.collapsed" value="no" />
+                        <property key="dff.functor.alias" value="calculateCategoricalMap23600" />
+                        <property key="viewer.result" value="yes" />
+                        <inputport name="expression">[&#x0A;    if (line - 1) % 256 = 0 and (column - 1) % 256 = 0 then&#x0A;        floor((line - 1) / 256) * v1 / 256 + floor((column - 1) / 256) + 1&#x0A;    else &#x0A;        null&#x0A;]</inputport>
+                        <inputport name="cellType">.uint16</inputport>
+                        <inputport name="nullValue">0</inputport>
+                        <inputport name="resultIsSparse">.no</inputport>
+                        <inputport name="resultFormat">.none</inputport>
+                        <outputport name="result" id="v31" />
+                        <functor name="NumberMap">
+                            <property key="dff.functor.alias" value="numberMap23601" />
+                            <inputport name="map" peerid="v27" />
+                            <inputport name="mapNumber">1</inputport>
+                        </functor>
+                        <functor name="NumberValue">
+                            <property key="dff.functor.alias" value="#Columns (da imagem n do tile)" />
+                            <inputport name="value" peerid="v28" />
+                            <inputport name="valueNumber">1</inputport>
+                        </functor>
+                    </containerfunctor>
+                    <containerfunctor name="Group">
+                        <property key="dff.functor.alias" value="group94441" />
+                        <functor name="SaveMap">
+                            <property key="dff.functor.alias" value="saveMap199219" />
+                            <inputport name="map" peerid="v32" />
+                            <inputport name="filename">&quot;../../gerado/map_calc_world_titled.tif&quot;</inputport>
+                            <inputport name="suffixDigits">0</inputport>
+                            <inputport name="step" peerid="v16" />
+                            <inputport name="useCompression">.yes</inputport>
+                            <inputport name="workdir">.none</inputport>
+                            <inputport name="ignoreCostlySparseCategories">.yes</inputport>
+                        </functor>
+                        <containerfunctor name="CalculateCategoricalMap">
+                            <property key="dff.container.collapsed" value="no" />
+                            <property key="dff.functor.alias" value="calculateCategoricalMap22358" />
+                            <property key="viewer.result" value="yes" />
+                            <inputport name="expression">[&#x0A;    i1[floor((line - 1) / 256) * 256 + 1, floor((column - 1) / 256) * 256 + 1]&#x0A;]</inputport>
+                            <inputport name="cellType">.uint16</inputport>
+                            <inputport name="nullValue">.default</inputport>
+                            <inputport name="resultIsSparse">.no</inputport>
+                            <inputport name="resultFormat">.none</inputport>
+                            <outputport name="result" id="v32" />
+                            <functor name="NumberMap">
+                                <property key="dff.functor.alias" value="numberMap22359" />
+                                <inputport name="map" peerid="v31" />
+                                <inputport name="mapNumber">1</inputport>
+                            </functor>
+                        </containerfunctor>
+                    </containerfunctor>
+                </containerfunctor>
+                <containerfunctor name="ForEachCategory">
+                    <property key="dff.container.collapsed" value="no" />
+                    <property key="dff.functor.alias" value="forEachCategory83746" />
+                    <inputport name="categorization" peerid="v32" />
+                    <internaloutputport name="step" id="v33" />
+                    <functor name="CropMapUsingMask">
+                        <property key="dff.functor.alias" value="cropMapUsingMask83634" />
+                        <property key="viewer.outputmap" value="yes" />
+                        <inputport name="inputMap" peerid="v30" />
+                        <inputport name="outputMask" peerid="v42" />
+                        <outputport name="outputMap" id="v34" />
+                    </functor>
+                    <functor name="Step">
+                        <property key="dff.functor.alias" value="Region Ind" />
+                        <property key="dff.functor.comment" value="The first categorical value is 1.&#x0A;But the first Tile Index is 0. So use this categorical value -1." />
+                        <property key="viewer.step" value="yes" />
+                        <inputport name="step" peerid="v33" />
+                        <outputport name="step" id="v35" />
+                    </functor>
+                    <functor name="SearchAndCaptureRegexInText">
+                        <property key="dff.functor.alias" value="fileName" />
+                        <inputport name="inputText" peerid="v15" />
+                        <inputport name="patternText">&quot;^.+[\\\/](.+)\..+$&quot;</inputport>
+                        <outputport name="result" id="v36" />
+                    </functor>
+                    <functor name="MuxTable">
+                        <property key="dff.functor.alias" value="muxTable37287" />
+                        <property key="viewer.table" value="yes" />
+                        <inputport name="initial" peerid="v18" />
+                        <inputport name="feedback" peerid="v39" />
+                        <outputport name="table" id="v37" />
+                    </functor>
+                    <functor name="AddTupleValue">
+                        <property key="dff.functor.alias" value="addTupleValue37288" />
+                        <property key="viewer.result" value="yes" />
+                        <inputport name="tuple">[]</inputport>
+                        <inputport name="value" peerid="v41" />
+                        <outputport name="result" id="v38" />
+                    </functor>
+                    <functor name="AddTableRow">
+                        <property key="dff.functor.alias" value="addTableRow37289" />
+                        <property key="viewer.result" value="yes" />
+                        <inputport name="table" peerid="v37" />
+                        <inputport name="values" peerid="v40" />
+                        <outputport name="result" id="v39" />
+                    </functor>
+                    <functor name="AddTupleValue">
+                        <property key="dff.functor.alias" value="addTupleValue37288" />
+                        <property key="viewer.result" value="yes" />
+                        <inputport name="tuple" peerid="v38" />
+                        <inputport name="value" peerid="v46" />
+                        <outputport name="result" id="v40" />
+                    </functor>
+                    <functor name="MuxValue">
+                        <property key="dff.functor.alias" value="muxValue86985" />
+                        <inputport name="initial" peerid="v19" />
+                        <inputport name="feedback" peerid="v48" />
+                        <outputport name="value" id="v41" />
+                    </functor>
+                    <functor name="SaveMap">
+                        <property key="dff.functor.alias" value="saveMap19470" />
+                        <inputport name="map" peerid="v34" />
+                        <inputport name="filename" peerid="v46" />
+                        <inputport name="suffixDigits">0</inputport>
+                        <inputport name="step" peerid="v33" />
+                        <inputport name="useCompression">.yes</inputport>
+                        <inputport name="workdir">.none</inputport>
+                        <inputport name="ignoreCostlySparseCategories">.yes</inputport>
+                    </functor>
+                    <containerfunctor name="CalculateCategoricalMap">
+                        <property key="dff.container.collapsed" value="no" />
+                        <property key="dff.functor.alias" value="calculateCategoricalMap83748" />
+                        <property key="viewer.result" value="yes" />
+                        <inputport name="expression">[&#x0A;    if i1 = v1 then&#x0A;        i1&#x0A;    else &#x0A;        null&#x0A;]</inputport>
+                        <inputport name="cellType">.uint8</inputport>
+                        <inputport name="nullValue">.default</inputport>
+                        <inputport name="resultIsSparse">.no</inputport>
+                        <inputport name="resultFormat">.none</inputport>
+                        <outputport name="result" id="v42" />
+                        <functor name="NumberMap">
+                            <property key="dff.functor.alias" value="Tiles Mask" />
+                            <inputport name="map" peerid="v32" />
+                            <inputport name="mapNumber">1</inputport>
+                        </functor>
+                        <functor name="NumberValue">
+                            <property key="dff.functor.alias" value="Cur Tile" />
+                            <inputport name="value" peerid="v35" />
+                            <inputport name="valueNumber">1</inputport>
+                        </functor>
+                    </containerfunctor>
+                    <containerfunctor name="CalculateValue">
+                        <property key="dff.container.collapsed" value="no" />
+                        <property key="dff.functor.alias" value="Current Tile X" />
+                        <property key="viewer.result" value="yes" />
+                        <inputport name="expression">[&#x0A;    v3 + (v1 - 1) % v2&#x0A;]</inputport>
+                        <inputport name="defaultValue">.none</inputport>
+                        <outputport name="result" id="v43" />
+                        <functor name="NumberValue">
+                            <property key="dff.functor.alias" value="regionInd" />
+                            <inputport name="value" peerid="v35" />
+                            <inputport name="valueNumber">1</inputport>
+                        </functor>
+                        <functor name="NumberValue">
+                            <property key="dff.functor.alias" value="#TilesX" />
+                            <inputport name="value" peerid="v44" />
+                            <inputport name="valueNumber">2</inputport>
+                        </functor>
+                        <functor name="NumberValue">
+                            <property key="dff.functor.alias" value="minTileX" />
+                            <inputport name="value" peerid="v24" />
+                            <inputport name="valueNumber">3</inputport>
+                        </functor>
+                    </containerfunctor>
+                    <containerfunctor name="CalculateValue">
+                        <property key="dff.container.collapsed" value="no" />
+                        <property key="dff.functor.alias" value="#TilesX" />
+                        <inputport name="expression">[&#x0A;    v2 - v1&#x0A;]</inputport>
+                        <inputport name="defaultValue">.none</inputport>
+                        <outputport name="result" id="v44" />
+                        <functor name="NumberValue">
+                            <property key="dff.functor.alias" value="max Tile X" />
+                            <inputport name="value" peerid="v25" />
+                            <inputport name="valueNumber">2</inputport>
+                        </functor>
+                        <functor name="NumberValue">
+                            <property key="dff.functor.alias" value="minTileX" />
+                            <inputport name="value" peerid="v24" />
+                            <inputport name="valueNumber">1</inputport>
+                        </functor>
+                    </containerfunctor>
+                    <containerfunctor name="CalculateValue">
+                        <property key="dff.container.collapsed" value="no" />
+                        <property key="dff.functor.alias" value="Current Tile Y" />
+                        <inputport name="expression">[&#x0A;    v3 + floor((v1 - 1) / v2)&#x0A;]</inputport>
+                        <inputport name="defaultValue">.none</inputport>
+                        <outputport name="result" id="v45" />
+                        <functor name="NumberValue">
+                            <property key="dff.functor.alias" value="min Tile Y" />
+                            <inputport name="value" peerid="v23" />
+                            <inputport name="valueNumber">3</inputport>
+                        </functor>
+                        <functor name="NumberValue">
+                            <property key="dff.functor.alias" value="regionInd" />
+                            <inputport name="value" peerid="v35" />
+                            <inputport name="valueNumber">1</inputport>
+                        </functor>
+                        <functor name="NumberValue">
+                            <property key="dff.functor.alias" value="#TilesX" />
+                            <inputport name="value" peerid="v44" />
+                            <inputport name="valueNumber">2</inputport>
+                        </functor>
+                    </containerfunctor>
+                    <containerfunctor name="Group">
+                        <property key="dff.functor.alias" value="group30874" />
+                        <containerfunctor name="CreateString">
+                            <property key="dff.container.collapsed" value="no" />
+                            <property key="dff.functor.alias" value="%GWC%/CALCULATION/(fileName)/(zoom)/(line)_(cloumn).tif" />
+                            <property key="viewer.result" value="yes" />
+                            <inputport name="format">&quot;&lt;s3&gt;/&lt;s2&gt;/raw/&lt;s1&gt;/&lt;v2,4&gt;_&lt;v1,4&gt;.tif&quot;</inputport>
+                            <outputport name="result" id="v46" />
+                            <functor name="NumberString">
+                                <property key="dff.functor.alias" value="zoomLvl" />
+                                <inputport name="value" peerid="v20" />
+                                <inputport name="valueNumber">1</inputport>
+                            </functor>
+                            <functor name="NumberValue">
+                                <property key="dff.functor.alias" value="Cur Tile Line" />
+                                <inputport name="value" peerid="v45" />
+                                <inputport name="valueNumber">1</inputport>
+                            </functor>
+                            <functor name="NumberValue">
+                                <property key="dff.functor.alias" value="Cur Tile Column" />
+                                <inputport name="value" peerid="v43" />
+                                <inputport name="valueNumber">2</inputport>
+                            </functor>
+                            <functor name="NumberString">
+                                <property key="dff.functor.alias" value="fileName" />
+                                <inputport name="value" peerid="v36" />
+                                <inputport name="valueNumber">2</inputport>
+                            </functor>
+                            <functor name="NumberString">
+                                <property key="dff.functor.alias" value="baseDirectory" />
+                                <inputport name="value" peerid="v14" />
+                                <inputport name="valueNumber">3</inputport>
+                            </functor>
+                        </containerfunctor>
+                        <containerfunctor name="CalculateValue">
+                            <property key="dff.container.collapsed" value="no" />
+                            <property key="dff.functor.alias" value="Run once" />
+                            <inputport name="expression">[&#x0A;    if v1 = 1 then&#x0A;        1&#x0A;    else &#x0A;        0&#x0A;]</inputport>
+                            <inputport name="defaultValue">.none</inputport>
+                            <outputport name="result" id="v47" />
+                            <functor name="NumberValue">
+                                <property key="dff.functor.alias" value="numberValue285450" />
+                                <inputport name="value" peerid="v35" />
+                                <inputport name="valueNumber">1</inputport>
+                            </functor>
+                        </containerfunctor>
+                        <containerfunctor name="IfThen">
+                            <property key="dff.functor.alias" value="ifThen285451" />
+                            <inputport name="condition" peerid="v47" />
+                            <functor name="CreateDirFromPath">
+                                <property key="dff.functor.alias" value="createDirFromPath61939" />
+                                <inputport name="filePath" peerid="v46" />
+                            </functor>
+                        </containerfunctor>
+                    </containerfunctor>
+                    <containerfunctor name="CalculateValue">
+                        <property key="dff.container.collapsed" value="no" />
+                        <property key="dff.functor.alias" value="calculateValue87926" />
+                        <inputport name="expression">[&#x0A;    v1 + 1&#x0A;]</inputport>
+                        <inputport name="defaultValue">.none</inputport>
+                        <outputport name="result" id="v48" />
+                        <functor name="NumberValue">
+                            <property key="dff.functor.alias" value="numberValue87927" />
+                            <inputport name="value" peerid="v41" />
+                            <inputport name="valueNumber">1</inputport>
+                        </functor>
+                    </containerfunctor>
+                </containerfunctor>
+            </containerfunctor>
+            <containerfunctor name="CalculateRExpression">
+                <property key="dff.container.collapsed" value="no" />
+                <property key="dff.functor.alias" value="PNG from TIF" />
+                <inputport name="expression">&quot;library(Dinamica)&#x0A;library(png)&#x0A;library(raster)&#x0A;library(Rcpp)&#x0A;cppFunction(&apos;&#x0A;Rcpp::List intToRGBA(int a1) {&#x0A; int mask = 0x000000FF;&#x0A; int rgba[4];&#x0A; for (int i = 3; i &gt;= 0; i--) {&#x0A; rgba[3 - i] = ((a1 &gt;&gt; i*8) &amp; mask);&#x0A; }&#x0A; return Rcpp::List::create(rgba[0], rgba[1], rgba[2], rgba[3]); &#x0A;}&apos;)&#x0A;&#x0A;cppFunction(&apos; &#x0A;int convertFloat(float a1) {&#x0A; union sameNum {&#x0A; float f;&#x0A; unsigned int i;&#x0A; };&#x0A; sameNum num;&#x0A; num.f = a1;&#x0A; return num.i;&#x0A;}&apos;)&#x0A;&#x0A;for (iRow in 1:nrow(t1)) {&#x0A; curMapName &lt;- trimws(trimws(t1[2][iRow, 1]))&#x0A; print(curMapName)&#x0A; tifContent &lt;- raster(curMapName)&#x0A; &#x0A; pngContent &lt;- array(0,dim=c(dim(tifContent)[1],dim(tifContent)[2],4))&#x0A; &#x0A;for (iX in 1:dim(tifContent)[1]){&#x0A; lineVals &lt;- getValues(tifContent, iX)&#x0A; for (iY in 1:dim(tifContent)[2]) {&#x0A;  cellValue &lt;- lineVals[iY]&#x0A;  if (is.na(cellValue)) {&#x0A;   pngContent[iX, iY, 1] &lt;- 255&#x0A;   pngContent[iX, iY, 2] &lt;- 255&#x0A;   pngContent[iX, iY, 3] &lt;- 255&#x0A;   pngContent[iX, iY, 4] &lt;- 255&#x0A;  } else {&#x0A;   rgbVal &lt;- intToRGBA(convertFloat(cellValue))&#x0A;   pngContent[iX, iY, 1] &lt;- rgbVal[[4]]&#x0A;   pngContent[iX, iY, 2] &lt;- rgbVal[[3]]&#x0A;   pngContent[iX, iY, 3] &lt;- rgbVal[[2]]&#x0A;   pngContent[iX, iY, 4] &lt;- 128&#x0A;  }&#x0A; }&#x0A; }&#x0A; &#x0A; writePNG(image=pngContent, target = gsub(\&quot;(.*)(\\.(?:tif|tiff))\&quot;,\&quot;\\1.png\&quot;, curMapName))&#x0A;}&quot;</inputport>
+                <inputport name="treatWarningAsErrors">.no</inputport>
+                <functor name="NumberTable">
+                    <property key="dff.functor.alias" value="numberTable38230" />
+                    <inputport name="table" peerid="v39" />
+                    <inputport name="tableNumber">1</inputport>
+                </functor>
+            </containerfunctor>
+        </containerfunctor>
+    </containerfunctor>
+</script>

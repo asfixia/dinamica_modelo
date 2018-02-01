@@ -1,0 +1,286 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Jan-24 02:43:58" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="submodel.group" value="Projection" />
+    <property key="submodel.import" value='ReferenceProjectionInfo { { &quot;projInd&quot; : IntegerValue } { &quot;projectionTable&quot; : Table } { &quot;codeName&quot; : String, &quot;xMax&quot; : RealValue, &quot;yMax&quot; : RealValue, &quot;xMin&quot; : RealValue, &quot;yMin&quot; : RealValue, &quot;wkt&quot; : String, &quot;proj4&quot; : String } }; FitMapBounds { { &quot;mapToFit&quot; : Map, &quot;projectionIndexToCreateTheWorldMap&quot; : IntegerValue, &quot;worldTileQnt&quot; : PositiveIntegerValue } { } { &quot;maxY&quot; : RealValue, &quot;minY&quot; : RealValue, &quot;minTileIndexY&quot; : RealValue, &quot;maxTileIndexY&quot; : RealValue, &quot;qntTilesY&quot; : RealValue, &quot;maxX&quot; : RealValue, &quot;minX&quot; : RealValue, &quot;qntTilesX&quot; : RealValue, &quot;cellHeight&quot; : RealValue, &quot;cellWidth&quot; : RealValue, &quot;minTileIndexX&quot; : RealValue, &quot;maxTileIndexX&quot; : RealValue } }; GetBasicMapAttributes { { &quot;inputMap&quot; : Map } { } { &quot;numberOfLines&quot; : NonNegativeIntegerValue, &quot;numberOfColumns&quot; : NonNegativeIntegerValue, &quot;numberOfCells&quot; : RealValue, &quot;numberOfLayers&quot; : NonNegativeIntegerValue, &quot;cellHeight&quot; : RealValue, &quot;cellWidth&quot; : RealValue, &quot;cellWidthOrHeight&quot; : RealValue, &quot;cellArea&quot; : RealValue, &quot;cellType&quot; : CellType, &quot;nullValue&quot; : RealValue, &quot;hasNullValue&quot; : BooleanValue } }' />
+    <property key="submodel.name" value="CreateWorld" />
+    <functor name="PositiveIntegerValue">
+        <property key="dff.functor.alias" value="World Tile Quantity" />
+        <property key="dff.functor.comment" value="The map has the same X and Y Tile quantity.&#x0A;So sqrt(TileQuantity) = X = Y." />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="The map has the same X and Y Tile quantity.&#x0A;So sqrt(TileQuantity) = X = Y." />
+        <property key="submodel.in.constant.name" value="worldTileQuantity" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="1" />
+        <outputport name="object" id="v1" />
+    </functor>
+    <functor name="MapFilename">
+        <property key="dff.functor.alias" value="World Tile Value" />
+        <property key="dff.functor.comment" value="Value or constant representing a map filename provided as the functor input." />
+        <property key="submodel.out.object.description" value="Value or constant representing a map filename provided as the functor input." />
+        <property key="submodel.out.object.name" value="worldTileValue" />
+        <property key="submodel.out.object.order" value="2" />
+        <property key="viewer.object" value="yes" />
+        <inputport name="constant">&quot;../../../gerado/worldMap_withvalues.tif&quot;</inputport>
+        <outputport name="object" id="v2" />
+    </functor>
+    <functor name="MapFilename">
+        <property key="dff.functor.alias" value="Map To Fit World Map Tiles" />
+        <property key="dff.functor.comment" value="Map to calculate the Extents of the world map to be rendered.&#x0A;The world extents out of this map will be ignored." />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="Map to calculate the Extents of the world map to be rendered.&#x0A;The world extents out of this map will be ignored." />
+        <property key="submodel.in.constant.name" value="mapToFitWorldMapTiles" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="3" />
+        <outputport name="object" id="v3" />
+    </functor>
+    <functor name="ReferenceProjectionInfo">
+        <property key="dff.functor.alias" value="referenceProjectionInfo175993" />
+        <inputport name="projInd" peerid="v9" />
+        <inputport name="projectionTable">[&#x0A;    &quot;projInd*&quot;, &quot;name&quot;, &quot;xMax&quot;, &quot;yMax&quot;, &quot;xMin&quot;, &quot;yMin&quot;, &quot;PROJ4&quot;, &quot;WKT&quot;, &#x0A;    0, &quot;EPSG:3857&quot;, 20037508.34, 20037508.34, -21059644.9989337, -10226322.686143, &quot;+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs&quot;, &quot;PROJCS\[\&quot;WGS 84 / Pseudo-Mercator\&quot;\,GEOGCS\[\&quot;WGS 84\&quot;\,DATUM\[\&quot;WGS_1984\&quot;\,SPHEROID\[\&quot;WGS 84\&quot;\,6378137\,298.257223563\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;7030\&quot;\]\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;6326\&quot;\]\]\,PRIMEM\[\&quot;Greenwich\&quot;\,0\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;8901\&quot;\]\]\,UNIT\[\&quot;degree\&quot;\,0.0174532925199433\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;9122\&quot;\]\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;4326\&quot;\]\]\,PROJECTION\[\&quot;Mercator_1SP\&quot;\]\,PARAMETER\[\&quot;central_meridian\&quot;\,0\]\,PARAMETER\[\&quot;scale_factor\&quot;\,1\]\,PARAMETER\[\&quot;false_easting\&quot;\,0\]\,PARAMETER\[\&quot;false_northing\&quot;\,0\]\,UNIT\[\&quot;metre\&quot;\,1\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;9001\&quot;\]\]\,AXIS\[\&quot;X\&quot;\,EAST\]\,AXIS\[\&quot;Y\&quot;\,NORTH\]\,EXTENSION\[\&quot;PROJ4\&quot;\,\&quot;+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs\&quot;\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;3857\&quot;\]\]&quot;, &#x0A;    1, &quot;ESRI:102033&quot;, 21059644.9989337, 9011782.97128925, -2102148.3097173, 874994.403739983, &quot;+proj=aea +lat_1=-5 +lat_2=-42 +lat_0=-32 +lon_0=-60 +x_0=0 +y_0=0 +ellps=aust_SA +units=m +no_defs&quot;, &quot;PROJCS\[\&quot;South_America_Albers_Equal_Area_Conic\&quot;\,GEOGCS\[\&quot;GCS_South_American_1969\&quot;\,DATUM\[\&quot;South_American_Datum_1969\&quot;\,SPHEROID\[\&quot;GRS_1967_Truncated\&quot;\,6378160\,298.25\]\]\,PRIMEM\[\&quot;Greenwich\&quot;\,0\]\,UNIT\[\&quot;Degree\&quot;\,0.017453292519943295\]\]\,PROJECTION\[\&quot;Albers_Conic_Equal_Area\&quot;\]\,PARAMETER\[\&quot;False_Easting\&quot;\,0\]\,PARAMETER\[\&quot;False_Northing\&quot;\,0\]\,PARAMETER\[\&quot;longitude_of_center\&quot;\,-60\]\,PARAMETER\[\&quot;Standard_Parallel_1\&quot;\,-5\]\,PARAMETER\[\&quot;Standard_Parallel_2\&quot;\,-42\]\,PARAMETER\[\&quot;latitude_of_center\&quot;\,-32\]\,UNIT\[\&quot;Meter\&quot;\,1\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;102033\&quot;\]\]&quot;, &#x0A;]</inputport>
+        <outputport name="xMax" id="v4" />
+        <outputport name="yMax" id="v5" />
+        <outputport name="xMin" id="v6" />
+        <outputport name="yMin" id="v7" />
+        <outputport name="wkt" id="v8" />
+    </functor>
+    <functor name="IntegerValue">
+        <property key="dff.functor.alias" value="EPSG:3857" />
+        <property key="dff.functor.comment" value="Google Maps Projection" />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.name" value="projInd" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="2" />
+        <outputport name="object" id="v9" />
+    </functor>
+    <functor name="LoadMap">
+        <property key="dff.functor.alias" value="loadMap178081" />
+        <inputport name="filename" peerid="v22" />
+        <inputport name="nullValue">.none</inputport>
+        <inputport name="loadAsSparse">.no</inputport>
+        <inputport name="suffixDigits">0</inputport>
+        <inputport name="step">.none</inputport>
+        <inputport name="workdir">.none</inputport>
+        <outputport name="map" id="v10" />
+    </functor>
+    <functor name="TransformMap">
+        <property key="dff.functor.alias" value="transformMap150321" />
+        <inputport name="inputMapFilename" peerid="v22" />
+        <inputport name="outputMapFilename" peerid="v2" />
+        <inputport name="outputFormatMapFilename" peerid="v18" />
+        <inputport name="outputMapProjection">.none</inputport>
+        <inputport name="outputMapCellType" peerid="v23" />
+        <inputport name="outputMapNullValue" peerid="v24" />
+        <inputport name="resamplingMethod">.nearest</inputport>
+        <inputport name="additionalInputMapNullValue">.none</inputport>
+        <inputport name="inputMapProjection">.none</inputport>
+        <inputport name="outputMapLines">.none</inputport>
+        <inputport name="outputMapColumns">.none</inputport>
+        <inputport name="outputMapCellWidth">.none</inputport>
+        <inputport name="outputMapCellHeight">.none</inputport>
+        <inputport name="useCompression">.yes</inputport>
+    </functor>
+    <containerfunctor name="Group">
+        <property key="dff.functor.alias" value="Cria World Map" />
+        <functor name="FitMapBounds">
+            <property key="dff.functor.alias" value="fitMapBounds164463" />
+            <property key="submodel.out.maxtileindexx.description" value="Last world map tile index that contains part of the input map." />
+            <property key="submodel.out.maxtileindexx.name" value="maxTileIndexX" />
+            <property key="submodel.out.maxtileindexx.order" value="6" />
+            <property key="submodel.out.maxtileindexy.description" value="Last world map tile index that contains part of the input map." />
+            <property key="submodel.out.maxtileindexy.name" value="maxTileIndexY" />
+            <property key="submodel.out.maxtileindexy.order" value="4" />
+            <property key="submodel.out.mintileindexx.description" value="Lower world map tile index that contains part of the input map." />
+            <property key="submodel.out.mintileindexx.name" value="minTileIndexX" />
+            <property key="submodel.out.mintileindexx.order" value="5" />
+            <property key="submodel.out.mintileindexy.description" value="Lower world map tile index that contains part of the input map." />
+            <property key="submodel.out.mintileindexy.name" value="minTileIndexY" />
+            <property key="submodel.out.mintileindexy.order" value="3" />
+            <property key="viewer.cellheight" value="yes" />
+            <property key="viewer.cellwidth" value="yes" />
+            <property key="viewer.maxtileindexx" value="yes" />
+            <property key="viewer.maxtileindexy" value="yes" />
+            <property key="viewer.maxx" value="yes" />
+            <property key="viewer.maxy" value="yes" />
+            <property key="viewer.mintileindexx" value="yes" />
+            <property key="viewer.mintileindexy" value="yes" />
+            <property key="viewer.minx" value="yes" />
+            <property key="viewer.miny" value="yes" />
+            <property key="viewer.qnttilesx" value="yes" />
+            <property key="viewer.qnttilesy" value="yes" />
+            <inputport name="mapToFit" peerid="v10" />
+            <inputport name="projectionIndexToCreateTheWorldMap" peerid="v9" />
+            <inputport name="worldTileQnt" peerid="v1" />
+            <outputport name="maxY" id="v11" />
+            <outputport name="qntTilesY" id="v12" />
+            <outputport name="minX" id="v13" />
+            <outputport name="qntTilesX" id="v14" />
+            <outputport name="cellHeight" id="v15" />
+            <outputport name="cellWidth" id="v16" />
+        </functor>
+        <functor name="CreateMap">
+            <property key="dff.functor.alias" value="GoogleMercatorMap" />
+            <inputport name="lines" peerid="v19" />
+            <inputport name="columns" peerid="v20" />
+            <inputport name="cellType">.int8</inputport>
+            <inputport name="nullValue">0</inputport>
+            <inputport name="projection" peerid="v8" />
+            <inputport name="cellWidth" peerid="v16" />
+            <inputport name="cellHeight" peerid="v15" />
+            <inputport name="registrationCoordinateY" peerid="v11" />
+            <inputport name="registrationCoordinateX" peerid="v13" />
+            <inputport name="registrationCellY">1</inputport>
+            <inputport name="registrationCellX">1</inputport>
+            <inputport name="createAsSparse">.yes</inputport>
+            <outputport name="map" id="v17" />
+        </functor>
+        <functor name="SaveMap">
+            <property key="dff.functor.alias" value="saveMap15039" />
+            <inputport name="map" peerid="v21" />
+            <inputport name="filename" peerid="v18" />
+            <inputport name="suffixDigits">2</inputport>
+            <inputport name="step">.none</inputport>
+            <inputport name="useCompression">.yes</inputport>
+            <inputport name="workdir">.none</inputport>
+            <inputport name="ignoreCostlySparseCategories">.yes</inputport>
+        </functor>
+        <functor name="IntegerValue">
+            <property key="dff.functor.alias" value="integerValue88550" />
+            <inputport name="constant">0</inputport>
+        </functor>
+        <functor name="MapFilename">
+            <property key="dff.functor.alias" value="World Map" />
+            <property key="dff.functor.comment" value="Value or constant representing a map filename provided as the functor input." />
+            <property key="submodel.out.object.description" value="Value or constant representing a map filename provided as the functor input." />
+            <property key="submodel.out.object.name" value="worldMap" />
+            <property key="submodel.out.object.order" value="1" />
+            <inputport name="constant">&quot;../../../gerado/worldMap.tif&quot;</inputport>
+            <outputport name="object" id="v18" />
+        </functor>
+        <containerfunctor name="CalculateValue">
+            <property key="dff.container.collapsed" value="no" />
+            <property key="dff.functor.alias" value="#PixelsY" />
+            <inputport name="expression">[&#x0A;    v1 * 256&#x0A;]</inputport>
+            <inputport name="defaultValue">.none</inputport>
+            <outputport name="result" id="v19" />
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="numberValue34589" />
+                <inputport name="value" peerid="v12" />
+                <inputport name="valueNumber">1</inputport>
+            </functor>
+        </containerfunctor>
+        <containerfunctor name="CalculateValue">
+            <property key="dff.container.collapsed" value="no" />
+            <property key="dff.functor.alias" value="#Pixels in X" />
+            <inputport name="expression">[&#x0A;    v1 * 256&#x0A;]</inputport>
+            <inputport name="defaultValue">.none</inputport>
+            <outputport name="result" id="v20" />
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="numberValue34589" />
+                <inputport name="value" peerid="v14" />
+                <inputport name="valueNumber">1</inputport>
+            </functor>
+        </containerfunctor>
+        <containerfunctor name="CalculateMap">
+            <property key="dff.container.collapsed" value="no" />
+            <property key="dff.functor.alias" value="calculateMap50821" />
+            <inputport name="expression">[&#x0A;    null&#x0A;]</inputport>
+            <inputport name="cellType">.int16</inputport>
+            <inputport name="nullValue">.default</inputport>
+            <inputport name="resultIsSparse">.no</inputport>
+            <inputport name="resultFormat">.none</inputport>
+            <outputport name="result" id="v21" />
+            <functor name="NumberMap">
+                <property key="dff.functor.alias" value="numberMap50822" />
+                <inputport name="map" peerid="v17" />
+                <inputport name="mapNumber">1</inputport>
+            </functor>
+        </containerfunctor>
+    </containerfunctor>
+    <containerfunctor name="Group">
+        <property key="dff.functor.alias" value="Transforma o Input para o Tamanho de celula certo" />
+        <functor name="TransformMap">
+            <property key="dff.functor.alias" value="transformMap78084" />
+            <inputport name="inputMapFilename" peerid="v3" />
+            <inputport name="outputMapFilename" peerid="v22" />
+            <inputport name="outputFormatMapFilename">.none</inputport>
+            <inputport name="outputMapProjection" peerid="v8" />
+            <inputport name="outputMapCellType" peerid="v23" />
+            <inputport name="outputMapNullValue" peerid="v24" />
+            <inputport name="resamplingMethod">.nearest</inputport>
+            <inputport name="additionalInputMapNullValue">.none</inputport>
+            <inputport name="inputMapProjection">.none</inputport>
+            <inputport name="outputMapLines">.none</inputport>
+            <inputport name="outputMapColumns">.none</inputport>
+            <inputport name="outputMapCellWidth" peerid="v26" />
+            <inputport name="outputMapCellHeight" peerid="v27" />
+            <inputport name="useCompression">.yes</inputport>
+        </functor>
+        <functor name="MapFilename">
+            <property key="dff.functor.alias" value="mapFilename178077" />
+            <inputport name="constant">&quot;../../../gerado/values_transformed_new.tif&quot;</inputport>
+            <outputport name="object" id="v22" />
+        </functor>
+        <functor name="GetBasicMapAttributes">
+            <property key="dff.functor.alias" value="getBasicMapAttributes295158" />
+            <inputport name="inputMap" peerid="v25" />
+            <outputport name="cellType" id="v23" />
+            <outputport name="nullValue" id="v24" />
+        </functor>
+        <functor name="LoadMap">
+            <property key="dff.functor.alias" value="loadMap295159" />
+            <inputport name="filename" peerid="v3" />
+            <inputport name="nullValue">.none</inputport>
+            <inputport name="loadAsSparse">.no</inputport>
+            <inputport name="suffixDigits">0</inputport>
+            <inputport name="step">.none</inputport>
+            <inputport name="workdir">.none</inputport>
+            <outputport name="map" id="v25" />
+        </functor>
+    </containerfunctor>
+    <containerfunctor name="CalculateValue">
+        <property key="dff.container.collapsed" value="no" />
+        <property key="dff.functor.alias" value="World Cell Width" />
+        <inputport name="expression">[&#x0A;    (v2 - v1) / (v3 * 256)&#x0A;]</inputport>
+        <inputport name="defaultValue">.none</inputport>
+        <outputport name="result" id="v26" />
+        <functor name="NumberValue">
+            <property key="dff.functor.alias" value="World Min X" />
+            <inputport name="value" peerid="v6" />
+            <inputport name="valueNumber">1</inputport>
+        </functor>
+        <functor name="NumberValue">
+            <property key="dff.functor.alias" value="World Max X" />
+            <inputport name="value" peerid="v4" />
+            <inputport name="valueNumber">2</inputport>
+        </functor>
+        <functor name="NumberValue">
+            <property key="dff.functor.alias" value="World #Tile" />
+            <inputport name="value" peerid="v1" />
+            <inputport name="valueNumber">3</inputport>
+        </functor>
+    </containerfunctor>
+    <containerfunctor name="CalculateValue">
+        <property key="dff.container.collapsed" value="no" />
+        <property key="dff.functor.alias" value="World Cell Height" />
+        <inputport name="expression">[&#x0A;    (v2 - v1) / (v3 * 256)&#x0A;]</inputport>
+        <inputport name="defaultValue">.none</inputport>
+        <outputport name="result" id="v27" />
+        <functor name="NumberValue">
+            <property key="dff.functor.alias" value="World Min Y" />
+            <inputport name="value" peerid="v7" />
+            <inputport name="valueNumber">1</inputport>
+        </functor>
+        <functor name="NumberValue">
+            <property key="dff.functor.alias" value="World Max Y" />
+            <inputport name="value" peerid="v5" />
+            <inputport name="valueNumber">2</inputport>
+        </functor>
+        <functor name="NumberValue">
+            <property key="dff.functor.alias" value="World #Tile" />
+            <inputport name="value" peerid="v1" />
+            <inputport name="valueNumber">3</inputport>
+        </functor>
+    </containerfunctor>
+</script>

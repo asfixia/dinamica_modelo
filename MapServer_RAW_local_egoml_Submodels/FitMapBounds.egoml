@@ -1,0 +1,499 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Jan-24 02:43:57" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="submodel.group" value="Submodels" />
+    <property key="submodel.import" value='ConvertMapBounds { { &quot;inputMap&quot; : Map, &quot;projectionTo&quot; : String } { } { &quot;maxX&quot; : RealValue, &quot;maxY&quot; : RealValue, &quot;minX&quot; : RealValue, &quot;minY&quot; : RealValue } }; ReferenceProjectionInfo { { &quot;projInd&quot; : IntegerValue } { &quot;projectionTable&quot; : Table } { &quot;codeName&quot; : String, &quot;xMax&quot; : RealValue, &quot;yMax&quot; : RealValue, &quot;xMin&quot; : RealValue, &quot;yMin&quot; : RealValue, &quot;wkt&quot; : String, &quot;proj4&quot; : String } }' />
+    <property key="submodel.name" value="FitMapBounds" />
+    <functor name="Map">
+        <property key="dff.functor.alias" value="Input Map" />
+        <property key="dff.functor.comment" value="Map to be rendered" />
+        <inputport name="constant" peerid="v20" />
+        <outputport name="object" id="v1" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="worldMinY" />
+        <inputport name="constant" peerid="v17" />
+        <outputport name="object" id="v2" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="worldMaxY" />
+        <inputport name="constant" peerid="v15" />
+        <outputport name="object" id="v3" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="initialY" />
+        <inputport name="constant" peerid="v13" />
+        <outputport name="object" id="v4" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="finalY" />
+        <inputport name="constant" peerid="v11" />
+        <outputport name="object" id="v5" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="Map Max X" />
+        <inputport name="constant" peerid="v10" />
+        <outputport name="object" id="v6" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="World Min X" />
+        <inputport name="constant" peerid="v16" />
+        <outputport name="object" id="v7" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="Map Min X" />
+        <inputport name="constant" peerid="v12" />
+        <outputport name="object" id="v8" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="World Max X" />
+        <inputport name="constant" peerid="v14" />
+        <outputport name="object" id="v9" />
+    </functor>
+    <functor name="ConvertMapBounds">
+        <property key="dff.functor.alias" value="convertMapBounds74484" />
+        <inputport name="inputMap" peerid="v1" />
+        <inputport name="projectionTo" peerid="v18" />
+        <outputport name="maxX" id="v10" />
+        <outputport name="maxY" id="v11" />
+        <outputport name="minX" id="v12" />
+        <outputport name="minY" id="v13" />
+    </functor>
+    <functor name="ReferenceProjectionInfo">
+        <property key="dff.functor.alias" value="referenceProjectionInfo176012" />
+        <inputport name="projInd" peerid="v21" />
+        <inputport name="projectionTable">[&#x0A;    &quot;projInd*&quot;, &quot;name&quot;, &quot;xMax&quot;, &quot;yMax&quot;, &quot;xMin&quot;, &quot;yMin&quot;, &quot;PROJ4&quot;, &quot;WKT&quot;, &#x0A;    0, &quot;EPSG:3857&quot;, 20037508.34, 20037508.34, -21059644.9989337, -10226322.686143, &quot;+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs&quot;, &quot;PROJCS\[\&quot;WGS 84 / Pseudo-Mercator\&quot;\,GEOGCS\[\&quot;WGS 84\&quot;\,DATUM\[\&quot;WGS_1984\&quot;\,SPHEROID\[\&quot;WGS 84\&quot;\,6378137\,298.257223563\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;7030\&quot;\]\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;6326\&quot;\]\]\,PRIMEM\[\&quot;Greenwich\&quot;\,0\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;8901\&quot;\]\]\,UNIT\[\&quot;degree\&quot;\,0.0174532925199433\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;9122\&quot;\]\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;4326\&quot;\]\]\,PROJECTION\[\&quot;Mercator_1SP\&quot;\]\,PARAMETER\[\&quot;central_meridian\&quot;\,0\]\,PARAMETER\[\&quot;scale_factor\&quot;\,1\]\,PARAMETER\[\&quot;false_easting\&quot;\,0\]\,PARAMETER\[\&quot;false_northing\&quot;\,0\]\,UNIT\[\&quot;metre\&quot;\,1\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;9001\&quot;\]\]\,AXIS\[\&quot;X\&quot;\,EAST\]\,AXIS\[\&quot;Y\&quot;\,NORTH\]\,EXTENSION\[\&quot;PROJ4\&quot;\,\&quot;+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs\&quot;\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;3857\&quot;\]\]&quot;, &#x0A;    1, &quot;ESRI:102033&quot;, 21059644.9989337, 9011782.97128925, -2102148.3097173, 874994.403739983, &quot;+proj=aea +lat_1=-5 +lat_2=-42 +lat_0=-32 +lon_0=-60 +x_0=0 +y_0=0 +ellps=aust_SA +units=m +no_defs&quot;, &quot;PROJCS\[\&quot;South_America_Albers_Equal_Area_Conic\&quot;\,GEOGCS\[\&quot;GCS_South_American_1969\&quot;\,DATUM\[\&quot;South_American_Datum_1969\&quot;\,SPHEROID\[\&quot;GRS_1967_Truncated\&quot;\,6378160\,298.25\]\]\,PRIMEM\[\&quot;Greenwich\&quot;\,0\]\,UNIT\[\&quot;Degree\&quot;\,0.017453292519943295\]\]\,PROJECTION\[\&quot;Albers_Conic_Equal_Area\&quot;\]\,PARAMETER\[\&quot;False_Easting\&quot;\,0\]\,PARAMETER\[\&quot;False_Northing\&quot;\,0\]\,PARAMETER\[\&quot;longitude_of_center\&quot;\,-60\]\,PARAMETER\[\&quot;Standard_Parallel_1\&quot;\,-5\]\,PARAMETER\[\&quot;Standard_Parallel_2\&quot;\,-42\]\,PARAMETER\[\&quot;latitude_of_center\&quot;\,-32\]\,UNIT\[\&quot;Meter\&quot;\,1\]\,AUTHORITY\[\&quot;EPSG\&quot;\,\&quot;102033\&quot;\]\]&quot;, &#x0A;]</inputport>
+        <outputport name="xMax" id="v14" />
+        <outputport name="yMax" id="v15" />
+        <outputport name="xMin" id="v16" />
+        <outputport name="yMin" id="v17" />
+        <outputport name="proj4" id="v18" />
+    </functor>
+    <containerfunctor name="Group">
+        <property key="dff.functor.alias" value="group31517" />
+        <functor name="RealValue">
+            <property key="dff.functor.alias" value="newMinY" />
+            <property key="dff.functor.comment" value="Value or constant representing double precision real provided as the functor input." />
+            <property key="submodel.out.object.description" value="Value or constant representing double precision real provided as the functor input." />
+            <property key="submodel.out.object.name" value="minY" />
+            <property key="submodel.out.object.order" value="2" />
+            <inputport name="constant" peerid="v33" />
+        </functor>
+        <functor name="RealValue">
+            <property key="dff.functor.alias" value="QntTilesY" />
+            <property key="dff.functor.comment" value="Value or constant representing double precision real provided as the functor input." />
+            <property key="submodel.out.object.description" value="Value or constant representing double precision real provided as the functor input." />
+            <property key="submodel.out.object.name" value="qntTilesY" />
+            <property key="submodel.out.object.order" value="5" />
+            <inputport name="constant" peerid="v34" />
+        </functor>
+        <functor name="RealValue">
+            <property key="dff.functor.alias" value="newMaxY" />
+            <property key="dff.functor.comment" value="Value or constant representing double precision real provided as the functor input." />
+            <property key="submodel.out.object.description" value="Value or constant representing double precision real provided as the functor input." />
+            <property key="submodel.out.object.name" value="maxY" />
+            <property key="submodel.out.object.order" value="1" />
+            <inputport name="constant" peerid="v32" />
+        </functor>
+        <functor name="RealValue">
+            <property key="dff.functor.alias" value="Qnt Tiles X" />
+            <property key="dff.functor.comment" value="Value or constant representing double precision real provided as the functor input." />
+            <property key="submodel.out.object.description" value="Value or constant representing double precision real provided as the functor input." />
+            <property key="submodel.out.object.name" value="qntTilesX" />
+            <property key="submodel.out.object.order" value="8" />
+            <inputport name="constant" peerid="v27" />
+        </functor>
+        <functor name="RealValue">
+            <property key="dff.functor.alias" value="Min X" />
+            <property key="dff.functor.comment" value="Value or constant representing double precision real provided as the functor input." />
+            <property key="submodel.out.object.description" value="Value or constant representing double precision real provided as the functor input." />
+            <property key="submodel.out.object.name" value="minX" />
+            <property key="submodel.out.object.order" value="7" />
+            <inputport name="constant" peerid="v26" />
+        </functor>
+        <functor name="RealValue">
+            <property key="dff.functor.alias" value="Max X" />
+            <property key="dff.functor.comment" value="Value or constant representing double precision real provided as the functor input." />
+            <property key="submodel.out.object.description" value="Value or constant representing double precision real provided as the functor input." />
+            <property key="submodel.out.object.name" value="maxX" />
+            <property key="submodel.out.object.order" value="6" />
+            <inputport name="constant" peerid="v25" />
+        </functor>
+        <functor name="RealValue">
+            <property key="dff.functor.alias" value="cellHeight" />
+            <property key="dff.functor.comment" value="Value or constant representing double precision real provided as the functor input." />
+            <property key="submodel.out.object.description" value="Value or constant representing double precision real provided as the functor input." />
+            <property key="submodel.out.object.name" value="cellHeight" />
+            <property key="submodel.out.object.order" value="9" />
+            <inputport name="constant" peerid="v35" />
+        </functor>
+        <functor name="RealValue">
+            <property key="dff.functor.alias" value="cellWidth" />
+            <property key="dff.functor.comment" value="Value or constant representing double precision real provided as the functor input." />
+            <property key="submodel.out.object.description" value="Value or constant representing double precision real provided as the functor input." />
+            <property key="submodel.out.object.name" value="cellWidth" />
+            <property key="submodel.out.object.order" value="10" />
+            <inputport name="constant" peerid="v28" />
+        </functor>
+        <functor name="RealValue">
+            <property key="dff.functor.alias" value="Min Tile Index X" />
+            <property key="dff.functor.comment" value="Lower world map tile index that contains part of the input map." />
+            <property key="submodel.out.object.description" value="Lower world map tile index that contains part of the input map." />
+            <property key="submodel.out.object.name" value="minTileIndexX" />
+            <property key="submodel.out.object.order" value="11" />
+            <inputport name="constant" peerid="v23" />
+        </functor>
+        <functor name="RealValue">
+            <property key="dff.functor.alias" value="Max Tile Index X" />
+            <property key="dff.functor.comment" value="Last world map tile index that contains part of the input map." />
+            <property key="submodel.out.object.description" value="Last world map tile index that contains part of the input map." />
+            <property key="submodel.out.object.name" value="maxTileIndexX" />
+            <property key="submodel.out.object.order" value="12" />
+            <inputport name="constant" peerid="v24" />
+        </functor>
+        <functor name="RealValue">
+            <property key="dff.functor.alias" value="Min Tile Index Y" />
+            <property key="dff.functor.comment" value="Lower world map tile index that contains part of the input map." />
+            <property key="submodel.out.object.description" value="Lower world map tile index that contains part of the input map." />
+            <property key="submodel.out.object.name" value="minTileIndexY" />
+            <property key="submodel.out.object.order" value="3" />
+            <inputport name="constant" peerid="v31" />
+        </functor>
+        <functor name="RealValue">
+            <property key="dff.functor.alias" value="Max Tile Index Y" />
+            <property key="dff.functor.comment" value="Last world map tile index that contains part of the input map." />
+            <property key="submodel.out.object.description" value="Last world map tile index that contains part of the input map." />
+            <property key="submodel.out.object.name" value="maxTileIndexY" />
+            <property key="submodel.out.object.order" value="4" />
+            <inputport name="constant" peerid="v30" />
+        </functor>
+    </containerfunctor>
+    <containerfunctor name="Group">
+        <property key="dff.functor.alias" value="group31518" />
+        <functor name="PositiveIntegerValue">
+            <property key="dff.functor.alias" value="World Tile Qnt" />
+            <property key="dff.functor.comment" value="The world tile quantity, considering X = Y. For 4 tiles will have 2 in X and 2 in Y.&#x0A;&#x0A;This information is used to calculate the World Tile size." />
+            <property key="submodel.in.constant.advanced" value="no" />
+            <property key="submodel.in.constant.description" value="The world tile quantity, considering X = Y. For 4 tiles will have 2 in X and 2 in Y.&#x0A;&#x0A;This information is used to calculate the World Tile size." />
+            <property key="submodel.in.constant.name" value="worldTileQnt" />
+            <property key="submodel.in.constant.optional" value="no" />
+            <property key="submodel.in.constant.order" value="3" />
+            <outputport name="object" id="v19" />
+        </functor>
+        <functor name="Map">
+            <property key="dff.functor.alias" value="MapToFit" />
+            <property key="submodel.in.constant.advanced" value="no" />
+            <property key="submodel.in.constant.name" value="mapToFit" />
+            <property key="submodel.in.constant.optional" value="no" />
+            <property key="submodel.in.constant.order" value="1" />
+            <outputport name="object" id="v20" />
+        </functor>
+        <functor name="IntegerValue">
+            <property key="dff.functor.alias" value="Projection Index to create the World Map" />
+            <property key="dff.functor.comment" value="Projection Index, this is a auxiliary information to get the projection information in a table:&#x0A;Index 0 means EPSG:3426 and 1 means EPSG:102030." />
+            <property key="submodel.in.constant.advanced" value="no" />
+            <property key="submodel.in.constant.description" value="Projection Index, this is a auxiliary information to get the projection information in a table:&#x0A;Index 0 means EPSG:3426 and 1 means EPSG:102030." />
+            <property key="submodel.in.constant.name" value="projectionIndexToCreateTheWorldMap" />
+            <property key="submodel.in.constant.optional" value="no" />
+            <property key="submodel.in.constant.order" value="2" />
+            <outputport name="object" id="v21" />
+        </functor>
+    </containerfunctor>
+    <containerfunctor name="Group">
+        <property key="dff.functor.alias" value="group109972" />
+        <containerfunctor name="Group">
+            <property key="dff.functor.alias" value="X" />
+            <containerfunctor name="CalculateValue">
+                <property key="dff.container.collapsed" value="no" />
+                <property key="dff.functor.alias" value="TileWidthInCoordinates" />
+                <inputport name="expression">[&#x0A;    (v2 - v1) / v3&#x0A;]</inputport>
+                <inputport name="defaultValue">.none</inputport>
+                <outputport name="result" id="v22" />
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="mapWorldMinX" />
+                    <inputport name="value" peerid="v7" />
+                    <inputport name="valueNumber">1</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="mapWorldMaxX" />
+                    <inputport name="value" peerid="v9" />
+                    <inputport name="valueNumber">2</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="#tiles" />
+                    <inputport name="value" peerid="v19" />
+                    <inputport name="valueNumber">3</inputport>
+                </functor>
+            </containerfunctor>
+            <containerfunctor name="CalculateValue">
+                <property key="dff.container.collapsed" value="no" />
+                <property key="dff.functor.alias" value="leftXTilesToCut" />
+                <property key="dff.functor.comment" value="#Tiles imediatamente antes, Q n incluem o ponto" />
+                <inputport name="expression">[&#x0A;    floor((v4 - v1) / v5)&#x0A;]</inputport>
+                <inputport name="defaultValue">.none</inputport>
+                <outputport name="result" id="v23" />
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="mapMinX" />
+                    <inputport name="value" peerid="v8" />
+                    <inputport name="valueNumber">4</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="mapWorldMinX" />
+                    <inputport name="value" peerid="v7" />
+                    <inputport name="valueNumber">1</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="TileWidthInCoordinates" />
+                    <inputport name="value" peerid="v22" />
+                    <inputport name="valueNumber">5</inputport>
+                </functor>
+            </containerfunctor>
+            <containerfunctor name="CalculateValue">
+                <property key="dff.container.collapsed" value="no" />
+                <property key="dff.functor.alias" value="lastXTile" />
+                <property key="dff.functor.comment" value="#Tiles incluindo o ponto, inclui o tile q contém o ponto. (o final do tile dado nesse indice é o tile q contem o ponto dado)" />
+                <inputport name="expression">[&#x0A;    ceil((v4 - v1) / v5)&#x0A;]</inputport>
+                <inputport name="defaultValue">.none</inputport>
+                <outputport name="result" id="v24" />
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="mapMaxX" />
+                    <inputport name="value" peerid="v6" />
+                    <inputport name="valueNumber">4</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="mapWorldMinX" />
+                    <inputport name="value" peerid="v7" />
+                    <inputport name="valueNumber">1</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="TileWidthInCoordinates" />
+                    <inputport name="value" peerid="v22" />
+                    <inputport name="valueNumber">5</inputport>
+                </functor>
+            </containerfunctor>
+            <containerfunctor name="CalculateValue">
+                <property key="dff.container.collapsed" value="no" />
+                <property key="dff.functor.alias" value="newmaxX" />
+                <inputport name="expression">[&#x0A;    v1 + v2 * v3&#x0A;]</inputport>
+                <inputport name="defaultValue">.none</inputport>
+                <outputport name="result" id="v25" />
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="mapWorldMinX" />
+                    <inputport name="value" peerid="v7" />
+                    <inputport name="valueNumber">1</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="LastValidTileInd" />
+                    <inputport name="value" peerid="v24" />
+                    <inputport name="valueNumber">2</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="tileWidth" />
+                    <inputport name="value" peerid="v22" />
+                    <inputport name="valueNumber">3</inputport>
+                </functor>
+            </containerfunctor>
+            <containerfunctor name="CalculateValue">
+                <property key="dff.container.collapsed" value="no" />
+                <property key="dff.functor.alias" value="newMinX" />
+                <inputport name="expression">[&#x0A;    v1 + v2 * v3&#x0A;]</inputport>
+                <inputport name="defaultValue">.none</inputport>
+                <outputport name="result" id="v26" />
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="mapWorldMinX" />
+                    <inputport name="value" peerid="v7" />
+                    <inputport name="valueNumber">1</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="leftXToCut" />
+                    <inputport name="value" peerid="v23" />
+                    <inputport name="valueNumber">2</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="tileWidth" />
+                    <inputport name="value" peerid="v22" />
+                    <inputport name="valueNumber">3</inputport>
+                </functor>
+            </containerfunctor>
+            <containerfunctor name="CalculateValue">
+                <property key="dff.container.collapsed" value="no" />
+                <property key="dff.functor.alias" value="#ValidTilesX" />
+                <inputport name="expression">[&#x0A;    v2 - v1&#x0A;]</inputport>
+                <inputport name="defaultValue">.none</inputport>
+                <outputport name="result" id="v27" />
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="minXTile" />
+                    <inputport name="value" peerid="v23" />
+                    <inputport name="valueNumber">1</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="maxX" />
+                    <inputport name="value" peerid="v24" />
+                    <inputport name="valueNumber">2</inputport>
+                </functor>
+            </containerfunctor>
+            <containerfunctor name="CalculateValue">
+                <property key="dff.container.collapsed" value="no" />
+                <property key="dff.functor.alias" value="calculateValue71567" />
+                <inputport name="expression">[&#x0A;    v1 / 256&#x0A;]</inputport>
+                <inputport name="defaultValue">.none</inputport>
+                <outputport name="result" id="v28" />
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="numberValue71568" />
+                    <inputport name="value" peerid="v22" />
+                    <inputport name="valueNumber">1</inputport>
+                </functor>
+            </containerfunctor>
+        </containerfunctor>
+        <containerfunctor name="Group">
+            <property key="dff.functor.alias" value="Y" />
+            <containerfunctor name="CalculateValue">
+                <property key="dff.container.collapsed" value="no" />
+                <property key="dff.functor.alias" value="TileHeightInCoordinates" />
+                <inputport name="expression">[&#x0A;    (v2 - v1) / v3&#x0A;]</inputport>
+                <inputport name="defaultValue">.none</inputport>
+                <outputport name="result" id="v29" />
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="mapWorldMinY" />
+                    <inputport name="value" peerid="v2" />
+                    <inputport name="valueNumber">1</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="mapWorldMaxY" />
+                    <inputport name="value" peerid="v3" />
+                    <inputport name="valueNumber">2</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="#tiles" />
+                    <inputport name="value" peerid="v19" />
+                    <inputport name="valueNumber">3</inputport>
+                </functor>
+            </containerfunctor>
+            <containerfunctor name="CalculateValue">
+                <property key="dff.container.collapsed" value="no" />
+                <property key="dff.functor.alias" value="LastYTile" />
+                <property key="dff.functor.comment" value="#Tiles incluindo o ponto, inclui o tile q contém o ponto. (o final do tile dado nesse indice é o tile q contem o ponto dado)" />
+                <property key="viewer.result" value="yes" />
+                <inputport name="expression">[&#x0A;    ceil((v1 - v4) / v5)&#x0A;]</inputport>
+                <inputport name="defaultValue">.none</inputport>
+                <outputport name="result" id="v30" />
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="mapMinY" />
+                    <property key="dff.functor.comment" value="Acho q o Y final é abaixo do Y Final.&#x0A;Isso pode gerar bug" />
+                    <inputport name="value" peerid="v4" />
+                    <inputport name="valueNumber">4</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="World Max Y" />
+                    <inputport name="value" peerid="v3" />
+                    <inputport name="valueNumber">1</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="TileHeightInCoordinates" />
+                    <inputport name="value" peerid="v29" />
+                    <inputport name="valueNumber">5</inputport>
+                </functor>
+            </containerfunctor>
+            <containerfunctor name="CalculateValue">
+                <property key="dff.container.collapsed" value="no" />
+                <property key="dff.functor.alias" value="TopYTilesToCut" />
+                <property key="dff.functor.comment" value="#Tiles imediatamente antes, Q n incluem o ponto" />
+                <property key="viewer.result" value="yes" />
+                <inputport name="expression">[&#x0A;    floor((v1 - v4) / v5)&#x0A;]</inputport>
+                <inputport name="defaultValue">.none</inputport>
+                <outputport name="result" id="v31" />
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="mapMaxY" />
+                    <property key="dff.functor.comment" value="Parte do pressuposto q Initial Y é o maior e o Final Y é o menor" />
+                    <inputport name="value" peerid="v5" />
+                    <inputport name="valueNumber">4</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="World Max Y" />
+                    <inputport name="value" peerid="v3" />
+                    <inputport name="valueNumber">1</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="TileHeightInCoordinates" />
+                    <inputport name="value" peerid="v29" />
+                    <inputport name="valueNumber">5</inputport>
+                </functor>
+            </containerfunctor>
+            <containerfunctor name="CalculateValue">
+                <property key="dff.container.collapsed" value="no" />
+                <property key="dff.functor.alias" value="newMaxY" />
+                <inputport name="expression">[&#x0A;    v1 - v2 * v3&#x0A;]</inputport>
+                <inputport name="defaultValue">.none</inputport>
+                <outputport name="result" id="v32" />
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="World Max Y" />
+                    <inputport name="value" peerid="v3" />
+                    <inputport name="valueNumber">1</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="FirstValidTileY" />
+                    <inputport name="value" peerid="v31" />
+                    <inputport name="valueNumber">2</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="tileWidth" />
+                    <inputport name="value" peerid="v29" />
+                    <inputport name="valueNumber">3</inputport>
+                </functor>
+            </containerfunctor>
+            <containerfunctor name="CalculateValue">
+                <property key="dff.container.collapsed" value="no" />
+                <property key="dff.functor.alias" value="newMinY" />
+                <property key="viewer.result" value="yes" />
+                <inputport name="expression">[&#x0A;    v1 - v2 * v3&#x0A;]</inputport>
+                <inputport name="defaultValue">.none</inputport>
+                <outputport name="result" id="v33" />
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="World Max Y" />
+                    <inputport name="value" peerid="v3" />
+                    <inputport name="valueNumber">1</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="LastValidTileY" />
+                    <inputport name="value" peerid="v30" />
+                    <inputport name="valueNumber">2</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="tileHeight" />
+                    <inputport name="value" peerid="v29" />
+                    <inputport name="valueNumber">3</inputport>
+                </functor>
+            </containerfunctor>
+            <containerfunctor name="CalculateValue">
+                <property key="dff.container.collapsed" value="no" />
+                <property key="dff.functor.alias" value="#ValidTilesY" />
+                <inputport name="expression">[&#x0A;    v2 - v1&#x0A;]</inputport>
+                <inputport name="defaultValue">.none</inputport>
+                <outputport name="result" id="v34" />
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="minYTile" />
+                    <inputport name="value" peerid="v31" />
+                    <inputport name="valueNumber">1</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="maxYTile" />
+                    <inputport name="value" peerid="v30" />
+                    <inputport name="valueNumber">2</inputport>
+                </functor>
+            </containerfunctor>
+            <containerfunctor name="CalculateValue">
+                <property key="dff.container.collapsed" value="no" />
+                <property key="dff.functor.alias" value="calculateValue71564" />
+                <inputport name="expression">[&#x0A;    v1 / 256&#x0A;]</inputport>
+                <inputport name="defaultValue">.none</inputport>
+                <outputport name="result" id="v35" />
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="numberValue71565" />
+                    <inputport name="value" peerid="v29" />
+                    <inputport name="valueNumber">1</inputport>
+                </functor>
+            </containerfunctor>
+        </containerfunctor>
+    </containerfunctor>
+</script>

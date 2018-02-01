@@ -1,0 +1,68 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Jan-24 02:43:58" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="submodel.group" value="Submodels" />
+    <property key="submodel.import" value='GetMapExtents { { &quot;inputMap&quot; : Map } { } { &quot;minY&quot; : RealValue, &quot;maxX&quot; : RealValue, &quot;minX&quot; : RealValue, &quot;maxY&quot; : RealValue } }; ProjectCoordinate { { &quot;inputY&quot; : RealValue, &quot;inputX&quot; : RealValue, &quot;proj4From&quot; : String, &quot;proj4To&quot; : String } { } { &quot;newX&quot; : RealValue, &quot;newY&quot; : RealValue } }' />
+    <property key="submodel.name" value="ConvertMapBounds" />
+    <functor name="GetProjectionInfo">
+        <property key="dff.functor.alias" value="getProjectionInfo30955" />
+        <inputport name="projection" peerid="v2" />
+        <outputport name="proj4" id="v1" />
+    </functor>
+    <functor name="Map">
+        <property key="dff.functor.alias" value="map31567" />
+        <inputport name="constant" peerid="v4" />
+        <outputport name="object" id="v2" />
+    </functor>
+    <functor name="String">
+        <property key="dff.functor.alias" value="Projection To" />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.name" value="projectionTo" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="2" />
+        <outputport name="object" id="v3" />
+    </functor>
+    <functor name="Map">
+        <property key="dff.functor.alias" value="Input Map" />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.name" value="inputMap" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="1" />
+        <outputport name="object" id="v4" />
+    </functor>
+    <functor name="GetMapExtents">
+        <property key="dff.functor.alias" value="getMapExtents312487" />
+        <inputport name="inputMap" peerid="v2" />
+        <outputport name="minY" id="v5" />
+        <outputport name="maxX" id="v6" />
+        <outputport name="minX" id="v7" />
+        <outputport name="maxY" id="v8" />
+    </functor>
+    <functor name="ProjectCoordinate">
+        <property key="dff.functor.alias" value="Max XY" />
+        <property key="submodel.out.newx.description" value="Extracted number." />
+        <property key="submodel.out.newx.name" value="maxX" />
+        <property key="submodel.out.newx.order" value="1" />
+        <property key="submodel.out.newy.description" value="Extracted number." />
+        <property key="submodel.out.newy.name" value="maxY" />
+        <property key="submodel.out.newy.order" value="2" />
+        <inputport name="inputY" peerid="v8" />
+        <inputport name="inputX" peerid="v6" />
+        <inputport name="proj4From" peerid="v1" />
+        <inputport name="proj4To" peerid="v3" />
+    </functor>
+    <functor name="ProjectCoordinate">
+        <property key="dff.functor.alias" value="Min XY" />
+        <property key="submodel.out.newx.description" value="Extracted number." />
+        <property key="submodel.out.newx.name" value="minX" />
+        <property key="submodel.out.newx.order" value="3" />
+        <property key="submodel.out.newy.description" value="Extracted number." />
+        <property key="submodel.out.newy.name" value="minY" />
+        <property key="submodel.out.newy.order" value="4" />
+        <inputport name="inputY" peerid="v5" />
+        <inputport name="inputX" peerid="v7" />
+        <inputport name="proj4From" peerid="v1" />
+        <inputport name="proj4To" peerid="v3" />
+    </functor>
+</script>

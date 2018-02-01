@@ -1,0 +1,197 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Jan-24 02:43:58" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="submodel.group" value="Submodels" />
+    <property key="submodel.name" value="GetMapExtents" />
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="registration longitude|X" />
+        <inputport name="constant" peerid="v4" />
+        <outputport name="object" id="v1" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="registration Latitude|Y" />
+        <inputport name="constant" peerid="v5" />
+        <outputport name="object" id="v2" />
+    </functor>
+    <functor name="ExtractMapAttributes">
+        <property key="dff.functor.alias" value="extractMapAttributes16898" />
+        <inputport name="map" peerid="v12" />
+        <inputport name="extractDynamicAttributes">.no</inputport>
+        <inputport name="extractStatisticalAttributes">.no</inputport>
+        <outputport name="attributes" id="v3" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue16899" />
+        <inputport name="table" peerid="v3" />
+        <inputport name="key">22</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v4" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue16899" />
+        <inputport name="table" peerid="v3" />
+        <inputport name="key">21</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v5" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue16899" />
+        <inputport name="table" peerid="v3" />
+        <inputport name="key">2</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v6" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue16899" />
+        <inputport name="table" peerid="v3" />
+        <inputport name="key">6</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v7" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue16899" />
+        <inputport name="table" peerid="v3" />
+        <inputport name="key">24</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v8" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue16899" />
+        <inputport name="table" peerid="v3" />
+        <inputport name="key">1</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v9" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue16899" />
+        <inputport name="table" peerid="v3" />
+        <inputport name="key">5</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v10" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue16899" />
+        <inputport name="table" peerid="v3" />
+        <inputport name="key">23</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v11" />
+    </functor>
+    <functor name="Map">
+        <property key="dff.functor.alias" value="Input Map" />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.name" value="inputMap" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="1" />
+        <outputport name="object" id="v12" />
+    </functor>
+    <containerfunctor name="Group">
+        <property key="dff.functor.alias" value="group26316" />
+        <containerfunctor name="CalculateValue">
+            <property key="dff.container.collapsed" value="no" />
+            <property key="dff.functor.alias" value="Min Y" />
+            <property key="submodel.out.result.description" value="The calculated value." />
+            <property key="submodel.out.result.name" value="minY" />
+            <property key="submodel.out.result.order" value="1" />
+            <inputport name="expression">[&#x0A;    v1 - (v2 - v4) * v3&#x0A;]</inputport>
+            <inputport name="defaultValue">.none</inputport>
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="registrationY" />
+                <inputport name="value" peerid="v2" />
+                <inputport name="valueNumber">1</inputport>
+            </functor>
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="#lines" />
+                <inputport name="value" peerid="v9" />
+                <inputport name="valueNumber">2</inputport>
+            </functor>
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="cellHeight" />
+                <inputport name="value" peerid="v10" />
+                <inputport name="valueNumber">3</inputport>
+            </functor>
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="registrationCell" />
+                <inputport name="value" peerid="v11" />
+                <inputport name="valueNumber">4</inputport>
+            </functor>
+        </containerfunctor>
+        <containerfunctor name="CalculateValue">
+            <property key="dff.container.collapsed" value="no" />
+            <property key="dff.functor.alias" value="Max X" />
+            <property key="submodel.out.result.description" value="The calculated value." />
+            <property key="submodel.out.result.name" value="maxX" />
+            <property key="submodel.out.result.order" value="2" />
+            <inputport name="expression">[&#x0A;    v1 + (v2 - v4) * v3&#x0A;]</inputport>
+            <inputport name="defaultValue">.none</inputport>
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="registrationX" />
+                <inputport name="value" peerid="v1" />
+                <inputport name="valueNumber">1</inputport>
+            </functor>
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="#columns" />
+                <inputport name="value" peerid="v6" />
+                <inputport name="valueNumber">2</inputport>
+            </functor>
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="cellWidth" />
+                <inputport name="value" peerid="v7" />
+                <inputport name="valueNumber">3</inputport>
+            </functor>
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="registrationCell" />
+                <inputport name="value" peerid="v8" />
+                <inputport name="valueNumber">4</inputport>
+            </functor>
+        </containerfunctor>
+        <containerfunctor name="CalculateValue">
+            <property key="dff.container.collapsed" value="no" />
+            <property key="dff.functor.alias" value="Min X" />
+            <property key="submodel.out.result.description" value="The calculated value." />
+            <property key="submodel.out.result.name" value="minX" />
+            <property key="submodel.out.result.order" value="3" />
+            <inputport name="expression">[&#x0A;    v1 - v2 * v3&#x0A;]</inputport>
+            <inputport name="defaultValue">.none</inputport>
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="registrationX" />
+                <inputport name="value" peerid="v1" />
+                <inputport name="valueNumber">1</inputport>
+            </functor>
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="cellWidth" />
+                <inputport name="value" peerid="v7" />
+                <inputport name="valueNumber">3</inputport>
+            </functor>
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="registrationCellX" />
+                <inputport name="value" peerid="v8" />
+                <inputport name="valueNumber">2</inputport>
+            </functor>
+        </containerfunctor>
+        <containerfunctor name="CalculateValue">
+            <property key="dff.container.collapsed" value="no" />
+            <property key="dff.functor.alias" value="Max Y" />
+            <property key="submodel.out.result.description" value="The calculated value." />
+            <property key="submodel.out.result.name" value="maxY" />
+            <property key="submodel.out.result.order" value="4" />
+            <inputport name="expression">[&#x0A;    v1 + v2 * v3&#x0A;]</inputport>
+            <inputport name="defaultValue">.none</inputport>
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="registrationY" />
+                <inputport name="value" peerid="v2" />
+                <inputport name="valueNumber">1</inputport>
+            </functor>
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="cellHeight" />
+                <inputport name="value" peerid="v10" />
+                <inputport name="valueNumber">3</inputport>
+            </functor>
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="registrationCellY" />
+                <inputport name="value" peerid="v11" />
+                <inputport name="valueNumber">2</inputport>
+            </functor>
+        </containerfunctor>
+    </containerfunctor>
+</script>

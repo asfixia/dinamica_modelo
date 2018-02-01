@@ -1,0 +1,57 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Jan-24 02:43:58" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="metadata.author" value="Hermann Rodrigues" />
+    <property key="metadata.organization" value="CSR / UFMG" />
+    <property key="submodel.description" value="Search for the occurrences of the given pattern in the given input text. The pattern is a regular expression. The text captured by the first capture group in the given regular expression is returned as the search result. For further information about regular expressions see http://www.astrostatistics.psu.edu/su07/R/html/base/html/regex.html" />
+    <property key="submodel.group" value="Text" />
+    <property key="submodel.largeicon" value="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAE6klEQVR42sWXW2wUVRzG90EeTXyRVxPe0BCCQgSNVioGLzExNaYqiRHUF0wkIaLgpSAVKBsEGkFQBKLQWlBpCxgUFGuFaLfXpTdqL9vt3mZ3Z2cvs7szuzu7n///bBcpu6ftS+tJfjkzZ//n+7455+wkY7FYLHc1NzdfPH/+PJqamuYF9mJP9iYsd/PAfDf2ZG8OcC+n4jbmGIdj3DmnsAc39mRvDrCwEGDcOQHnhAsTLvecwNrscVuAhVMCcIHL7Zk1bo8HHk++n+0c9hAG4JRuj3dWeH1eyH4fwkEJQer5fjbz2EMYgBN6vL4Z8RJyQEJd6yju29qG09TzvXcWc9lDGMDt4SeRZsTvlxBTAni2tgeHW7x462SfeS9JM89lD2EADxX4JP+0SEQoGEDLDSesP7ugJA08WN2JURetCo3PNJ89hAFY3O8PTEuQTOJhGW+c6MUNdwLrTw3jw8YxHL86QqsgIxiYfj57CANwQSAQFBIkwiEZDpcfrxwbwL7ffVj7xSBah2N43NoFPRZCSA5Oq8EewgCBIJnIspAQmSdiCnY2DeH4dQmvfTeGl74ZRV23gjJrN/ocEqKREOSQWIM9hAG4QA6FhETCChTqH9vbhaaBKJZ9YsMT+3vwzgUPDtNqvNcwCE0NQ1HEGuwhDMAFIUUpiULmSTWCH9tc2HJuHBsaHPjN7jFDbDjnwtneCB7a2Y6sFqVVCAt12EMYIBSm9AKi0TCJx1BW04kz/SrKPrPTjDg21w/g5fpxHO6I4sWjfbhCoThoWKDDHsIASoQmliBCJONR2P6hw3f8Jqr/kLH7wjCQUVF3zUkHcQDbWhVYr/qw8dt+GBQ0GiutxR7CANForCRxVUVOT+DtU4OwtkhY8/kAhl20l3qc9jSM5bs6selyAEfaw1i6o51WIEaBVaGeMEAsphahEnoiDr8cwco9XbBeC2LdV71UrQFGknodz9fa8fr3Tnzwq4R1J27i9PUJZLQEVFUtqSkMoKrxIhLxOJDWsPenUbxZN4IV1Ta8/2cEm64q2HhZxqsNTjx9qB+P7OrA+h9c2HrRjYpDdD4MDclEoqRmiQCN5mA8nigipSWJBFbu7sDm5gksr27Hku1tWPzR3yYPfNxG/4R2rKLf19WPYctFF1bQloz5IkjrGj1AsWY+QON/ARob8wESyeQUNDKHoeOSXcLa2l5UnhjClrNDVJkh0kRqsjdo72144dhNVJ4cQsVRektecgC5FDQ9WaTLjT2LAiQ17RYapTcyKVP8mQM9qPhyACtrutA2TIcvl0Y6pSNFZNK6GejdM0NYfcCO5470o/LrQTxa04FcRkc2kzK1btcWBtB13SSl5yey+fbGETy8uxNPHbyB5Z92wjYSMgOwOdca6Xxdc5eEVXs6sZreD2sO2um6C/t/GTd/Y63UpDYjDJBKpUzSLJrLoHxfNxZto32ustG+27CY9nsxXfMTZ6gmTbWUAFUUcimdg/ur2rBkR76W5yza9pepwVqsWdAXBshkuDBtkjN4n7NE7g5oLMsB8nVZs84Q1ObrWaugyx7CAIZhmAWMQbB4LmtMgceMyZoCPJa9o05Uzx7CANls1iyYS9ijKEDhRcQtl8vNKYU25UX0P36a3QqgFj5OeWnmksLHKXsWAtxDLCPKiSfnifJJT/a2LJi8WDjPsOeCfwHIaKjyczhqmwAAAABJRU5ErkJggg==" />
+    <property key="submodel.name" value="SearchAndCaptureRegexInText" />
+    <property key="submodel.smallicon" value="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB1UlEQVR42qWTT0sbURTF5yt0KW6q4qYoRUUqfoKsdKtSLYpQEKwLcWcRN0LAQgWxVm0FFwNGNCEYQfFPFxW0bopKF0ViMplMJpmJ84JOqmOa47vPMSIdaLEXDo937zk/5sI8KRKJWOFwGKFQ6J9FfsoBkCS6PKbcnCQRkSp6GkM0Fsepq4SiQFMT4oy5PZqTj8rN3QMUhZsTKlQ1iZSWBDN0+MbWkeB3XdNEn+bk8wSoyRS0lI6UruPMNLD+7SdqB4OY3ziElTVEn+bk8wTo6TTSmQxMHv51YaF7YguNQ8vwja7CsZno05x8noCMYcIws8jlGI5Pkmjm4ReDS6gfWMTBjzjOeZ/m5PMEnGUtMIvByV9gaHYH71cO0OVfQ0O/jDdTWyhc2mCMCZ8ngOVysO1zoaedM3Au8/j6PYr6vgU8651HxrSQ53DyeQLsvI1i4QqTy/uo7PiAivYpVL+cxvPeT0J+eRcoOsL3ABAMBkXj2rkSZ9Prz9g/Uko/zERgDzWvPqKuZ054Cte3Pjd3D0DxN9reBvDE58fw9GYJMDK7jfLWdyhrGUfHyJLwPQDcrfBnFV15V2mF/34Lsix/Kb1G/ll/lfsa+QpxAeBVxdXwCNUQ4AYT4zeT5WFixAAAAABJRU5ErkJggg==" />
+    <functor name="ExtractStructString">
+        <property key="dff.functor.alias" value="extractStructString26734" />
+        <property key="submodel.out.string.description" value="The modified text, if the pattern was found in the input text, or the input text itself, if the pattern was not found." />
+        <property key="submodel.out.string.name" value="result" />
+        <property key="submodel.out.string.order" value="1" />
+        <inputport name="struct" peerid="v3" />
+        <inputport name="name">&quot;result&quot;</inputport>
+    </functor>
+    <functor name="String">
+        <property key="dff.functor.alias" value="Input Text" />
+        <property key="dff.functor.comment" value="Text where the search will take place." />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="Text where the search will take place." />
+        <property key="submodel.in.constant.name" value="inputText" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="1" />
+        <outputport name="object" id="v1" />
+    </functor>
+    <functor name="String">
+        <property key="dff.functor.alias" value="Pattern Text" />
+        <property key="dff.functor.comment" value="Pattern whose occurrence will be search for in the input text." />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="Pattern whose occurrence will be search for in the input text." />
+        <property key="submodel.in.constant.name" value="patternText" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="2" />
+        <outputport name="object" id="v2" />
+    </functor>
+    <containerfunctor name="CalculateRExpression">
+        <property key="dff.container.collapsed" value="yes" />
+        <property key="dff.functor.alias" value="calculateRExpression26720" />
+        <inputport name="expression">&quot;matches &lt;- gregexpr(s2, s1, perl=TRUE)&#x0A;all_results &lt;- regmatches(s1, matches)&#x0A;result &lt;- gsub(s2, \&quot;\\1\&quot;, all_results) &#x0A;&#x0A;outputString(\&quot;result\&quot;, result)&#x0A;&quot;</inputport>
+        <inputport name="treatWarningAsErrors">.no</inputport>
+        <outputport name="result" id="v3" />
+        <functor name="NumberString">
+            <property key="dff.functor.alias" value="numberString26722" />
+            <inputport name="value" peerid="v1" />
+            <inputport name="valueNumber">1</inputport>
+        </functor>
+        <functor name="NumberString">
+            <property key="dff.functor.alias" value="numberString26723" />
+            <inputport name="value" peerid="v2" />
+            <inputport name="valueNumber">2</inputport>
+        </functor>
+    </containerfunctor>
+</script>

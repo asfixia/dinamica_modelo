@@ -1,0 +1,86 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Jan-24 02:43:58" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="submodel.description" value='Requires proj4&#x0A;install.packages(&quot;proj4&quot;)' />
+    <property key="submodel.group" value="Submodels" />
+    <property key="submodel.name" value="ProjectCoordinate" />
+    <functor name="ExtractStructNumber">
+        <property key="dff.functor.alias" value="getNewX1" />
+        <property key="submodel.out.number.description" value="Extracted number." />
+        <property key="submodel.out.number.name" value="newX" />
+        <property key="submodel.out.number.order" value="1" />
+        <property key="viewer.number" value="yes" />
+        <inputport name="struct" peerid="v5" />
+        <inputport name="name">&quot;x1&quot;</inputport>
+    </functor>
+    <functor name="ExtractStructNumber">
+        <property key="dff.functor.alias" value="getNewY1" />
+        <property key="submodel.out.number.description" value="Extracted number." />
+        <property key="submodel.out.number.name" value="newY" />
+        <property key="submodel.out.number.order" value="2" />
+        <property key="viewer.number" value="yes" />
+        <inputport name="struct" peerid="v5" />
+        <inputport name="name">&quot;y1&quot;</inputport>
+    </functor>
+    <functor name="String">
+        <property key="dff.functor.alias" value="Proj 4 To" />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.name" value="proj4To" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="4" />
+        <outputport name="object" id="v1" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="inputX" />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.name" value="inputX" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="2" />
+        <outputport name="object" id="v2" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="inputY" />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.name" value="inputY" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="1" />
+        <outputport name="object" id="v3" />
+    </functor>
+    <functor name="String">
+        <property key="dff.functor.alias" value="Proj 4 From" />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.name" value="proj4From" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="3" />
+        <outputport name="object" id="v4" />
+    </functor>
+    <containerfunctor name="CalculateRExpression">
+        <property key="dff.container.collapsed" value="no" />
+        <property key="dff.functor.alias" value="calculateRExpression59619" />
+        <property key="viewer.result" value="yes" />
+        <inputport name="expression">&quot;library(\&quot;proj4\&quot;)&#x0A;proj &lt;- ptransform(list(v1,v2), s1, s2, silent=FALSE)&#x0A;outputDouble(\&quot;x1\&quot;, proj$x)&#x0A;outputDouble(\&quot;y1\&quot;, proj$y)&quot;</inputport>
+        <inputport name="treatWarningAsErrors">.no</inputport>
+        <outputport name="result" id="v5" />
+        <functor name="NumberString">
+            <property key="dff.functor.alias" value="numberString59621" />
+            <inputport name="value" peerid="v4" />
+            <inputport name="valueNumber">1</inputport>
+        </functor>
+        <functor name="NumberString">
+            <property key="dff.functor.alias" value="numberString59625" />
+            <inputport name="value" peerid="v1" />
+            <inputport name="valueNumber">2</inputport>
+        </functor>
+        <functor name="NumberValue">
+            <property key="dff.functor.alias" value="numberValue59628" />
+            <inputport name="value" peerid="v2" />
+            <inputport name="valueNumber">1</inputport>
+        </functor>
+        <functor name="NumberValue">
+            <property key="dff.functor.alias" value="numberValue59629" />
+            <inputport name="value" peerid="v3" />
+            <inputport name="valueNumber">2</inputport>
+        </functor>
+    </containerfunctor>
+</script>
