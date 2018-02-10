@@ -1,0 +1,65 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Feb-06 19:31:45" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="metadata.author" value="Dinamica Team" />
+    <property key="metadata.organization" value="CSR/UFMG" />
+    <property key="submodel.description" value="Crop the given input map to cover the extents of non-null cells of the given mask. The resolution of the output map is the smallest resolution among the given input map and the mask." />
+    <property key="submodel.group" value="Map Algebra" />
+    <property key="submodel.largeicon" value="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEMklEQVR42r1XW2xUVRTtB/LXRD/KV79MiDH+KIKi0HmXRyA1xEQDJMZHjJoY8RGsCVPaaVUoBIMUCNKCWNtU02DHtjPTQi2DoHTa6WNKaUthQAxgOo9OMWhSUJd7b++9rfV27twy8SYra869e/ZaZ59z5u7JyZm+FjjL/d/ayttg8QTAzGO+n5Pda+Gm2mEU7gqCP898kMuiZ6ITCI4lhHnM97MpvrluVMSXFTdx7ge0mTsq2rGy1I/Oi3E8XNohzGO1ItmAjeCsDGJpsZfFn1QNyMx/+OkWlrt9ODkax2MfB4WfKvHh7NVJBC8n7w2XkugknI6mYK+QqhYQ8tUlyLOSs87LKTyxrRVtwzEs3fm98MrtPqw+GEZhVfc9wVUVgnVvFzrGkrB6xMCDM9d/kZ0qcOoKVYBm7BuKYfnus/BdiMFS5kfRkQiKagbmjfWH+7H2UC9c+8M4cZENBNjAopkbI89S3HCa90ABCTafj2HFnnPCHLzqo3bTKPywTbCKYPP4SXgCTjLgH9E3wLv8EUIhP/xmkGa+NySsBK8hOE1iDe92F+12ztF6IQnXgT5hPQMLFBOL+WHjQAyOfWFhJfgh5QuZIl8954+/3ySnyDuUwOpD/cJ6BrS9wMfkq/5xctsrbEsTPNc536iIK0etiPfX8cEk1h6OCKc3UB5Afd+4uGXmsQkDmviyD7zqUVvCORojcayvGRQ2NFAbHse66oiwCQN64nzO86WqkQSeOTokbDMycCwcQxEFM2doYC7xheqy1g8ksOGLEeG0BuwkeLQnhg3HhoXtxgbSiWv76su+BJ6tHRU2NFBNwhxcbWzASFwz8DkJP1c3Jmxo4LPuOJ6vHxNOYyATcS3nkd4kNjZcEk43KQk+GEpgU0NUeI7gTMW1nDUkvPnrK8KGBvaHknih8aqwTrAZ8emqhv/JyWxoYF9oAi8evyY8K9is+HRVeybwEuVkNjTwKQm/4r0ubKcXiRIsbZSr8pQZcS3ngZ4UXm76WdjQwCddKbzWfFPYVuaD9ttO4srPa6biWs4qEn7Ve0M4AwOTeKP1F2E7GZC3mog3mRWfXtbuSbzeclM4rQFHuR+7u27hzcC4MC8Bv1KXbJ2XuJKTDPTexlsnEsIOIwO7Qr9iS3scO6kCK9zNsFKTYvUoKDOPglIf5WnB05SLmcdcBb2WXwzsCN3GOyeTcAdTaI1OoSV6JwuYmoE7CFz7U12KXB0Dv2FrZ0rw3ncpvNuRXbxNqBuZklaN28F/GXBWBFDZdxfuc7+j5MfswD0L2wg1w3/o7oU8KzWnbIIrkS3YPT5Yt7fAUtIszCeLxbkRnl0BtTm1zqMJnbM5dVFnvOf8X/D03BXmMTfAilauXnOaZ7IJTYfFluL6M2pVmV0V/km+r2hl+4/vf67ZVXUQHiXcn/M/XXpVZfH71IC/AUZ6x65MQIqgAAAAAElFTkSuQmCC" />
+    <property key="submodel.name" value="CropMapUsingMask" />
+    <property key="submodel.smallicon" value="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABWklEQVR42o2SvU7DMBDH8y59gAw8ARCcB0BiaBlg4VNMiKlT2wReg8LAgLLw0SRFwMKExAJUDF1YCqhD1IWBhePu4gTbNSgn/XWKffe7v2M7jgyx348WggQoOxXCP7gCjN8Fr5NA5+EbKFdpxjTDAJ8mhynMt3vQvPvkTE5MEdjLHXIzgRggsHk7HsNc6xJ2byacN3sfsHHxrugN1s5G0Lr/YkjhJAcEcUYQrx3DTjrmbHNA4L3bCTqJdQCGS5aoaP18xMXSYik6M03eQmdTDoqgxpXotQBM/TBaXzX2dQAeo34yBMpmM18zri8dv4BQ9jUAbSx2B2WB2szfuN44fAL/L4BaYDbzPl4f7+fXaAHIAhGkfAxTQlOfhkRWAKlu1WOpRveZH5QGmG2eXhNEhHYHLHoT0gHVawCMmnn/qmji8tFAfco1E/BviDDJBDtMMutPrBCunOyqgB98t3/mPddykAAAAABJRU5ErkJggg==" />
+    <functor name="Map">
+        <property key="dff.functor.alias" value="Input Map" />
+        <property key="dff.functor.comment" value="The map whose content will be cropped to cover only the given extents." />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="The map whose content will be cropped to cover only the given extents." />
+        <property key="submodel.in.constant.name" value="inputMap" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="1" />
+        <outputport name="object" id="v1" />
+    </functor>
+    <functor name="Map">
+        <property key="dff.functor.alias" value="Output Mask" />
+        <property key="dff.functor.comment" value="Map that will be used to define the extents and the cells present in the output map. The output map will cover the extents of non-null cells of the mask." />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="Map that will be used to define the extents and the cells present in the output map. The output map will cover the extents of non-null cells of the mask." />
+        <property key="submodel.in.constant.name" value="outputMask" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="2" />
+        <outputport name="object" id="v2" />
+    </functor>
+    <containerfunctor name="CalculateCategoricalMap">
+        <property key="dff.container.collapsed" value="yes" />
+        <property key="dff.functor.alias" value="Region Mask" />
+        <property key="dff.functor.extendedcomment" value="Create a new map with a region covering the entire given extents." />
+        <inputport name="expression">[&#x0A;    if isNull(i1) then&#x0A;        null&#x0A;    else &#x0A;        1&#x0A;]</inputport>
+        <inputport name="cellType">.int8</inputport>
+        <inputport name="nullValue">.default</inputport>
+        <inputport name="resultIsSparse">.no</inputport>
+        <inputport name="resultFormat">.none</inputport>
+        <outputport name="result" id="v3" />
+        <functor name="NumberMap">
+            <property key="dff.functor.alias" value="numberMap32988" />
+            <inputport name="map" peerid="v2" />
+            <inputport name="mapNumber">1</inputport>
+        </functor>
+    </containerfunctor>
+    <containerfunctor name="RegionManager">
+        <property key="dff.functor.alias" value="regionManager32989" />
+        <inputport name="regions" peerid="v3" />
+        <inputport name="borderCells">0</inputport>
+        <internaloutputport name="regionManager" id="v4" />
+        <functor name="RegionalizeMap">
+            <property key="dff.functor.alias" value="Regionalized Input Map" />
+            <property key="dff.functor.extendedcomment" value="Crop the input map to cover the are defined by the region mask." />
+            <property key="submodel.out.regionalmap.description" value="Cropped version of the input map covering only the extents of the non-cells of the mask." />
+            <property key="submodel.out.regionalmap.name" value="outputMap" />
+            <property key="submodel.out.regionalmap.order" value="1" />
+            <inputport name="globalMap" peerid="v1" />
+            <inputport name="regionId">1</inputport>
+            <inputport name="keepNonRegionCells">.no</inputport>
+            <inputport name="regionManager" peerid="v4" />
+        </functor>
+    </containerfunctor>
+</script>

@@ -1,0 +1,43 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Feb-06 19:31:45" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="submodel.description" value="CellType enum from documentation.&#x0A;&#x0A;LOG1S = 0&#x0A;INT1S = 1&#x0A;INT1U = 2&#x0A;INT2S = 3&#x0A;INT2U = 4&#x0A;INT4S = 5&#x0A;INT4U = 6&#x0A;FLT4S = 7&#x0A;FLT8S = 8&#x0A;Equivalente aos tipos do pacote &apos;raster&apos; https://cran.r-project.org/web/packages/raster/raster.pdf" />
+    <property key="submodel.group" value="Submodels" />
+    <property key="submodel.name" value="GetCellTypeAsInteger" />
+    <functor name="ExtractStructNumber">
+        <property key="dff.functor.alias" value="extractStructNumber64106" />
+        <inputport name="struct" peerid="v3" />
+        <inputport name="name">&quot;cellType&quot;</inputport>
+        <outputport name="number" id="v1" />
+    </functor>
+    <functor name="IntegerValue">
+        <property key="dff.functor.alias" value="integerValue64107" />
+        <property key="submodel.out.object.description" value="CellType as Integer" />
+        <property key="submodel.out.object.name" value="integerCellType" />
+        <property key="submodel.out.object.order" value="1" />
+        <property key="viewer.object" value="yes" />
+        <inputport name="constant" peerid="v1" />
+    </functor>
+    <functor name="MapFilename">
+        <property key="dff.functor.alias" value="Map Path" />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.name" value="mapPath" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="1" />
+        <inputport name="constant">&quot;../../../../../Program Files/Dinamica EGO 4/map.tif&quot;</inputport>
+        <outputport name="object" id="v2" />
+    </functor>
+    <containerfunctor name="CalculateRExpression">
+        <property key="dff.container.collapsed" value="no" />
+        <property key="dff.functor.alias" value="calculateRExpression64101" />
+        <inputport name="expression">&quot;library(\&quot;raster\&quot;)&#x0A;tifContent &lt;- raster(s1)&#x0A;rasterCellType &lt;- dataType(tifContent)&#x0A;&#x0A;result &lt;- 0&#x0A;switch(rasterCellType,&#x0A;LOG1S = {result &lt;- 0},&#x0A;INT1S = {result &lt;- 1},&#x0A;INT1U = {result &lt;- 2},&#x0A;INT2S = {result &lt;- 3},&#x0A;INT2U = {result &lt;- 4},&#x0A;INT4S = {result &lt;- 5},&#x0A;INT4U = {result &lt;- 6},&#x0A;FLT4S = {result &lt;- 7},&#x0A;FLT8S = {result &lt;- 8})&#x0A;outputDouble(\&quot;cellType\&quot;, result)&#x0A;&quot;</inputport>
+        <inputport name="treatWarningAsErrors">.no</inputport>
+        <outputport name="result" id="v3" />
+        <functor name="NumberString">
+            <property key="dff.functor.alias" value="numberString64105" />
+            <inputport name="value" peerid="v2" />
+            <inputport name="valueNumber">1</inputport>
+        </functor>
+    </containerfunctor>
+</script>

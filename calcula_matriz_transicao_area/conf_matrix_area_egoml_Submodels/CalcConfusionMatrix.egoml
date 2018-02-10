@@ -1,0 +1,120 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Feb-09 16:49:42" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="metadata.author" value="Hermann Rodrigues" />
+    <property key="metadata.organization" value="CSR / UFMG" />
+    <property key="submodel.description" value='Calculates the confusion matrix (https://en.wikipedia.org/wiki/Confusion_matrix) from two input maps. The confusion matrix is a table with format &quot;*#real, *#real and #real&quot; mapping each possible combination of pair of input map values to their corresponding number of cells.' />
+    <property key="submodel.documentation" value="http://www.csr.ufmg.br/dinamica/dokuwiki/doku.php?id=calc_confusion_matrix" />
+    <property key="submodel.group" value="Map Algebra" />
+    <property key="submodel.import" value='CalcCombinationMap { { &quot;initialMap&quot; : CategoricalMap, &quot;finalMap&quot; : CategoricalMap } { } { &quot;combinationMap&quot; : CategoricalMap, &quot;combinationMapDictionary&quot; : Table } }' />
+    <property key="submodel.largeicon" value="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADHklEQVR42sVXW08TYRDtgwZ40PgC0d/gk7/ARF81xkSN/8SIBLwkNlGDqFERbxASfBbaQrmIRjHqG3S3C1FKCQRBJFx6gVq645zp9rKFdt0PhElOJ9/p9szZmdmk6yEiz34i++HxHDh6w+873BigmoYAVV3bimqBX7IqD23UQC3UROGcgUP4Yq8CtVCz2EAt3El8PEM0coHo86UiXGSco6v+BcnZs0semtDmQC3ULDZQh1ZJjJwl+sIiXy8Xgc/fzlNTcFGynN3y0IQ2B2qhps1ADc8L0dAdoUbfDDX5Z/O4HpihW73T5O2LSsbZLQ9NaEsHuNY2Bnzy5ega0RhDi9kxniS67TMkq/DQhHbWgG+rgep6y8CKSaPLGRpbKSC0apIRZ8FuTTLObnloQltGUF/BAC4OsYi2WoC+ZtJEgsjbo0nG2S0fsoyVN2CNYILb9Z1d/0gUMMmIbhDd8+uSJxV4aEI7u4S+8jvgfRuiOz2Alsddn0bNgTC19BmScXbPh0S7/A5YBiK8NFOM6Lods3+Imnt1ySo8NKFdtgO5HYhwuyLcqki8gCnmZriVzQFdMs6u+VhW23EJo7j7hMmgPKaZm0sRtfBMkaeTKrwp2o4G8IM5btvPIswzfmeIHgXDkucVeGhC2/EpuM8L8yCg0UNuXzEeBw1qHRiXrMJDE9qOO7CYZuAO0gUsMfAIP+kPS15S4KEJbccR/OI2LWyYNoBb3iS+G11y7hoV3tHAEu4+ZdoAbo1n+bRPl5y7RoV3NBAztyLO4KeJng+GJccV+Zj5D0vYGtSotV+jZ/16Hm2Ml0MGtQ+PS25T4KEJbcclxJg2SgCOO0mvh8KSUzvgy3agyjKwzr9IbNqRZA4L/GIgLDmZUeOhjaiqZCCN+WXsSFmze8UzlS6ZanzarGAgN4JK0fnO2BW+4hK2D+qMMLUPFdDB6Bw26M2HCckdKjw0Wdvx/0Cl6Hpv7Aq/7f+BfXgxsRs4djMQk1czdoclKQXmhtZV74CHNmrUXen6VPpicoRxgnGKcfo/4yTjeOmr2UHLRN0eoNYqbns53bf4C+oFXdN4NgYQAAAAAElFTkSuQmCC" />
+    <property key="submodel.name" value="CalcConfusionMatrix" />
+    <property key="submodel.smallicon" value="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABdElEQVR42qWT30oCQRTG90696breoYugF+giil6pFQuTLioSsoIkxHqD0J1N07wo6wVyxxJdRfKmoDQy+2NfZ2a3stUl0IFvz293zvn2HJhRJkKp/FiAwedn8KgMXinNjv0s8kQ+1d0AUBTxMsyy6xTF59esL2ezQH4BuJhHQKsDl3NSfzhZA85nZLpdRwaqZeA/KlNCFUFWxapewQozpXo5xMpYSpQsA9U28KpJ+YE/A9dtoPIKrGscJkXTwWvEpY7VsF33a2C+ADXavH0HwrqBBsWGgzf1AupvLgYbiSuEtQK2jjl20kVEKEYcvJ0qIsyMwQZ39If7D+CReDfN0aTYHMAPny4dtLrAE23SJIiecIhROwO4DReDvdQVoukCYhkDB7kiYlku1cvxHMd+xjnComXQtSVW/JT/HBg3tuvEOUj2nbLDrPEv+747GPkojy8navIykaOH2hKtifm8Lizy5GUK6i1pQGuSND2EpqSBeIyiL+tyDHR/hbVhAAAAAElFTkSuQmCC" />
+    <functor name="CalcAreas">
+        <property key="dff.functor.alias" value="Combination Areas" />
+        <inputport name="source" peerid="v6" />
+        <outputport name="areas" id="v1" />
+    </functor>
+    <functor name="CategoricalMap">
+        <property key="dff.functor.alias" value="Initial Map" />
+        <property key="dff.functor.comment" value='The initial map. This map corresponds to the &quot;Initial&quot; key column of the resulting table.' />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value='The initial map. This map corresponds to the &quot;Initial&quot; key column of the resulting table.' />
+        <property key="submodel.in.constant.name" value="initialMap" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="1" />
+        <outputport name="object" id="v2" />
+    </functor>
+    <functor name="CategoricalMap">
+        <property key="dff.functor.alias" value="Final Map" />
+        <property key="dff.functor.comment" value='The final map. This map corresponds to the &quot;Final&quot; key column of the resulting table.' />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value='The final map. This map corresponds to the &quot;Final&quot; key column of the resulting table.' />
+        <property key="submodel.in.constant.name" value="finalMap" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="2" />
+        <outputport name="object" id="v3" />
+    </functor>
+    <functor name="GetTableKeys">
+        <property key="dff.functor.alias" value="Combinations Values" />
+        <inputport name="table" peerid="v1" />
+        <outputport name="keys" id="v4" />
+    </functor>
+    <functor name="Table">
+        <property key="dff.functor.alias" value="Confusion Matrix" />
+        <property key="dff.functor.comment" value='Resulting confusion matrix. The confusion matrix is a table with format &quot;*#real, *#real and #real&quot; mapping each possible combination of pair of input map values to their corresponding number of cells.' />
+        <property key="submodel.out.object.description" value='Resulting confusion matrix. The confusion matrix is a table with format &quot;*#real, *#real and #real&quot; mapping each possible combination of pair of input map values to their corresponding number of cells.' />
+        <property key="submodel.out.object.name" value="confusionMatrix" />
+        <property key="submodel.out.object.order" value="1" />
+        <inputport name="constant" peerid="v5" />
+    </functor>
+    <functor name="TableJunction">
+        <property key="dff.functor.alias" value="Confusion Matrix Or Default" />
+        <inputport name="possibleTable1" peerid="v12" />
+        <inputport name="possibleTable2">[&#x0A;    &quot;Initial*&quot;, &quot;Final*&quot;, &quot;Changes&quot;, &#x0A;]</inputport>
+        <outputport name="table" id="v5" />
+    </functor>
+    <functor name="CalcCombinationMap">
+        <property key="dff.functor.alias" value="calcCombinationMap46667" />
+        <inputport name="initialMap" peerid="v2" />
+        <inputport name="finalMap" peerid="v3" />
+        <outputport name="combinationMap" id="v6" />
+        <outputport name="combinationMapDictionary" id="v7" />
+    </functor>
+    <containerfunctor name="ForEach">
+        <property key="dff.container.collapsed" value="no" />
+        <property key="dff.functor.alias" value="For Each Combination Area ..." />
+        <inputport name="elements" peerid="v4" />
+        <internaloutputport name="step" id="v8" />
+        <functor name="MuxTable">
+            <property key="dff.functor.alias" value="Current Confusion Matrix" />
+            <inputport name="initial">[&#x0A;    &quot;Initial*&quot;, &quot;Final*&quot;, &quot;Changes&quot;, &#x0A;]</inputport>
+            <inputport name="feedback" peerid="v12" />
+            <outputport name="table" id="v9" />
+        </functor>
+        <functor name="Step">
+            <property key="dff.functor.alias" value="Combination Value" />
+            <inputport name="step" peerid="v8" />
+            <outputport name="step" id="v10" />
+        </functor>
+        <functor name="GetTableValue">
+            <property key="dff.functor.alias" value="Number Of Changes" />
+            <inputport name="table" peerid="v1" />
+            <inputport name="keys" peerid="v10" />
+            <inputport name="column">2</inputport>
+            <inputport name="valueIfNotFound">.none</inputport>
+            <outputport name="result" id="v11" />
+        </functor>
+        <functor name="SetTableCellValue">
+            <property key="dff.functor.alias" value="Updated Confusion Matrix" />
+            <inputport name="table" peerid="v9" />
+            <inputport name="column">3</inputport>
+            <inputport name="keys" peerid="v13" />
+            <inputport name="value" peerid="v11" />
+            <outputport name="result" id="v12" />
+        </functor>
+        <functor name="AddTupleValue">
+            <property key="dff.functor.alias" value="Initial-Final Value Pair" />
+            <inputport name="tuple" peerid="v15" />
+            <inputport name="value" peerid="v14" />
+            <outputport name="result" id="v13" />
+        </functor>
+        <functor name="GetTableValue">
+            <property key="dff.functor.alias" value="Final Value" />
+            <inputport name="table" peerid="v7" />
+            <inputport name="keys" peerid="v10" />
+            <inputport name="column">3</inputport>
+            <inputport name="valueIfNotFound">.none</inputport>
+            <outputport name="result" id="v14" />
+        </functor>
+        <functor name="GetTableValue">
+            <property key="dff.functor.alias" value="Initial Value" />
+            <inputport name="table" peerid="v7" />
+            <inputport name="keys" peerid="v10" />
+            <inputport name="column">2</inputport>
+            <inputport name="valueIfNotFound">.none</inputport>
+            <outputport name="result" id="v15" />
+        </functor>
+    </containerfunctor>
+</script>

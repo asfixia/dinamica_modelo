@@ -1,0 +1,94 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Feb-09 16:49:42" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="metadata.author" value="Hermann Rodrigues" />
+    <property key="metadata.organization" value="CSR / UFMG" />
+    <property key="submodel.description" value="Get the minimum cell type value big enough to represent values in the given bounds." />
+    <property key="submodel.documentation" value="http://csr.ufmg.br/dinamica/dokuwiki/doku.php?id=get_minimum_necessary_cell_type" />
+    <property key="submodel.group" value="Development" />
+    <property key="submodel.largeicon" value="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACpElEQVR42u1XTWsTURSdRZukDJXOIoMNs1GQgdQgdtNVCUYa+4/ECIJmlxBwkxiIuhBx4da0uhKErvzAD+rCjQvFWirWBDFR0bm+M7kvvIwz0wxOogsvnMzMe2/OOXOTd+9E0zQtUa/XSQXGtPgjUMfgi2WBnMBRAX0CBnTmhsYyaxqYMPnCFshUKpW7tVqNqtUqifNYAC5wghsa0GJNUzWAi3ksnFSAGxoezZGLNNwidt7v0rudXff4J5AcCHBDI8yAiZQh9vY+xAoEuKXOgQY63W6siGyg3/9KvV4/FoArsgGE4zixQMZYBqawC0INpMvl8gPes7ECnOD23QWNRmNYBwSWBPICp2NGnrnnPZqa2Wq1qNlsEgbZWUamKkZkwA0NaEFTGjBkfZ5mL+Cj2wv0QqEANxY7MibVDZkbGhZr6tKZOaGnDsvGUFMvFos0bQOq5v8M/AsZWPsLGViLlIHZxfK9zqELmzR3vk2pkj8whzWHL260xT0zY2fgzKn8QRlYAPG4gbVccgMNqJrSjXHi9uugV3ITT4d4sk/0eN8Rx1EMxgYGsJabzm/FiDUMNQNuhcrdfEW5Gy+Hr8peA6nSHZd8u+vQduenOHrgjg16f1KslXXeEwY0oKVW3ET22nPKXn1G2dbTUYix49dfuGVaGnjbI3rzxfEF5lwD51wD1lIILzSHf0zsxkMKxJVH7n+GJBv49J3o4zfHF5hTDNihvAIy2/hYOXZ5iwBxvu7p4+hc9lypPfyR/QiAjNTgK7D5XpVrXdFZkQYS3AlXj1TuyxvVPo5FVrRdsCG7q+HhslljlecTaqu0WNz3R7h4afOzrAPJkj9kHTDP3toK2AUGa1h+uy3B28JvGy4InBQoRHz1iqIRGrNsYpxXrzSLz4xD/Auhn2XiTBzIBgAAAABJRU5ErkJggg==" />
+    <property key="submodel.name" value="GetMinimumNecessaryCellType" />
+    <property key="submodel.smallicon" value="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABuElEQVR42p2Sy0tCURDGZ+tGqE1RuuhpmhpRtIygdv1D0cON6UKTynfejUqUFj2gLCVCW0Sb1IKgForRopbZovV0v+O9knVDaOCDw8zvmzN37qFQKMSKCAoGgxQIBDSFmsqpPnEgogkk/X7/kc/nY4/HoynUwIBVPKx2EjcAaBdgwKpTtDTwer0Cqtc/+P293iLkEGD+bPCvCcLhcHOBbrc7324HYFQeXpIkiaPRKEcaixnActpoACw88JJaiEf8FA+tUyK8QYnIJiV/CDnUwIBtNpybmebZSTsN7r/RUPqFOpyX1OnKawo1MGDhgVd0Gjl4I1uqRmO7VTKs5sjgvqAeV6uQQw2MLV0j0/5rY4r5KRuPCnOFx1MVMq5mqduZO9Y7zli3dCqEs5y7Nsg1MGAtO1XZa29MYNt+Ymv8gc2xEvXKkN6R+fX79CsZ7nWek3mrSGCtyUfxgskcK7N561bIIpVlKEu4FfH82RBCt3jCJumOLLGSwhcZXjHB4OY1DwduREd8J0bWniAreLDwKBOURLJvrcD9visyunLUvXx4/3MHXQt7BdTAgIVH8TZj4tvZpPWAtNgv7fP9VITtv2oAAAAASUVORK5CYII=" />
+    <functor name="IntegerValue">
+        <property key="dff.functor.alias" value="Maximum Value As Integer" />
+        <inputport name="constant" peerid="v2" />
+        <outputport name="object" id="v1" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="Maximum Value" />
+        <property key="dff.functor.comment" value="Maximum value that will be stored in the target map." />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="Maximum value that will be stored in the target map." />
+        <property key="submodel.in.constant.name" value="maximumValue" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="2" />
+        <outputport name="object" id="v2" />
+    </functor>
+    <functor name="RealValue">
+        <property key="dff.functor.alias" value="Minimum Value" />
+        <property key="dff.functor.comment" value="Minimum value that will be stored in the target map." />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="Minimum value that will be stored in the target map." />
+        <property key="submodel.in.constant.name" value="minimumValue" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="1" />
+        <outputport name="object" id="v3" />
+    </functor>
+    <functor name="IntegerValue">
+        <property key="dff.functor.alias" value="Minimum Value As Integer" />
+        <inputport name="constant" peerid="v3" />
+        <outputport name="object" id="v4" />
+    </functor>
+    <functor name="CellType">
+        <property key="dff.functor.alias" value="Necessary Cell Type" />
+        <property key="dff.functor.comment" value="The minimum cell type big enough to represent of values between the given bounds." />
+        <property key="submodel.out.object.description" value="The minimum cell type big enough to represent of values between the given bounds." />
+        <property key="submodel.out.object.name" value="necessaryCellType" />
+        <property key="submodel.out.object.order" value="1" />
+        <inputport name="constant" peerid="v6" />
+    </functor>
+    <functor name="BooleanValue">
+        <property key="dff.functor.alias" value="Force Floating Point Cell Type" />
+        <property key="dff.functor.comment" value="If true, the output will always be a floating point cell type even if the given limits are not fractional numbers." />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="If true, the output will always be a floating point cell type even if the given limits are not fractional numbers." />
+        <property key="submodel.in.constant.name" value="forceFloatingPointCellType" />
+        <property key="submodel.in.constant.optional" value="yes" />
+        <property key="submodel.in.constant.order" value="3" />
+        <inputport name="constant">.no</inputport>
+        <outputport name="object" id="v5" />
+    </functor>
+    <containerfunctor name="CalculateValue">
+        <property key="dff.container.collapsed" value="yes" />
+        <property key="dff.functor.alias" value="Necessary Cell Type Code" />
+        <inputport name="expression">[&#x0A;    if v5 or v1 != v2 or v3 != v4 then&#x0A;        if v1 &gt;= -3.4028235e+38 and v3 &lt;= 3.4028235e+38 then&#x0A;            7&#x0A;        else &#x0A;            8&#x0A;    else if v1 &gt;= 0 and v3 &lt;= 1 then&#x0A;        0&#x0A;    else if v1 &gt;= -128 and v3 &lt;= 127 then&#x0A;        1&#x0A;    else if v1 &gt;= 0 and v3 &lt;= 255 then&#x0A;        2&#x0A;    else if v1 &gt;= -32768 and v3 &lt;= 32767 then&#x0A;        3&#x0A;    else if v1 &gt;= 0 and v3 &lt;= 65535 then&#x0A;        4&#x0A;    else if v1 &gt;= -2147483648 and v3 &lt;= 2147483647 then&#x0A;        5&#x0A;    else if v1 &gt;= 0 and v3 &lt;= 4294967295 then&#x0A;        6&#x0A;    else if v1 &gt;= -3.4028235e+38 and v3 &lt;= 3.4028235e+38 then&#x0A;        7&#x0A;    else &#x0A;        8&#x0A;]</inputport>
+        <inputport name="defaultValue">.none</inputport>
+        <outputport name="result" id="v6" />
+        <functor name="NumberValue">
+            <property key="dff.functor.alias" value="numberValue41661" />
+            <inputport name="value" peerid="v4" />
+            <inputport name="valueNumber">2</inputport>
+        </functor>
+        <functor name="NumberValue">
+            <property key="dff.functor.alias" value="numberValue41662" />
+            <inputport name="value" peerid="v3" />
+            <inputport name="valueNumber">1</inputport>
+        </functor>
+        <functor name="NumberValue">
+            <property key="dff.functor.alias" value="numberValue42285" />
+            <inputport name="value" peerid="v2" />
+            <inputport name="valueNumber">3</inputport>
+        </functor>
+        <functor name="NumberValue">
+            <property key="dff.functor.alias" value="numberValue42286" />
+            <inputport name="value" peerid="v1" />
+            <inputport name="valueNumber">4</inputport>
+        </functor>
+        <functor name="NumberValue">
+            <property key="dff.functor.alias" value="numberValue12063" />
+            <inputport name="value" peerid="v5" />
+            <inputport name="valueNumber">5</inputport>
+        </functor>
+    </containerfunctor>
+</script>

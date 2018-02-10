@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="yes" ?>
 <script>
-    <property key="dff.date" value="2018-Feb-01 21:50:55" />
+    <property key="dff.date" value="2018-Feb-06 19:31:44" />
     <property key="dff.version" value="4.0.5.20171130" />
     <property key="submodel.group" value="Submodels" />
     <property key="submodel.import" value='ConvertMapBounds { { &quot;inputMap&quot; : Map, &quot;projectionTo&quot; : String } { } { &quot;maxX&quot; : RealValue, &quot;maxY&quot; : RealValue, &quot;minX&quot; : RealValue, &quot;minY&quot; : RealValue } }; ReferenceProjectionInfo { { &quot;projInd&quot; : IntegerValue } { &quot;projectionTable&quot; : Table } { &quot;codeName&quot; : String, &quot;xMax&quot; : RealValue, &quot;yMax&quot; : RealValue, &quot;xMin&quot; : RealValue, &quot;yMin&quot; : RealValue, &quot;wkt&quot; : String, &quot;proj4&quot; : String } }' />

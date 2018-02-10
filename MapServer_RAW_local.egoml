@@ -1,8 +1,8 @@
 <?xml version="1.0" standalone="yes" ?>
 <script>
-    <property key="dff.date" value="2018-Feb-01 21:50:56" />
+    <property key="dff.date" value="2018-Feb-06 19:31:45" />
     <property key="dff.version" value="4.0.5.20171130" />
-    <property key="submodel.import" value='ChangeMapProjection { { &quot;outputMapName&quot; : String, &quot;inputMapName&quot; : String, &quot;projInd&quot; : IntegerValue } { } { &quot;outputMapName&quot; : String } }; GetBasicMapAttributes { { &quot;inputMap&quot; : Map } { } { &quot;numberOfLines&quot; : NonNegativeIntegerValue, &quot;numberOfColumns&quot; : NonNegativeIntegerValue, &quot;numberOfCells&quot; : RealValue, &quot;numberOfLayers&quot; : NonNegativeIntegerValue, &quot;cellHeight&quot; : RealValue, &quot;cellWidth&quot; : RealValue, &quot;cellWidthOrHeight&quot; : RealValue, &quot;cellArea&quot; : RealValue, &quot;cellType&quot; : CellType, &quot;nullValue&quot; : RealValue, &quot;hasNullValue&quot; : BooleanValue } }; CreateWorld { { &quot;worldTileQuantity&quot; : PositiveIntegerValue, &quot;projInd&quot; : IntegerValue, &quot;mapToFitWorldMapTiles&quot; : MapFilename } { } { &quot;worldMap&quot; : MapFilename, &quot;worldTileValue&quot; : MapFilename, &quot;minTileIndexY&quot; : RealValue, &quot;maxTileIndexY&quot; : RealValue, &quot;minTileIndexX&quot; : RealValue, &quot;maxTileIndexX&quot; : RealValue } }; CropMapUsingMask { { &quot;inputMap&quot; : Map, &quot;outputMask&quot; : Map } { } { &quot;outputMap&quot; : Map } }; SearchAndCaptureRegexInText { { &quot;inputText&quot; : String, &quot;patternText&quot; : String } { } { &quot;result&quot; : String } }; CreateDirFromPath { { &quot;filePath&quot; : String } { } { &quot;orderOutput&quot; : BooleanValue } }' />
+    <property key="submodel.import" value='ChangeMapProjection { { &quot;outputMapName&quot; : String, &quot;inputMapName&quot; : String, &quot;projInd&quot; : IntegerValue } { } { &quot;outputMapName&quot; : String } }; GetBasicMapAttributes { { &quot;inputMap&quot; : Map } { } { &quot;numberOfLines&quot; : NonNegativeIntegerValue, &quot;numberOfColumns&quot; : NonNegativeIntegerValue, &quot;numberOfCells&quot; : RealValue, &quot;numberOfLayers&quot; : NonNegativeIntegerValue, &quot;cellHeight&quot; : RealValue, &quot;cellWidth&quot; : RealValue, &quot;cellWidthOrHeight&quot; : RealValue, &quot;cellArea&quot; : RealValue, &quot;cellType&quot; : CellType, &quot;nullValue&quot; : RealValue, &quot;hasNullValue&quot; : BooleanValue } }; CreateWorld { { &quot;worldTileQuantity&quot; : PositiveIntegerValue, &quot;projInd&quot; : IntegerValue, &quot;mapToFitWorldMapTiles&quot; : MapFilename } { } { &quot;worldMap&quot; : MapFilename, &quot;worldTileValue&quot; : MapFilename, &quot;minTileIndexY&quot; : RealValue, &quot;maxTileIndexY&quot; : RealValue, &quot;minTileIndexX&quot; : RealValue, &quot;maxTileIndexX&quot; : RealValue } }; CropMapUsingMask { { &quot;inputMap&quot; : Map, &quot;outputMask&quot; : Map } { } { &quot;outputMap&quot; : Map } }; SearchAndCaptureRegexInText { { &quot;inputText&quot; : String, &quot;patternText&quot; : String } { } { &quot;result&quot; : String } }; CreateDirFromPath { { &quot;filePath&quot; : String } { } { &quot;orderOutput&quot; : BooleanValue } }; GetCellTypeAsInteger { { &quot;mapPath&quot; : MapFilename } { } { &quot;integerCellType&quot; : IntegerValue } }' />
     <containerfunctor name="Group">
         <property key="dff.container.collapsed" value="no" />
         <property key="dff.functor.alias" value="projectToEqualArea" />
@@ -127,6 +127,12 @@
             <inputport name="constant">&quot;F:\Danilo\Trampo\gerado\calculation&quot;</inputport>
             <outputport name="object" id="v14" />
         </functor>
+        <containerfunctor name="CalculateRExpression">
+            <property key="dff.container.collapsed" value="no" />
+            <property key="dff.functor.alias" value="Install Dependencies" />
+            <inputport name="expression">&quot;list.of.packages &lt;- c(\&quot;Rcpp\&quot;, \&quot;proj4\&quot;, \&quot;raster\&quot;, \&quot;rgdal\&quot;)&#x0A;new.packages &lt;- list.of.packages[!(list.of.packages %in% installed.packages()[,\&quot;Package\&quot;])]&#x0A;if(length(new.packages)) install.packages(new.packages,repos = \&quot;http://cran.us.r-project.org\&quot;)&#x0A;&#x0A;install.packages(\&quot;C:/Danilo/content/MapServer_Dinamica/dinamica_modelo/libattopng_1.0.tar.gz\&quot;, repos = NULL, type = \&quot;source\&quot;)&quot;</inputport>
+            <inputport name="treatWarningAsErrors">.no</inputport>
+        </containerfunctor>
     </containerfunctor>
     <containerfunctor name="Group">
         <property key="dff.functor.alias" value="Inputs" />
@@ -514,17 +520,121 @@
                     </containerfunctor>
                 </containerfunctor>
             </containerfunctor>
-            <containerfunctor name="CalculateRExpression">
-                <property key="dff.container.collapsed" value="no" />
-                <property key="dff.functor.alias" value="PNG from TIF" />
-                <inputport name="expression">&quot;library(Dinamica)&#x0A;library(libattopng)&#x0A;library(raster)&#x0A;library(Rcpp)&#x0A;cppFunction(&apos;&#x0A;Rcpp::List intToRGBA(int a1) {&#x0A;int mask = 0x000000FF;&#x0A;int rgba[4];&#x0A;for (int i = 3; i &gt;= 0; i--) {&#x0A;rgba[3 - i] = ((a1 &gt;&gt; i * 8) &amp; mask);&#x0A;}&#x0A;return Rcpp::List::create(rgba[0], rgba[1], rgba[2], rgba[3]);&#x0A;}&#x0A;&apos;)&#x0A;&#x0A;cppFunction(&apos; &#x0A;int convertFloat(float a1) {&#x0A;union sameNum {&#x0A; float f;&#x0A; unsigned int i;&#x0A;};&#x0A;sameNum num;&#x0A;num.f = a1;&#x0A;return num.i;&#x0A;}&#x0A;&apos;)&#x0A;&#x0A;rgbToInd &lt;- function(r, g, b, a) {&#x0A;return (bitwOr(bitwOr(bitwOr(bitwAnd(r, 255), bitwShiftL(bitwAnd(g, 255), 8)), bitwShiftL(bitwAnd(b, 255), 16)), bitwShiftL(bitwAnd(a, 255), 24)))&#x0A;}&#x0A;&#x0A;for (iRow in 1: nrow(t1)) {&#x0A;curMapName &lt;- trimws(trimws(t1[2][iRow, 1]))&#x0A;print(curMapName)&#x0A;tifContent &lt;- raster(curMapName)&#x0A;&#x0A;pngContent &lt;- matrix(array(0, dim = c(dim(tifContent)[1], dim(tifContent)[2])), nrow = dim(tifContent)[1], ncol = dim(tifContent)[2])&#x0A;&#x0A;for (iY in 1: dim(tifContent)[2]) {&#x0A; lineVals &lt;- getValues(tifContent, iY)&#x0A; for (iX in 1: dim(tifContent)[1]) {&#x0A;  cellValue &lt;- lineVals[iX]&#x0A;&#x0A;  if (is.na(cellValue)) {&#x0A;   pngContent[iX, iY] &lt;- rgbToInd(255, 255, 255, 255);&#x0A;  } else {&#x0A;   pngContent[iX, iY] &lt;- cellValue&#x0A;  }&#x0A; }&#x0A;}&#x0A;&#x0A;libattopng::rcpp_hello_world(pngContent, gsub(\&quot;(.*)(\\.(?:tif|tiff))\&quot;, \&quot;\\1.png\&quot;, curMapName))# writePNG(image = pngContent, target = gsub(\&quot;(.*)(\\.(?:tif|tiff))\&quot;, \&quot;\\1.png\&quot;, curMapName))&#x0A;}&quot;</inputport>
-                <inputport name="treatWarningAsErrors">.no</inputport>
-                <functor name="NumberTable">
-                    <property key="dff.functor.alias" value="numberTable38230" />
-                    <inputport name="table" peerid="v39" />
-                    <inputport name="tableNumber">1</inputport>
+            <containerfunctor name="Group">
+                <property key="dff.functor.alias" value="group67214" />
+                <containerfunctor name="CalculateRExpression">
+                    <property key="dff.container.collapsed" value="no" />
+                    <property key="dff.functor.alias" value="PNG from TIF" />
+                    <inputport name="expression">&quot;library(Dinamica)&#x0A;library(libattopng)&#x0A;library(raster)&#x0A;library(Rcpp)&#x0A;cppFunction(&apos;&#x0A;Rcpp::List intToRGBA(int a1) {&#x0A;int mask = 0x000000FF;&#x0A;int rgba[4];&#x0A;for (int i = 3; i &gt;= 0; i--) {&#x0A;rgba[3 - i] = ((a1 &gt;&gt; i * 8) &amp; mask);&#x0A;}&#x0A;return Rcpp::List::create(rgba[0], rgba[1], rgba[2], rgba[3]);&#x0A;}&#x0A;&apos;)&#x0A;&#x0A;cppFunction(&apos; &#x0A;int convertFloat(float a1) {&#x0A;union sameNum {&#x0A; float f;&#x0A; unsigned int i;&#x0A;};&#x0A;sameNum num;&#x0A;num.f = a1;&#x0A;return num.i;&#x0A;}&#x0A;&apos;)&#x0A;&#x0A;rgbToInd &lt;- function(r, g, b, a) {&#x0A;return (bitwOr(bitwOr(bitwOr(bitwAnd(r, 255), bitwShiftL(bitwAnd(g, 255), 8)), bitwShiftL(bitwAnd(b, 255), 16)), bitwShiftL(bitwAnd(a, 255), 24)))&#x0A;}&#x0A;&#x0A;for (iRow in 1: nrow(t1)) {&#x0A;curMapName &lt;- trimws(trimws(t1[2][iRow, 1]))&#x0A;print(curMapName)&#x0A;tifContent &lt;- raster(curMapName)&#x0A;&#x0A;pngContent &lt;- matrix(array(0, dim = c(dim(tifContent)[1], dim(tifContent)[2])), nrow = dim(tifContent)[1], ncol = dim(tifContent)[2])&#x0A;&#x0A;for (iY in 1: dim(tifContent)[2]) {&#x0A; lineVals &lt;- getValues(tifContent, iY)&#x0A; for (iX in 1: dim(tifContent)[1]) {&#x0A; cellValue &lt;- lineVals[iX]&#x0A;&#x0A; if (is.na(cellValue)) {&#x0A; pngContent[iX, iY] &lt;- rgbToInd(255, 255, 255, 255);&#x0A; } else {&#x0A;ifelse(v1 == 1, pngContent[iX, iY] &lt;- cellValue, pngContent[iX, iY] &lt;- convertFloat(cellValue))&#x0A; }&#x0A; }&#x0A;}&#x0A;&#x0A;libattopng::rcpp_hello_world(pngContent, gsub(\&quot;(.*)(\\.(?:tif|tiff))\&quot;, \&quot;\\1.png\&quot;, curMapName))# writePNG(image = pngContent, target = gsub(\&quot;(.*)(\\.(?:tif|tiff))\&quot;, \&quot;\\1.png\&quot;, curMapName))&#x0A;}&quot;</inputport>
+                    <inputport name="treatWarningAsErrors">.no</inputport>
+                    <functor name="NumberTable">
+                        <property key="dff.functor.alias" value="numberTable38230" />
+                        <inputport name="table" peerid="v39" />
+                        <inputport name="tableNumber">1</inputport>
+                    </functor>
+                    <functor name="NumberValue">
+                        <property key="dff.functor.alias" value="isInteger" />
+                        <inputport name="value" peerid="v49" />
+                        <inputport name="valueNumber">1</inputport>
+                    </functor>
+                </containerfunctor>
+                <containerfunctor name="CalculateValue">
+                    <property key="dff.container.collapsed" value="no" />
+                    <property key="dff.functor.alias" value="isInteger" />
+                    <inputport name="expression">[&#x0A;    v1 &lt;= 6&#x0A;]</inputport>
+                    <inputport name="defaultValue">.none</inputport>
+                    <outputport name="result" id="v49" />
+                    <functor name="NumberValue">
+                        <property key="dff.functor.alias" value="numberValue67216" />
+                        <inputport name="value" peerid="v50" />
+                        <inputport name="valueNumber">1</inputport>
+                    </functor>
+                </containerfunctor>
+                <functor name="GetCellTypeAsInteger">
+                    <property key="dff.functor.alias" value="getCellTypeAsInteger68764" />
+                    <inputport name="mapPath" peerid="v22" />
+                    <outputport name="integerCellType" id="v50" />
                 </functor>
             </containerfunctor>
+        </containerfunctor>
+        <containerfunctor name="Group">
+            <property key="dff.functor.alias" value="SaveMapDescription CSV" />
+            <functor name="GetLookupTableValue">
+                <property key="dff.functor.alias" value="getLookupTableValue74016" />
+                <inputport name="table" peerid="v29" />
+                <inputport name="key">20</inputport>
+                <inputport name="valueIfNotFound">.none</inputport>
+                <outputport name="value" id="v51" />
+            </functor>
+            <functor name="AddTupleValue">
+                <property key="dff.functor.alias" value="addTupleValue71298" />
+                <inputport name="tuple">[ 0 ]</inputport>
+                <inputport name="value" peerid="v50" />
+                <outputport name="result" id="v52" />
+            </functor>
+            <functor name="AddTableRow">
+                <property key="dff.functor.alias" value="addTableRow71299" />
+                <inputport name="table" peerid="v59" />
+                <inputport name="values" peerid="v52" />
+                <outputport name="result" id="v53" />
+            </functor>
+            <functor name="AddTupleValue">
+                <property key="dff.functor.alias" value="addTupleValue71298" />
+                <inputport name="tuple">[ 1 ]</inputport>
+                <inputport name="value" peerid="v51" />
+                <outputport name="result" id="v54" />
+            </functor>
+            <functor name="AddTupleValue">
+                <property key="dff.functor.alias" value="addTupleValue71298" />
+                <inputport name="tuple">[ 2 ]</inputport>
+                <inputport name="value">&quot;raw&quot;</inputport>
+                <outputport name="result" id="v55" />
+            </functor>
+            <functor name="AddTableRow">
+                <property key="dff.functor.alias" value="addTableRow71299" />
+                <inputport name="table" peerid="v53" />
+                <inputport name="values" peerid="v54" />
+                <outputport name="result" id="v56" />
+            </functor>
+            <functor name="AddTableRow">
+                <property key="dff.functor.alias" value="addTableRow71299" />
+                <inputport name="table" peerid="v56" />
+                <inputport name="values" peerid="v55" />
+                <outputport name="result" id="v57" />
+            </functor>
+            <containerfunctor name="Group">
+                <property key="dff.functor.alias" value="group78753" />
+                <containerfunctor name="CreateString">
+                    <property key="dff.container.collapsed" value="no" />
+                    <property key="dff.functor.alias" value="%GWC%/CALCULATION/(fileName)/(zoom)/(line)_(cloumn).tif" />
+                    <property key="viewer.result" value="yes" />
+                    <inputport name="format">&quot;&lt;s3&gt;/&lt;s2&gt;/description.csv&quot;</inputport>
+                    <outputport name="result" id="v58" />
+                    <functor name="NumberString">
+                        <property key="dff.functor.alias" value="fileName" />
+                        <inputport name="value" peerid="v36" />
+                        <inputport name="valueNumber">2</inputport>
+                    </functor>
+                    <functor name="NumberString">
+                        <property key="dff.functor.alias" value="baseDirectory" />
+                        <inputport name="value" peerid="v14" />
+                        <inputport name="valueNumber">3</inputport>
+                    </functor>
+                </containerfunctor>
+                <functor name="SaveTable">
+                    <property key="dff.functor.alias" value="saveTable77797" />
+                    <inputport name="table" peerid="v57" />
+                    <inputport name="filename" peerid="v58" />
+                    <inputport name="suffixDigits">2</inputport>
+                    <inputport name="step">.none</inputport>
+                    <inputport name="workdir">.none</inputport>
+                </functor>
+            </containerfunctor>
+            <functor name="Table">
+                <property key="dff.functor.alias" value="table71297" />
+                <inputport name="constant">[&#x0A;    &quot;Key*&quot;, &quot;Value#str&quot;, &#x0A;]</inputport>
+                <outputport name="object" id="v59" />
+            </functor>
         </containerfunctor>
     </containerfunctor>
 </script>

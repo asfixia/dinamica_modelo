@@ -1,0 +1,107 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Feb-09 16:49:42" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="submodel.description" value="Generate a unique id corresponding to each lookup table key." />
+    <property key="submodel.documentation" value="http://www.csr.ufmg.br/dinamica/dokuwiki/doku.php?id=generate_unique_ids" />
+    <property key="submodel.group" value="Lookup Table" />
+    <property key="submodel.largeicon" value="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAC9UlEQVR42sVXW3LaQBDkI/5MVX7ie+QKzhltsHMIbFcuYwO2eUmABEggHhLYk+kVK6+WEdmfkK3q0qrVPdPLruVSrVarfXl4ePj9+PhI9/f3ZwF6oSd6M2pfQZx7oCd6I8B3pMLovLzmeH2j17euwgvPbU6CpKviMNATvRHgUgfQD9Wcjb3BkN66vRLXZ67XH5TQ7fWPdJLX5A4BLksB9MPpdEq3t3fkjcaqgcn5zA2Gngpiotsb/NXr+aOCEwPgYafzQo3GLd3d/aLReEJDz1fpbQ4hbEg6k/OZQ9jKACiClONJoIDVoghWM7I4CXhme03OO/x6JwL4KgBMEGM+BDyDP3AopHkTplfi0KMygM+CEVZrwPf84iBheyZYHetszvZVQXvFABCMeZ9MgMsPUqj2cjqdKd7mEML2StD1xAAQoJCNdjs/mDjJ81lEQRCKnOS1ocOLASZBQEEYHmE6m9E8jiiKYzUP+c8KV9xrTvJJQI/KAFqgG+AKgMd1Np+XeMwl3SkO9ycD6NFud2geRRSy0eZ0YxMo7uqtDKAfhhykXm/QMknUqm0OhcDbcPFqTgwwjxbUarWVGAcsWa0pXixVepOL4gVr4xLA2TrJC21lgJiLLJcJrdcbBcwXXMTmoLOR61aCd3XkrQwAg26YJKuiiMR9Nk2OdOa9xJ0IkBSHBluhU7tyrhACNBWJFeaHJlD7lqYZrXjfXDn4XZAHaH4GaDbzAJvtllrPfAhvGqpwtt+5cbsdrTcbWq3XTsBATzFAmmW0e39n7Gmbpga3p93e5j51COCKygBbLgxkKM5IuTDuU4Dn+r5K54rKACikx/Nzi/a84ixLi+YmXHVVXjHAjvdSvZL5/8HNTb3gsFITrjoJ2isGeOc9fXpq0fV1vSiM1cFkwlUnAbrKAB8fH6WPB9zDYAMBXHSnvKUA+kUkDRS34ao75S29iP7jp1kRYKk/TvHT/Evoj1P01AG+MX4wrhg/z4SrQ0/0rl0cJpdnBnpe/AEIQwRiqoxRyAAAAABJRU5ErkJggg==" />
+    <property key="submodel.name" value="GenerateUniqueIds" />
+    <property key="submodel.smallicon" value="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABYUlEQVR42qVTSW7CQBD0X3LNLS/FC5APcAUhcc8tChBEFsISjI3ZEgi2IdisojLdsQELHyLSUqm6a6pLM4eRCoWCk8/nkcvl/gzy0x4ASaLhkgr2JIkSqe6LJTyUygKPjGKZUGEONTonH1WwdwyoVJ+Zqy+vzE+CQ4Tzqe8soFZvIJVKo/HeZq43W3hrNJnT6Vs0A518sQEtYdA7hoDJc1s3mHW9g45hMuicfLEBZDC7FrpWD5qWRK8/QFJLwer1WScYpsW+2ABLLFANRx8HJgyGv3N/OIr4zgI+x2Moioqv6RSqqmE8mbBGrCoa63ROWmzA1LaZ3dmM2XFdZttxuLddh3sKig2YLxaQZQXecglFVuH5Ps/fQp/N5xwcIhKQzWZZWK1WzOv1+oBQ9z0P3gmogr3jDfb7PRIJmXm320Xm7XaLzWbDoD5yg3//hUwmc3fJbxRP6HKAqCuBmwtwTQE/DvhQrtsll7oAAAAASUVORK5CYII=" />
+    <functor name="LookupTable">
+        <property key="dff.functor.alias" value="Input Table" />
+        <property key="dff.functor.comment" value="The input lookup table." />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="The input lookup table." />
+        <property key="submodel.in.constant.name" value="inputTable" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="1" />
+        <outputport name="object" id="v1" />
+    </functor>
+    <functor name="LookupTable">
+        <property key="dff.functor.alias" value="Unique Id Table" />
+        <property key="dff.functor.comment" value="The output lookup table mapping the original key to the corresponding unique id." />
+        <property key="submodel.out.object.description" value="The output lookup table mapping the original key to the corresponding unique id." />
+        <property key="submodel.out.object.name" value="UniqueIdTable" />
+        <property key="submodel.out.object.order" value="1" />
+        <inputport name="constant" peerid="v2" />
+    </functor>
+    <functor name="LookupTable">
+        <property key="dff.functor.alias" value="Key Table" />
+        <property key="dff.functor.comment" value="The output lookup table mapping the unique id to the corresponding original key." />
+        <property key="submodel.out.object.description" value="The output lookup table mapping the unique id to the corresponding original key." />
+        <property key="submodel.out.object.name" value="KeyTable" />
+        <property key="submodel.out.object.order" value="2" />
+        <inputport name="constant" peerid="v3" />
+    </functor>
+    <functor name="LookupTableJunction">
+        <property key="dff.functor.alias" value="Unique Id Table Or Default" />
+        <inputport name="possibleTable1" peerid="v7" />
+        <inputport name="possibleTable2">[&#x0A;    &quot;Original_Key&quot; &quot;Unique_Id&quot;&#x0A;]</inputport>
+        <outputport name="table" id="v2" />
+    </functor>
+    <functor name="LookupTableJunction">
+        <property key="dff.functor.alias" value="Key Table Or Default" />
+        <inputport name="possibleTable1" peerid="v10" />
+        <inputport name="possibleTable2">[&#x0A;    &quot;Unique_Id&quot; &quot;Original_Key&quot;&#x0A;]</inputport>
+        <outputport name="table" id="v3" />
+    </functor>
+    <containerfunctor name="ForEach">
+        <property key="dff.container.collapsed" value="no" />
+        <property key="dff.functor.alias" value="forEach2782" />
+        <inputport name="elements" peerid="v1" />
+        <internaloutputport name="step" id="v4" />
+        <functor name="Step">
+            <property key="dff.functor.alias" value="Table Key" />
+            <inputport name="step" peerid="v4" />
+            <outputport name="step" id="v5" />
+        </functor>
+        <functor name="MuxLookupTable">
+            <property key="dff.functor.alias" value="Unique Id Table" />
+            <property key="dff.functor.comment" value="Table mapping keys to unique ids." />
+            <inputport name="initial">[&#x0A;    &quot;Original_Key&quot; &quot;Unique_Id&quot;&#x0A;]</inputport>
+            <inputport name="feedback" peerid="v7" />
+            <outputport name="table" id="v6" />
+        </functor>
+        <functor name="SetLookupTableValue">
+            <property key="dff.functor.alias" value="Updated Unique Id Table" />
+            <inputport name="table" peerid="v6" />
+            <inputport name="key" peerid="v5" />
+            <inputport name="value" peerid="v11" />
+            <outputport name="updatedTable" id="v7" />
+        </functor>
+        <functor name="MuxValue">
+            <property key="dff.functor.alias" value="Previous Unique Id" />
+            <inputport name="initial">0</inputport>
+            <inputport name="feedback" peerid="v11" />
+            <outputport name="value" id="v8" />
+        </functor>
+        <functor name="MuxLookupTable">
+            <property key="dff.functor.alias" value="Key Table" />
+            <property key="dff.functor.comment" value="Table mapping unique ids to keys." />
+            <inputport name="initial">[&#x0A;    &quot;Unique_Id&quot; &quot;Original_Key&quot;&#x0A;]</inputport>
+            <inputport name="feedback" peerid="v10" />
+            <outputport name="table" id="v9" />
+        </functor>
+        <functor name="SetLookupTableValue">
+            <property key="dff.functor.alias" value="Updated Key Table" />
+            <inputport name="table" peerid="v9" />
+            <inputport name="key" peerid="v11" />
+            <inputport name="value" peerid="v5" />
+            <outputport name="updatedTable" id="v10" />
+        </functor>
+        <containerfunctor name="CalculateValue">
+            <property key="dff.container.collapsed" value="yes" />
+            <property key="dff.functor.alias" value="Next Unique Id" />
+            <property key="dff.functor.comment" value="Generate the next unique id." />
+            <inputport name="expression">[&#x0A;    v1 + 1&#x0A;]</inputport>
+            <inputport name="defaultValue">.none</inputport>
+            <outputport name="result" id="v11" />
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="numberValue2806" />
+                <inputport name="value" peerid="v8" />
+                <inputport name="valueNumber">1</inputport>
+            </functor>
+        </containerfunctor>
+    </containerfunctor>
+</script>

@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="yes" ?>
 <script>
-    <property key="dff.date" value="2018-Feb-01 21:50:56" />
+    <property key="dff.date" value="2018-Feb-06 19:31:45" />
     <property key="dff.version" value="4.0.5.20171130" />
     <property key="submodel.group" value="Submodels" />
     <property key="submodel.import" value='GetMapExtents { { &quot;inputMap&quot; : Map } { } { &quot;minY&quot; : RealValue, &quot;maxX&quot; : RealValue, &quot;minX&quot; : RealValue, &quot;maxY&quot; : RealValue } }; ProjectCoordinate { { &quot;inputY&quot; : RealValue, &quot;inputX&quot; : RealValue, &quot;proj4From&quot; : String, &quot;proj4To&quot; : String } { } { &quot;newX&quot; : RealValue, &quot;newY&quot; : RealValue } }' />

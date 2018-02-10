@@ -1,0 +1,269 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Feb-09 16:49:42" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="metadata.author" value="Hermann Rodrigues" />
+    <property key="metadata.organization" value="CSR / UFMG" />
+    <property key="submodel.description" value='Calculates a map combining two other maps. The calculation assigns an unique value for each possible combination of values from co-registered cells in the input maps. Each unique value used is stored in a dictionary of combinations. The combination dictionary is a table with format &quot;*#real, #real and #real&quot; where the key represents the combined value, and the data values represent the two original values from each one of the input maps.' />
+    <property key="submodel.documentation" value="http://www.csr.ufmg.br/dinamica/dokuwiki/doku.php?id=calc_combination_map" />
+    <property key="submodel.group" value="Map Algebra" />
+    <property key="submodel.import" value='GetMinimumNecessaryCellType { { &quot;minimumValue&quot; : RealValue, &quot;maximumValue&quot; : RealValue } { &quot;forceFloatingPointCellType&quot; : BooleanValue } { &quot;necessaryCellType&quot; : CellType } }; GenerateUniqueIds { { &quot;inputTable&quot; : LookupTable } { } { &quot;UniqueIdTable&quot; : LookupTable, &quot;KeyTable&quot; : LookupTable } }' />
+    <property key="submodel.largeicon" value="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" />
+    <property key="submodel.name" value="CalcCombinationMap" />
+    <property key="submodel.smallicon" value="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACs0lEQVR42m2TbU+SURjH/QR+BL9BNdcr15RMBZEBNyCImKVSZuKaqcvqTc3WCy3XUsl6ZT4LIiqmtnxtm616kw9hpQICgjwpIALiv3MfgUo723/3rutc1+/c53/Oycg4NcbGjdrhsfHI4PAo+gdH8HZgCH39g5G+gSHt6VoAfwKD0cQd0Rmw9t2M40QCfw82/ra8gu6eV2h/1sk9AyDNFYbJaYTDB7TB7/fDarNh/cdP+g0EAjQfDofw6HEbGptauP8ARnUTCAaDiMXi2LJY8WtjExubW0lZaM7l3oWfgFZX11Cuuoo0QEf2vLyyguPjBFltmxRbYLFa09q22+HxejGm06PgShHM5nX0vn4DoYjRUsDwqP4wFArD5/Njy2qjkJTsDie8vgCMk1PIybmE3FwO2ts7sLj4ESUC4SEFsG4niEnOnR3Y7A6yIisniV0I7O1jatpEG3k8PpVKVYGlpU/gFZeAAianZ3AUj8PhdBA5qVxuN/aD+zCZZsDh5IPPF0AoFEMgEKKwkIsPCwvgEhgFsOccjx/BvevBjsuFXY8HIeL2u9lZ5OcX0CaxWAKGkVKIihhomDCiiFt8AiCXJOoP7JHf3SNm+UjzAWbn5lFQWESMEkMilUEqKyWSQcwwaGpuQVdXN5nnRimg88VL3ecvXxGLxxA5jGBu/j2h80ixBLJSOUrlCqoTiBwdHc9xu74BebkcXeoeZPVoe4nb3rQ5jEQKuUIBRZmSSq4oI1Ki9f5D3Gt9wK7OdmalL5KyXKVpe/IUt+rqoWm4g6rqGqgqKlGmVNFvjVqNxrvNdI49iXPnL2hOv4VMfolAU1WtRuW161DfqMXN2rq02JiFscYlmzPPPKZk8mIxX6AXM9KoiDgvEjHshWG3Fc3Lu6xn51PN/wOkRhZRdrI4pexk/sxz/g1rw0qLxRmtlwAAAABJRU5ErkJggg==" />
+    <functor name="GetMapCategories">
+        <property key="dff.functor.alias" value="Initial Map Categories" />
+        <inputport name="map" peerid="v6" />
+        <outputport name="categories" id="v1" />
+    </functor>
+    <functor name="GetMapCategories">
+        <property key="dff.functor.alias" value="Final Map Categories" />
+        <inputport name="map" peerid="v7" />
+        <outputport name="categories" id="v2" />
+    </functor>
+    <functor name="GetTableKeys">
+        <property key="dff.functor.alias" value="Final Map Values" />
+        <property key="viewer.keys" value="yes" />
+        <inputport name="table" peerid="v2" />
+        <outputport name="keys" id="v3" />
+    </functor>
+    <functor name="GetTableKeys">
+        <property key="dff.functor.alias" value="Initial Map Values" />
+        <property key="viewer.keys" value="yes" />
+        <inputport name="table" peerid="v1" />
+        <outputport name="keys" id="v4" />
+    </functor>
+    <functor name="ExtractLookupTableAttributes">
+        <property key="dff.functor.alias" value="Initial Value Attributes" />
+        <inputport name="table" peerid="v4" />
+        <inputport name="extractStatisticalKeyAttributes">.no</inputport>
+        <inputport name="extractStatisticalValueAttributes">.no</inputport>
+        <inputport name="extractDynamicKeyValueAttributes">.no</inputport>
+        <outputport name="attributes" id="v5" />
+    </functor>
+    <functor name="CategoricalMap">
+        <property key="dff.functor.alias" value="Initial Map" />
+        <property key="dff.functor.comment" value='The initial map. This map corresponds to the &quot;Initial&quot; value column in the resulting dictionary table.' />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value='The initial map. This map corresponds to the &quot;Initial&quot; value column in the resulting dictionary table.' />
+        <property key="submodel.in.constant.name" value="initialMap" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="1" />
+        <outputport name="object" id="v6" />
+    </functor>
+    <functor name="CategoricalMap">
+        <property key="dff.functor.alias" value="Final Map" />
+        <property key="dff.functor.comment" value='The final map. This map corresponds to the &quot;Final&quot; value column of in resulting dictionary table.' />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value='The final map. This map corresponds to the &quot;Final&quot; value column of in resulting dictionary table.' />
+        <property key="submodel.in.constant.name" value="finalMap" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="2" />
+        <outputport name="object" id="v7" />
+    </functor>
+    <functor name="ExtractLookupTableAttributes">
+        <property key="dff.functor.alias" value="Final Value Attributes" />
+        <inputport name="table" peerid="v3" />
+        <inputport name="extractStatisticalKeyAttributes">.no</inputport>
+        <inputport name="extractStatisticalValueAttributes">.no</inputport>
+        <inputport name="extractDynamicKeyValueAttributes">.no</inputport>
+        <outputport name="attributes" id="v8" />
+    </functor>
+    <functor name="GetTableKeys">
+        <property key="dff.functor.alias" value="Combinations Values" />
+        <inputport name="table" peerid="v11" />
+        <outputport name="keys" id="v9" />
+    </functor>
+    <functor name="Table">
+        <property key="dff.functor.alias" value="Combination Map Dictionary" />
+        <property key="dff.functor.comment" value='Dictionary table used to translate the values assigned to each combination back into their corresponding initial and final value from the input maps. This table has format &quot;*#real, #real and #real&quot; where the key represents the combined value, and the data values represent the two original values from each one of the input maps.' />
+        <property key="submodel.out.object.description" value='Dictionary table used to translate the values assigned to each combination back into their corresponding initial and final value from the input maps. This table has format &quot;*#real, #real and #real&quot; where the key represents the combined value, and the data values represent the two original values from each one of the input maps.' />
+        <property key="submodel.out.object.name" value="combinationMapDictionary" />
+        <property key="submodel.out.object.order" value="2" />
+        <inputport name="constant" peerid="v13" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="Final Value Count" />
+        <inputport name="table" peerid="v8" />
+        <inputport name="key">1</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v10" />
+    </functor>
+    <functor name="GetMapCategories">
+        <property key="dff.functor.alias" value="getMapCategories9018" />
+        <inputport name="map" peerid="v18" />
+        <outputport name="categories" id="v11" />
+    </functor>
+    <functor name="CategoricalMap">
+        <property key="dff.functor.alias" value="Combination Map" />
+        <property key="dff.functor.comment" value="Map depicting the combination of the two input maps." />
+        <property key="submodel.out.object.description" value="Map depicting the combination of the two input maps." />
+        <property key="submodel.out.object.name" value="combinationMap" />
+        <property key="submodel.out.object.order" value="1" />
+        <inputport name="constant" peerid="v18" />
+    </functor>
+    <functor name="GetMinimumNecessaryCellType">
+        <property key="dff.functor.alias" value="getMinimumNecessaryCellType38598" />
+        <property key="dff.functor.extendedcomment" value="Calculate the appropriate cell type to store the all possible combination values in a map." />
+        <property key="viewer.necessarycelltype" value="yes" />
+        <inputport name="minimumValue">0</inputport>
+        <inputport name="maximumValue" peerid="v19" />
+        <inputport name="forceFloatingPointCellType">.no</inputport>
+        <outputport name="necessaryCellType" id="v12" />
+    </functor>
+    <functor name="TableJunction">
+        <property key="dff.functor.alias" value="Combination Dictionary Or Default" />
+        <inputport name="possibleTable1" peerid="v25" />
+        <inputport name="possibleTable2">[&#x0A;    &quot;Combination*&quot;, &quot;Initial&quot;, &quot;Final&quot;, &#x0A;]</inputport>
+        <outputport name="table" id="v13" />
+    </functor>
+    <functor name="GenerateUniqueIds">
+        <property key="dff.functor.alias" value="Final Value Unique Ids" />
+        <property key="dff.functor.extendedcomment" value="Remap each input value to an unique sequential id." />
+        <inputport name="inputTable" peerid="v3" />
+        <outputport name="UniqueIdTable" id="v14" />
+        <outputport name="KeyTable" id="v15" />
+    </functor>
+    <functor name="GenerateUniqueIds">
+        <property key="dff.functor.alias" value="Initial Value Unique Ids" />
+        <property key="dff.functor.extendedcomment" value="Remap each input value to an unique sequential id." />
+        <inputport name="inputTable" peerid="v4" />
+        <outputport name="UniqueIdTable" id="v16" />
+        <outputport name="KeyTable" id="v17" />
+    </functor>
+    <containerfunctor name="CalculateCategoricalMap">
+        <property key="dff.container.collapsed" value="yes" />
+        <property key="dff.functor.alias" value="Reclassified Map Using Combinations" />
+        <property key="dff.functor.extendedcomment" value="Reclassify the input maps assigning the combination value corresponding to each combination of pair of input value. The combination values are calculated using the expression&#x0A;Initial *#Final + Final&#x0A;where Initial is the sequential id corresponding to the current initial value, Final is the sequential id corresponding to the current final value and #Final is the total number of unique final values. Even if the sequential ids start at 1, the calculation re-maps them assuming that they start at 0." />
+        <inputport name="expression">[&#x0A;    (t1[i1] - 1) * v1 + t2[i2] - 1&#x0A;]</inputport>
+        <inputport name="cellType" peerid="v12" />
+        <inputport name="nullValue">.default</inputport>
+        <inputport name="resultIsSparse">.no</inputport>
+        <inputport name="resultFormat">.none</inputport>
+        <outputport name="result" id="v18" />
+        <functor name="NumberMap">
+            <property key="dff.functor.alias" value="numberMap13620" />
+            <inputport name="map" peerid="v6" />
+            <inputport name="mapNumber">1</inputport>
+        </functor>
+        <functor name="NumberMap">
+            <property key="dff.functor.alias" value="numberMap13619" />
+            <inputport name="map" peerid="v7" />
+            <inputport name="mapNumber">2</inputport>
+        </functor>
+        <functor name="NumberTable">
+            <property key="dff.functor.alias" value="numberTable21418" />
+            <inputport name="table" peerid="v14" />
+            <inputport name="tableNumber">2</inputport>
+        </functor>
+        <functor name="NumberTable">
+            <property key="dff.functor.alias" value="numberTable21419" />
+            <inputport name="table" peerid="v16" />
+            <inputport name="tableNumber">1</inputport>
+        </functor>
+        <functor name="NumberValue">
+            <property key="dff.functor.alias" value="numberValue32145" />
+            <inputport name="value" peerid="v10" />
+            <inputport name="valueNumber">1</inputport>
+        </functor>
+    </containerfunctor>
+    <containerfunctor name="CalculateValue">
+        <property key="dff.container.collapsed" value="yes" />
+        <property key="dff.functor.alias" value="Maximum Combinations" />
+        <property key="dff.functor.extendedcomment" value="Calculate the total number of combination ids that will be used to represent a combination of category values. This value should be the same value obtained by inspecting the combination id table, but this calculation is faster." />
+        <inputport name="expression">[&#x0A;    t1[&quot;uniqueKeys&quot;] * t2[&quot;uniqueKeys&quot;]&#x0A;]</inputport>
+        <inputport name="defaultValue">.none</inputport>
+        <outputport name="result" id="v19" />
+        <functor name="NumberTable">
+            <property key="dff.functor.alias" value="numberTable11977" />
+            <inputport name="table" peerid="v5" />
+            <inputport name="tableNumber">1</inputport>
+        </functor>
+        <functor name="NumberTable">
+            <property key="dff.functor.alias" value="numberTable47095" />
+            <inputport name="table" peerid="v8" />
+            <inputport name="tableNumber">2</inputport>
+        </functor>
+    </containerfunctor>
+    <containerfunctor name="ForEach">
+        <property key="dff.container.collapsed" value="no" />
+        <property key="dff.functor.alias" value="For Each Combination ..." />
+        <inputport name="elements" peerid="v9" />
+        <internaloutputport name="step" id="v20" />
+        <functor name="MuxTable">
+            <property key="dff.functor.alias" value="Current Combination Dictionary" />
+            <inputport name="initial">[&#x0A;    &quot;Combination*&quot;, &quot;Initial&quot;, &quot;Final&quot;, &#x0A;]</inputport>
+            <inputport name="feedback" peerid="v25" />
+            <outputport name="table" id="v21" />
+        </functor>
+        <functor name="Step">
+            <property key="dff.functor.alias" value="Combination Value" />
+            <inputport name="step" peerid="v20" />
+            <outputport name="step" id="v22" />
+        </functor>
+        <functor name="AddTupleValue">
+            <property key="dff.functor.alias" value="addTupleValue10321" />
+            <inputport name="tuple" peerid="v22" />
+            <inputport name="value" peerid="v27" />
+            <outputport name="result" id="v23" />
+        </functor>
+        <functor name="AddTupleValue">
+            <property key="dff.functor.alias" value="addTupleValue10322" />
+            <inputport name="tuple" peerid="v23" />
+            <inputport name="value" peerid="v26" />
+            <outputport name="result" id="v24" />
+        </functor>
+        <functor name="AddTableRow">
+            <property key="dff.functor.alias" value="Updated Combination Dictionary" />
+            <inputport name="table" peerid="v21" />
+            <inputport name="values" peerid="v24" />
+            <outputport name="result" id="v25" />
+        </functor>
+        <containerfunctor name="CalculateValue">
+            <property key="dff.container.collapsed" value="yes" />
+            <property key="dff.functor.alias" value="Final Value" />
+            <property key="dff.functor.extendedcomment" value="Final value corresponding to the current combination value." />
+            <inputport name="expression">[&#x0A;    t2[v1 % v2 + 1]&#x0A;]</inputport>
+            <inputport name="defaultValue">.none</inputport>
+            <outputport name="result" id="v26" />
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="numberValue21909" />
+                <inputport name="value" peerid="v22" />
+                <inputport name="valueNumber">1</inputport>
+            </functor>
+            <functor name="NumberTable">
+                <property key="dff.functor.alias" value="numberTable22798" />
+                <inputport name="table" peerid="v15" />
+                <inputport name="tableNumber">2</inputport>
+            </functor>
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="numberValue32147" />
+                <inputport name="value" peerid="v10" />
+                <inputport name="valueNumber">2</inputport>
+            </functor>
+        </containerfunctor>
+        <containerfunctor name="CalculateValue">
+            <property key="dff.container.collapsed" value="yes" />
+            <property key="dff.functor.alias" value="Initial Value" />
+            <property key="dff.functor.extendedcomment" value="Initial value corresponding to the current combination value." />
+            <inputport name="expression">[&#x0A;    t2[floor(v1 / v2) + 1]&#x0A;]</inputport>
+            <inputport name="defaultValue">.none</inputport>
+            <outputport name="result" id="v27" />
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="numberValue21911" />
+                <inputport name="value" peerid="v22" />
+                <inputport name="valueNumber">1</inputport>
+            </functor>
+            <functor name="NumberTable">
+                <property key="dff.functor.alias" value="numberTable22797" />
+                <inputport name="table" peerid="v17" />
+                <inputport name="tableNumber">2</inputport>
+            </functor>
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="numberValue32146" />
+                <inputport name="value" peerid="v10" />
+                <inputport name="valueNumber">2</inputport>
+            </functor>
+        </containerfunctor>
+    </containerfunctor>
+</script>

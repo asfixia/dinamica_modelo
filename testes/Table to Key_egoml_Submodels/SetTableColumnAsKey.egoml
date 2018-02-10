@@ -1,0 +1,77 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Feb-09 20:25:08" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="submodel.group" value="Submodels" />
+    <property key="submodel.name" value="SetTableColumnAsKey" />
+    <functor name="LoadTable">
+        <property key="dff.functor.alias" value="loadTable21763" />
+        <property key="submodel.out.table.description" value="Table." />
+        <property key="submodel.out.table.name" value="table" />
+        <property key="submodel.out.table.order" value="1" />
+        <property key="viewer.table" value="yes" />
+        <inputport name="filename" peerid="v3" />
+        <inputport name="suffixDigits">0</inputport>
+        <inputport name="step">.none</inputport>
+        <inputport name="workdir">.none</inputport>
+    </functor>
+    <functor name="Table">
+        <property key="dff.functor.alias" value="Old Table" />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.name" value="oldTable" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="1" />
+        <inputport name="constant">[&#x0A;    &quot;Key*&quot;, &quot;Value&quot;, &#x0A;]</inputport>
+        <outputport name="object" id="v1" />
+    </functor>
+    <functor name="String">
+        <property key="dff.functor.alias" value="Table Column Names To Key" />
+        <property key="dff.functor.comment" value="Use the table key name separated by commas &apos;,&apos; without space.&#x0D;&#x0A;Ex:&#x0D;&#x0A;Year,Key" />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.description" value="Use the table key name separated by commas &apos;,&apos; without space.&#x0D;&#x0A;Ex:&#x0D;&#x0A;Year,Key" />
+        <property key="submodel.in.constant.name" value="tableColumnNamesToKey" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="2" />
+        <inputport name="constant">&quot;&quot;</inputport>
+        <outputport name="object" id="v2" />
+    </functor>
+    <containerfunctor name="Group">
+        <property key="dff.functor.alias" value="group21762" />
+        <functor name="TableFilename">
+            <property key="dff.functor.alias" value="tableFilename21765" />
+            <inputport name="constant">&quot;../../../../../../Users/Danilo/Desktop/temp/ae_sim.csv&quot;</inputport>
+            <outputport name="object" id="v3" />
+        </functor>
+        <functor name="GetTableInfo">
+            <property key="dff.functor.alias" value="getTableInfo24531" />
+            <inputport name="table" peerid="v1" />
+            <outputport name="tableInfo" id="v4" />
+        </functor>
+        <containerfunctor name="CalculateRExpression">
+            <property key="dff.container.collapsed" value="no" />
+            <property key="dff.functor.alias" value="calculateRExpression21746" />
+            <inputport name="expression">&quot;colToKey &lt;- strsplit(s1,\&quot;,\&quot;)[[1]]&#x0A;&#x0A;for (iColName in 1:length(colnames(t1))) {&#x0A; for (iColKey in 1:length(colToKey)) {&#x0A; if (regexpr(\&quot;\\*\&quot;, colnames(t1)[iColName])[1] == -1 &#x0A;&amp;&amp; (&#x0A; (trimws(colnames(t1)[iColName]) == trimws(colToKey[iColKey]))&#x0A; || (t2[[3]][[iColName]] == 1)&#x0A; )&#x0A;)&#x0A; colnames(t1)[iColName] &lt;- paste(colnames(t1)[iColName], \&quot;*\&quot;, sep=\&quot;\&quot;)&#x0A; }&#x0A;}&#x0A;write.csv(t1, file=s2, row.names = FALSE)&#x0A;&quot;</inputport>
+            <inputport name="treatWarningAsErrors">.no</inputport>
+            <functor name="NumberTable">
+                <property key="dff.functor.alias" value="numberTable21747" />
+                <inputport name="table" peerid="v1" />
+                <inputport name="tableNumber">1</inputport>
+            </functor>
+            <functor name="NumberString">
+                <property key="dff.functor.alias" value="numberString21748" />
+                <inputport name="value" peerid="v2" />
+                <inputport name="valueNumber">1</inputport>
+            </functor>
+            <functor name="NumberString">
+                <property key="dff.functor.alias" value="numberString21760" />
+                <inputport name="value" peerid="v3" />
+                <inputport name="valueNumber">2</inputport>
+            </functor>
+            <functor name="NumberTable">
+                <property key="dff.functor.alias" value="numberTable24532" />
+                <inputport name="table" peerid="v4" />
+                <inputport name="tableNumber">2</inputport>
+            </functor>
+        </containerfunctor>
+    </containerfunctor>
+</script>

@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Feb-09 20:25:08" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="submodel.import" value='SetTableColumnAsKey { { &quot;oldTable&quot; : Table, &quot;tableColumnNamesToKey&quot; : String } { } { &quot;table&quot; : Table } }' />
+    <functor name="LoadTable">
+        <property key="dff.functor.alias" value="loadTable21749" />
+        <inputport name="filename">&quot;../../../../../Users/Danilo/Desktop/temp/ae_all.csv&quot;</inputport>
+        <inputport name="suffixDigits">0</inputport>
+        <inputport name="step">.none</inputport>
+        <inputport name="workdir">.none</inputport>
+        <outputport name="table" id="v1" />
+    </functor>
+    <functor name="String">
+        <property key="dff.functor.alias" value="string21750" />
+        <inputport name="constant">&quot;Year,From,To&quot;</inputport>
+        <outputport name="object" id="v2" />
+    </functor>
+    <functor name="Table">
+        <property key="dff.functor.alias" value="table24482" />
+        <property key="viewer.object" value="yes" />
+        <inputport name="constant" peerid="v3" />
+    </functor>
+    <functor name="SetTableColumnAsKey">
+        <property key="dff.functor.alias" value="setTableColumnAsKey25759" />
+        <inputport name="oldTable" peerid="v1" />
+        <inputport name="tableColumnNamesToKey" peerid="v2" />
+        <outputport name="table" id="v3" />
+    </functor>
+</script>
