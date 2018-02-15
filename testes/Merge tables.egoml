@@ -1,0 +1,86 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Feb-15 12:19:53" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="submodel.import" value='SetTableColumnAsKey { { &quot;oldTable&quot; : Table, &quot;tableColumnNamesToKey&quot; : String } { } { &quot;table&quot; : Table } }' />
+    <containerfunctor name="For">
+        <property key="dff.container.collapsed" value="no" />
+        <property key="dff.functor.alias" value="for5865" />
+        <inputport name="firstIterationStep">15</inputport>
+        <inputport name="lastIterationStep">50</inputport>
+        <inputport name="stepIncrement">15</inputport>
+        <internaloutputport name="step" id="v1" />
+        <functor name="Step">
+            <property key="dff.functor.alias" value="step5866" />
+            <inputport name="step" peerid="v1" />
+            <outputport name="step" id="v2" />
+        </functor>
+        <functor name="LoadTable">
+            <property key="dff.functor.alias" value="loadTable5867" />
+            <inputport name="filename">&quot;../../../dados/uso_terra_baixo_carbono/uso_terra_baixo_carbono_area20.csv&quot;</inputport>
+            <inputport name="suffixDigits">2</inputport>
+            <inputport name="step" peerid="v1" />
+            <inputport name="workdir">.none</inputport>
+            <outputport name="table" id="v3" />
+        </functor>
+        <functor name="SetTableByKey">
+            <property key="dff.functor.alias" value="setTableByKey5873" />
+            <inputport name="table" peerid="v5" />
+            <inputport name="keys" peerid="v2" />
+            <inputport name="subTable" peerid="v3" />
+            <inputport name="ignoreColumnNames">.yes</inputport>
+            <outputport name="result" id="v4" />
+        </functor>
+        <functor name="MuxTable">
+            <property key="dff.functor.alias" value="muxTable5874" />
+            <inputport name="initial" peerid="v9" />
+            <inputport name="feedback" peerid="v4" />
+            <outputport name="table" id="v5" />
+        </functor>
+    </containerfunctor>
+    <functor name="Table">
+        <property key="dff.functor.alias" value="table5875" />
+        <property key="viewer.object" value="yes" />
+        <inputport name="constant" peerid="v7" />
+        <outputport name="object" id="v6" />
+    </functor>
+    <functor name="SetTableColumnAsKey">
+        <property key="dff.functor.alias" value="setTableColumnAsKey10119" />
+        <inputport name="oldTable" peerid="v4" />
+        <inputport name="tableColumnNamesToKey" peerid="v8" />
+        <outputport name="table" id="v7" />
+    </functor>
+    <functor name="String">
+        <property key="dff.functor.alias" value="string10132" />
+        <inputport name="constant">&quot;From,To&quot;</inputport>
+        <outputport name="object" id="v8" />
+    </functor>
+    <functor name="Table">
+        <property key="dff.functor.alias" value="table5872" />
+        <inputport name="constant">[&#x0A;    &quot;Year*&quot;, &quot;Key*&quot;, &quot;Initial&quot;, &quot;Final&quot;, &quot;Changes&quot;, &#x0A;]</inputport>
+    </functor>
+    <functor name="Table">
+        <property key="dff.functor.alias" value="table10133" />
+        <inputport name="constant">[&#x0A;    &quot;Key*&quot;, &quot;Value&quot;, &#x0A;    0, &quot;F:/Danilo/Trampo/dados/uso_terra_manejo_solo_baixo_carbono/emissoes_transicao_biomassa_baixocarbono_20%%.csv&quot;, &#x0A;    1, &quot;F:\Danilo\Trampo\dados\uso_terra_manejo_solo_baixo_carbono/emissoes_transicao_solo_baixocarbono_20%%&quot;, &#x0A;]</inputport>
+    </functor>
+    <functor name="SaveTable">
+        <property key="dff.functor.alias" value="saveTable32475" />
+        <inputport name="table" peerid="v6" />
+        <inputport name="filename">&quot;../../../dados/uso_terra_baixo_carbono/uso_terra_baixo_carbono_area_all.csv&quot;</inputport>
+        <inputport name="suffixDigits">2</inputport>
+        <inputport name="step">.none</inputport>
+        <inputport name="workdir">.none</inputport>
+    </functor>
+    <functor name="LoadTable">
+        <property key="dff.functor.alias" value="loadTable5867" />
+        <inputport name="filename">&quot;../../../dados/uso_terra_baixo_carbono/uso_terra_baixo_carbono_area2015.csv&quot;</inputport>
+        <inputport name="suffixDigits">0</inputport>
+        <inputport name="step">.none</inputport>
+        <inputport name="workdir">.none</inputport>
+    </functor>
+    <functor name="Table">
+        <property key="dff.functor.alias" value="table5872" />
+        <inputport name="constant">[&#x0A;    &quot;Year*&quot;, &quot;Initial*&quot;, &quot;Final*&quot;, &quot;Changes&quot;, &#x0A;]</inputport>
+        <outputport name="object" id="v9" />
+    </functor>
+</script>

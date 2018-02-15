@@ -1,0 +1,130 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Feb-15 12:19:46" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="submodel.import" value='CalcConfusionMatrix { { &quot;initialMap&quot; : CategoricalMap, &quot;finalMap&quot; : CategoricalMap } { } { &quot;confusionMatrix&quot; : Table } }; GetBasicMapAttributes { { &quot;inputMap&quot; : Map } { } { &quot;numberOfLines&quot; : NonNegativeIntegerValue, &quot;numberOfColumns&quot; : NonNegativeIntegerValue, &quot;numberOfCells&quot; : RealValue, &quot;numberOfLayers&quot; : NonNegativeIntegerValue, &quot;cellHeight&quot; : RealValue, &quot;cellWidth&quot; : RealValue, &quot;cellWidthOrHeight&quot; : RealValue, &quot;cellArea&quot; : RealValue, &quot;cellType&quot; : CellType, &quot;nullValue&quot; : RealValue, &quot;hasNullValue&quot; : BooleanValue } }' />
+    <containerfunctor name="For">
+        <property key="dff.container.collapsed" value="no" />
+        <property key="dff.functor.alias" value="for5865" />
+        <inputport name="firstIterationStep">15</inputport>
+        <inputport name="lastIterationStep">45</inputport>
+        <inputport name="stepIncrement">5</inputport>
+        <internaloutputport name="step" id="v1" />
+        <functor name="Step">
+            <property key="dff.functor.alias" value="step29819" />
+            <inputport name="step" peerid="v1" />
+            <outputport name="step" id="v2" />
+        </functor>
+        <functor name="LoadCategoricalMap">
+            <property key="dff.functor.alias" value="before" />
+            <inputport name="filename">&quot;../../../dados/uso_terra_baixo_carbono/uso_terra_baixo_carbono_20.tif&quot;</inputport>
+            <inputport name="nullValue">.none</inputport>
+            <inputport name="loadAsSparse">.no</inputport>
+            <inputport name="suffixDigits">2</inputport>
+            <inputport name="step" peerid="v1" />
+            <inputport name="workdir">.none</inputport>
+            <outputport name="map" id="v3" />
+        </functor>
+        <functor name="LoadCategoricalMap">
+            <property key="dff.functor.alias" value="After" />
+            <inputport name="filename">&quot;../../../dados/uso_terra_baixo_carbono/uso_terra_baixo_carbono_20.tif&quot;</inputport>
+            <inputport name="nullValue">.none</inputport>
+            <inputport name="loadAsSparse">.no</inputport>
+            <inputport name="suffixDigits">2</inputport>
+            <inputport name="step" peerid="v5" />
+            <inputport name="workdir">.none</inputport>
+            <outputport name="map" id="v4" />
+        </functor>
+        <containerfunctor name="CalculateValue">
+            <property key="dff.container.collapsed" value="no" />
+            <property key="dff.functor.alias" value="calculateValue29824" />
+            <inputport name="expression">[&#x0A;    v1 + 5&#x0A;]</inputport>
+            <inputport name="defaultValue">.none</inputport>
+            <outputport name="result" id="v5" />
+            <functor name="NumberValue">
+                <property key="dff.functor.alias" value="numberValue29825" />
+                <inputport name="value" peerid="v2" />
+                <inputport name="valueNumber">1</inputport>
+            </functor>
+        </containerfunctor>
+        <functor name="CalcConfusionMatrix">
+            <property key="dff.functor.alias" value="calcConfusionMatrix30058" />
+            <property key="viewer.confusionmatrix" value="yes" />
+            <inputport name="initialMap" peerid="v3" />
+            <inputport name="finalMap" peerid="v4" />
+            <outputport name="confusionMatrix" id="v6" />
+        </functor>
+        <functor name="GetTableKeys">
+            <property key="dff.functor.alias" value="getTableKeys32193" />
+            <inputport name="table" peerid="v6" />
+            <outputport name="keys" id="v7" />
+        </functor>
+        <containerfunctor name="ForEach">
+            <property key="dff.container.collapsed" value="no" />
+            <property key="dff.functor.alias" value="#Cells to #Area" />
+            <inputport name="elements" peerid="v7" />
+            <internaloutputport name="step" id="v8" />
+            <functor name="Step">
+                <property key="dff.functor.alias" value="step32195" />
+                <inputport name="step" peerid="v8" />
+                <outputport name="step" id="v9" />
+            </functor>
+            <functor name="GetTableFromKey">
+                <property key="dff.functor.alias" value="getTableFromKey32196" />
+                <inputport name="table" peerid="v13" />
+                <inputport name="keys" peerid="v9" />
+                <outputport name="result" id="v10" />
+            </functor>
+            <containerfunctor name="CalculateLookupTable">
+                <property key="dff.container.collapsed" value="no" />
+                <property key="dff.functor.alias" value="calculateLookupTable32439" />
+                <inputport name="expression">[&#x0A;    t1[line] * v1&#x0A;]</inputport>
+                <inputport name="keyName">.none</inputport>
+                <inputport name="valueName">.none</inputport>
+                <outputport name="result" id="v11" />
+                <functor name="NumberTable">
+                    <property key="dff.functor.alias" value="numberTable32440" />
+                    <inputport name="table" peerid="v12" />
+                    <inputport name="tableNumber">1</inputport>
+                </functor>
+                <functor name="NumberValue">
+                    <property key="dff.functor.alias" value="numberValue32470" />
+                    <inputport name="value" peerid="v15" />
+                    <inputport name="valueNumber">1</inputport>
+                </functor>
+            </containerfunctor>
+            <functor name="LookupTable">
+                <property key="dff.functor.alias" value="lookupTable32471" />
+                <inputport name="constant" peerid="v10" />
+                <outputport name="object" id="v12" />
+            </functor>
+            <functor name="MuxTable">
+                <property key="dff.functor.alias" value="muxTable32472" />
+                <inputport name="initial" peerid="v6" />
+                <inputport name="feedback" peerid="v14" />
+                <outputport name="table" id="v13" />
+            </functor>
+            <functor name="SetTableByKey">
+                <property key="dff.functor.alias" value="setTableByKey32474" />
+                <inputport name="table" peerid="v13" />
+                <inputport name="keys" peerid="v9" />
+                <inputport name="subTable" peerid="v11" />
+                <inputport name="ignoreColumnNames">.yes</inputport>
+                <outputport name="result" id="v14" />
+            </functor>
+        </containerfunctor>
+        <functor name="GetBasicMapAttributes">
+            <property key="dff.functor.alias" value="getBasicMapAttributes32468" />
+            <inputport name="inputMap" peerid="v3" />
+            <outputport name="cellArea" id="v15" />
+        </functor>
+        <functor name="SaveTable">
+            <property key="dff.functor.alias" value="saveTable32473" />
+            <inputport name="table" peerid="v14" />
+            <inputport name="filename">&quot;../../../dados/uso_terra_baixo_carbono/uso_terra_baixo_carbono_area20.csv&quot;</inputport>
+            <inputport name="suffixDigits">2</inputport>
+            <inputport name="step" peerid="v1" />
+            <inputport name="workdir">.none</inputport>
+        </functor>
+    </containerfunctor>
+</script>

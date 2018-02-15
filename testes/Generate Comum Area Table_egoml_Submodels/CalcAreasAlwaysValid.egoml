@@ -1,0 +1,62 @@
+<?xml version="1.0" standalone="yes" ?>
+<script>
+    <property key="dff.date" value="2018-Feb-15 12:19:38" />
+    <property key="dff.version" value="4.0.5.20171130" />
+    <property key="submodel.group" value="Submodels" />
+    <property key="submodel.name" value="CalcAreasAlwaysValid" />
+    <functor name="CategoricalMap">
+        <property key="dff.functor.alias" value="Constant" />
+        <property key="submodel.in.constant.advanced" value="no" />
+        <property key="submodel.in.constant.name" value="constant" />
+        <property key="submodel.in.constant.optional" value="no" />
+        <property key="submodel.in.constant.order" value="1" />
+        <outputport name="object" id="v1" />
+    </functor>
+    <functor name="ExtractMapAttributes">
+        <property key="dff.functor.alias" value="extractMapAttributes16366" />
+        <inputport name="map" peerid="v1" />
+        <inputport name="extractDynamicAttributes">.yes</inputport>
+        <inputport name="extractStatisticalAttributes">.yes</inputport>
+        <outputport name="attributes" id="v2" />
+    </functor>
+    <functor name="GetLookupTableValue">
+        <property key="dff.functor.alias" value="getLookupTableValue16367" />
+        <inputport name="table" peerid="v2" />
+        <inputport name="key">9</inputport>
+        <inputport name="valueIfNotFound">.none</inputport>
+        <outputport name="value" id="v3" />
+    </functor>
+    <functor name="TableJunction">
+        <property key="dff.functor.alias" value="tableJunction16376" />
+        <inputport name="possibleTable1" peerid="v5" />
+        <inputport name="possibleTable2" peerid="v6" />
+        <outputport name="table" id="v4" />
+    </functor>
+    <functor name="Table">
+        <property key="dff.functor.alias" value="Valid Areas" />
+        <property key="dff.functor.comment" value="Value or constant representing a table provided as the functor input." />
+        <property key="submodel.out.object.description" value="Value or constant representing a table provided as the functor input." />
+        <property key="submodel.out.object.name" value="validAreas" />
+        <property key="submodel.out.object.order" value="1" />
+        <inputport name="constant" peerid="v4" />
+    </functor>
+    <containerfunctor name="IfThen">
+        <property key="dff.functor.alias" value="ifThen31135" />
+        <inputport name="condition" peerid="v3" />
+        <functor name="CalcAreas">
+            <property key="dff.functor.alias" value="calcAreas13996" />
+            <property key="viewer.areas" value="yes" />
+            <inputport name="source" peerid="v1" />
+            <outputport name="areas" id="v5" />
+        </functor>
+    </containerfunctor>
+    <containerfunctor name="IfNotThen">
+        <property key="dff.functor.alias" value="ifNotThen31137" />
+        <inputport name="condition" peerid="v3" />
+        <functor name="Table">
+            <property key="dff.functor.alias" value="table16371" />
+            <inputport name="constant">[&#x0A;    &quot;Category*&quot;, &quot;Area_In_Cells&quot;, &quot;Area_In_Hectares&quot;, &quot;Area_In_Square_Meters&quot;, &#x0A;    1, 0, 0, 0, &#x0A;]</inputport>
+            <outputport name="object" id="v6" />
+        </functor>
+    </containerfunctor>
+</script>
